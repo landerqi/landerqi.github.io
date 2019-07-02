@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标">
+  <meta property="og:site_name" content="Landerqi Blog">
+
+  
+    <meta property="og:image" content="undefined">
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-12T07:03:01.000Z"><a href="/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/">2016-05-12</a></time>
+      
+      
+  
+    <h1 class="title">如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>&#x76F4;&#x63A5;new &#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;100&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x518D;map&#x7684;&#x8BDD;&#x662F;&#x4F1A;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;map&#x4F1A;&#x8DF3;&#x8FC7;&#x7A7A;&#x4F4D;&#x3002;<br>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#x3002;<br><a id="more"></a></p>
+<!-- toc -->
+<ul>
+<li><a href="#&#x76F4;&#x63A5;-map">&#x76F4;&#x63A5; map</a></li>
+<li><a href="#arrayfillhttpswwwgooglecomhkurlsatrctjqesrcssourcewebcd1ved0ahukewib26-pgdtmahudp5qkhstwa1wqfggamaaurlhttps3a2f2fdeveloper2emozilla2eorg2fen2fdocs2fweb2fjavascript2freference2fglobal_objects2farray2ffillusgafqjcnecx58m1curii4fa5p0pz7xqyiwmwsig2qabovx3nk6vdqwu-v-vhig"><a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwiB26-pgdTMAhUDp5QKHStWA1wQFggaMAA&amp;url=https%3a%2f%2fdeveloper%2emozilla%2eorg%2fen%2fdocs%2fWeb%2fJavaScript%2fReference%2fGlobal_Objects%2fArray%2ffill&amp;usg=AFQjCNEcx58m1cuRii4Fa5P0Pz7xqyIwMw&amp;sig2=qABOVx3Nk6VDqwu-v-vHIg" target="_blank" rel="noopener">Array.fill</a></a></li>
+<li><a href="#generator">Generator</a></li>
+<li><a href="#&#x9012;&#x5F52;">&#x9012;&#x5F52;</a></li>
+<li><a href="#&#x5C3E;&#x9012;&#x5F52;">&#x5C3E;&#x9012;&#x5F52;</a></li>
+<li><a href="#arrayfromhttpsdevelopermozillaorgendocswebjavascriptreferenceglobal_objectsarrayfrom"><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from</a></a></li>
+<li><a href="#y-combinator">Y combinator</a></li>
+</ul>
+<!-- tocstop -->
+<h3 id="&#x76F4;&#x63A5;-map"><a href="#&#x76F4;&#x63A5;-map" class="headerlink" title="&#x76F4;&#x63A5; map"></a>&#x76F4;&#x63A5; map</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&apos;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&apos;</span>.split(<span class="string">&apos;&apos;</span>).map(<span class="function"><span class="keyword">function</span> <span class="params">(v, i)</span> </span>{ <span class="keyword">return</span> i; });</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;<code>&apos;&apos;</code>&#x91CC;&#x9762;&#x6709;100&#x4E2A;<a href="http://www.fileformat.info/info/unicode/char/200b/index.htm" target="_blank" rel="noopener">0&#x5BBD;&#x7A7A;&#x683C;</a><code>&amp;#8203</code>(<code>&lt;200b&gt;</code>)&#xFF0C;&#x6240;&#x4EE5;&#x4ED6;&#x7684;length&#x662F;100,&#x8FD9;&#x6837;&#x5C31;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x4E86;&#x3002;</p>
+<h3 id="arrayfill"><a href="#Array-fill" class="headerlink" title="Array.fill"></a><a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwiB26-pgdTMAhUDp5QKHStWA1wQFggaMAA&amp;url=https%3a%2f%2fdeveloper%2emozilla%2eorg%2fen%2fdocs%2fWeb%2fJavaScript%2fReference%2fGlobal_Objects%2fArray%2ffill&amp;usg=AFQjCNEcx58m1cuRii4Fa5P0Pz7xqyIwMw&amp;sig2=qABOVx3Nk6VDqwu-v-vHIg" target="_blank" rel="noopener">Array.fill</a></h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span>(<span class="number">100</span>).fill(<span class="symbol">&apos;aaa</span>&apos;).map(<span class="keyword">function</span> <span class="title"></span>(v, i) { <span class="keyword">return</span> <span class="type">i</span>; });</span><br></pre></td></tr></table></figure>
+<h3 id="generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">angry</span>(<span class="params">i</span>) </span>{</span><br><span class="line">  <span class="keyword">yield</span> i;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">99</span>) { <span class="keyword">yield</span>* angry(i + <span class="number">1</span>); }</span><br><span class="line">};</span><br><span class="line"><span class="built_in">Array</span>.from(angry(<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="&#x9012;&#x5F52;"><a href="#&#x9012;&#x5F52;" class="headerlink" title="&#x9012;&#x5F52;"></a>&#x9012;&#x5F52;</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> wallace (<span class="name">i</span>) { return (<span class="name">i</span> &lt; <span class="number">0</span>) ? [] : wallace(<span class="name">i</span> - <span class="number">1</span>).concat(<span class="name">i</span>)<span class="comment">; })(99);</span></span><br></pre></td></tr></table></figure>
+<h3 id="&#x5C3E;&#x9012;&#x5F52;"><a href="#&#x5C3E;&#x9012;&#x5F52;" class="headerlink" title="&#x5C3E;&#x9012;&#x5F52;"></a>&#x5C3E;&#x9012;&#x5F52;</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> mistake (<span class="name">i</span>, acc) { return (<span class="name">i</span> &lt; <span class="number">100</span>) ? mistake(<span class="name">i</span> + <span class="number">1</span>, acc.concat(<span class="name">i</span>)) : acc; })(<span class="number">0</span>, [])<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="arrayfrom"><a href="#Array-from" class="headerlink" title="Array.from"></a><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from</a></h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array.<span class="keyword">from</span>(</span><br><span class="line">  <span class="keyword">new</span> Array(<span class="number">100</span>),</span><br><span class="line">  (_, idx) =&gt; idx</span><br><span class="line">);</span><br><span class="line">Array.<span class="keyword">from</span>(</span><br><span class="line">  {length: <span class="number">100</span>},</span><br><span class="line">  (_, idx) =&gt; idx</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="y-combinator"><a href="#Y-combinator" class="headerlink" title="Y combinator"></a>Y combinator</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> (<span class="name">excited</span>) {</span><br><span class="line">   return function (<span class="name">f</span>) {</span><br><span class="line">     return f(<span class="name">f</span>)<span class="comment">;</span></span><br><span class="line">   }(<span class="name">function</span> (<span class="name">f</span>) {</span><br><span class="line">      return excited(<span class="name">function</span> (<span class="name">x</span>) { return (<span class="name">f</span>(<span class="name">f</span>))(<span class="name">x</span>)<span class="comment">; });</span></span><br><span class="line">   })<span class="comment">;</span></span><br><span class="line">})(<span class="name">function</span> (<span class="name">excited</span>) {</span><br><span class="line">  return function(<span class="name">i</span>) {</span><br><span class="line">    return (<span class="name">i</span> &lt; <span class="number">0</span>) ? [] : excited(<span class="name">i</span> - <span class="number">1</span>).concat(<span class="name">i</span>)<span class="comment">;</span></span><br><span class="line">  }</span><br><span class="line">})(<span class="number">99</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/前端/">前端</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<script>
+  var tocEx = function(el){
+    var toc = document.querySelector(el), content = toc.innerHTML;
+    content = content.replace('<!-- toc -->', '<div class="toc"><b>文章目录</b>').replace('<!-- tocstop -->', '</div>');
+    toc.innerHTML = content;
+  }('.entry');
+</script>
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2016/07/05/如何极客/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2016/03/25/vim使用技巧/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random()*20) + 1;
+
+    var bgUrl = dataPrefix + randomNumber + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

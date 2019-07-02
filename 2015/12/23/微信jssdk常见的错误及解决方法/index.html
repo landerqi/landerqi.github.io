@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>微信jssdk常见的错误及解决方法 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="微信jssdk常见的错误及解决方法">
+  <meta property="og:site_name" content="Landerqi Blog">
+
+  
+    <meta property="og:image" content="undefined">
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-23T09:48:19.000Z"><a href="/2015/12/23/微信jssdk常见的错误及解决方法/">2015-12-23</a></time>
+      
+      
+  
+    <h1 class="title">微信jssdk常见的错误及解决方法</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h6 id="&#x8F6C;&#x81F3;-bestsdkcom"><a href="#&#x8F6C;&#x81F3;-Bestsdk-com" class="headerlink" title="&#x8F6C;&#x81F3; Bestsdk.com"></a>&#x8F6C;&#x81F3; <a href="http://bbs.bestsdk.com/detail/163.html" target="_blank" rel="noopener">Bestsdk.com</a></h6><p>&#x975E;&#x5E38;&#x8BE6;&#x7EC6;&#xFF0C;&#x5B58;&#x4E00;&#x4E0B;&#xFF0C;&#x65B9;&#x4FBF;&#x4EE5;&#x540E;&#x67E5;&#x9605;&#x3002;<br>&#x8C03;&#x7528;config &#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x5165;&#x53C2;&#x6570; debug: true &#x53EF;&#x4EE5;&#x5F00;&#x542F;debug&#x6A21;&#x5F0F;&#xFF0C;&#x9875;&#x9762;&#x4F1A;alert&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;&#x4EE5;&#x4E0B;&#x4E3A;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x53CA;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li><strong>&#x52A0;&#x91CD;&#xFF1A;&#x5F53;&#x6240;&#x6709;config:ok, &#x6240;&#x6709;&#x4FE1;&#x606F;&#x90FD;&#x6B63;&#x786E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F46;&#x662F;&#x5206;&#x4EAB;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x62A5;&#x9519;&#xFF0C;&#x90A3;&#x4E48;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x8D26;&#x53F7;&#x8FC7;&#x671F;&#x4E86;&#xFF01;&#xFF01;&#xFF01;&#x9700;&#x8981;&#x518D;&#x4EA4;&#x8D39;&#x4E86;&#xFF01;</strong></li>
+<li><p>invalid url domain&#x5F53;&#x524D;&#x9875;&#x9762;&#x6240;&#x5728;&#x57DF;&#x540D;&#x4E0E;&#x4F7F;&#x7528;&#x7684;appid&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#xFF0C;&#x8BF7;&#x786E;&#x8BA4;&#x6B63;&#x786E;&#x586B;&#x5199;&#x7ED1;&#x5B9A;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5219;&#x914D;&#x7F6E;&#x7684;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;&#x4E5F;&#x8981;&#x52A0;&#x4E0A;&#x7AEF;&#x53E3;&#x53F7;&#xFF08;&#x4E00;&#x4E2A;appid&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x4E09;&#x4E2A;&#x6709;&#x6548;&#x57DF;&#x540D;&#xFF0C;&#x89C1; &#x76EE;&#x5F55;1.1.1&#xFF09;&#x3002;</p>
+</li>
+<li><p>invalid signature&#x7B7E;&#x540D;&#x9519;&#x8BEF;&#x3002;&#x5EFA;&#x8BAE;&#x6309;&#x5982;&#x4E0B;&#x987A;&#x5E8F;&#x68C0;&#x67E5;&#xFF1A;</p>
+<ul>
+<li>&#x786E;&#x8BA4;&#x7B7E;&#x540D;&#x7B97;&#x6CD5;&#x6B63;&#x786E;&#xFF0C;&#x53EF;&#x7528; <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign" target="_blank" rel="noopener">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign</a> &#x9875;&#x9762;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x6821;&#x9A8C;&#x3002;</li>
+<li>&#x786E;&#x8BA4;config&#x4E2D;nonceStr__&#xFF08;js&#x4E2D;&#x9A7C;&#x5CF0;&#x6807;&#x51C6;&#x5927;&#x5199;S&#xFF09;__, timestamp&#x4E0E;&#x7528;&#x4EE5;&#x7B7E;&#x540D;&#x4E2D;&#x7684;&#x5BF9;&#x5E94;noncestr, timestamp&#x4E00;&#x81F4;&#x3002;</li>
+<li>&#x786E;&#x8BA4;url&#x662F;&#x9875;&#x9762;&#x5B8C;&#x6574;&#x7684;url(&#x8BF7;&#x5728;&#x5F53;&#x524D;&#x9875;&#x9762;alert(location.href.split(&#x2018;#&#x2019;)[0])&#x786E;&#x8BA4;)&#xFF0C;&#x5305;&#x62EC;&#x2019;http(s)://&#x2018;&#x90E8;&#x5206;&#xFF0C;&#x4EE5;&#x53CA;&#x2019;&#xFF1F;&#x2019;&#x540E;&#x9762;&#x7684;GET&#x53C2;&#x6570;&#x90E8;&#x5206;,&#x4F46;&#x4E0D;&#x5305;&#x62EC;&#x2019;#&#x2019;hash&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x3002;</li>
+<li>&#x786E;&#x8BA4; config &#x4E2D;&#x7684; appid &#x4E0E;&#x7528;&#x6765;&#x83B7;&#x53D6; jsapi_ticket &#x7684; appid &#x4E00;&#x81F4;&#x3002;</li>
+<li>&#x786E;&#x4FDD;&#x4E00;&#x5B9A;&#x7F13;&#x5B58;access_token&#x548C;jsapi_ticket&#x3002;</li>
+<li><p>&#x786E;&#x4FDD;&#x4F60;&#x83B7;&#x53D6;&#x7528;&#x6765;&#x7B7E;&#x540D;&#x7684;url&#x662F;&#x52A8;&#x6001;&#x83B7;&#x53D6;&#x7684;&#xFF0C;&#x52A8;&#x6001;&#x9875;&#x9762;&#x53EF;&#x53C2;&#x89C1;&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;&#x4E2D;php&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x662F;html&#x7684;&#x9759;&#x6001;&#x9875;&#x9762;&#x5728;&#x524D;&#x7AEF;&#x901A;&#x8FC7;ajax&#x5C06;url&#x4F20;&#x5230;&#x540E;&#x53F0;&#x7B7E;&#x540D;&#xFF0C;&#x524D;&#x7AEF;&#x9700;&#x8981;&#x7528;js&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x9664;&#x53BB;&#x2019;#&#x2019;hash&#x90E8;&#x5206;&#x7684;&#x94FE;&#x63A5;&#xFF08;&#x53EF;&#x7528;location.href.split(&#x2018;#&#x2019;)[0]&#x83B7;&#x53D6;,&#x800C;&#x4E14;&#x9700;&#x8981;encodeURIComponent&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x9875;&#x9762;&#x4E00;&#x65E6;&#x5206;&#x4EAB;&#xFF0C;&#x5FAE;&#x4FE1;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5728;&#x4F60;&#x7684;&#x94FE;&#x63A5;&#x672B;&#x5C3E;&#x52A0;&#x5165;&#x5176;&#x5B83;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x94FE;&#x63A5;&#xFF0C;&#x5C06;&#x5BFC;&#x81F4;&#x5206;&#x4EAB;&#x540E;&#x7684;&#x9875;&#x9762;&#x7B7E;&#x540D;&#x5931;&#x8D25;&#x3002;</p>
+<a id="more"></a>
+</li>
+</ul>
+</li>
+<li><p>the permission value is offline verifying&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x662F;&#x56E0;&#x4E3A;config&#x6CA1;&#x6709;&#x6B63;&#x786E;&#x6267;&#x884C;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x8C03;&#x7528;&#x7684;JSAPI&#x6CA1;&#x6709;&#x4F20;&#x5165;config&#x7684;jsApiList&#x53C2;&#x6570;&#x4E2D;&#x3002;&#x5EFA;&#x8BAE;&#x6309;&#x5982;&#x4E0B;&#x987A;&#x5E8F;&#x68C0;&#x67E5;&#xFF1A;</p>
+<ul>
+<li>&#x786E;&#x8BA4;config&#x6B63;&#x786E;&#x901A;&#x8FC7;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x662F;&#x5728;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x597D;&#x65F6;&#x5C31;&#x8C03;&#x7528;&#x4E86;JSAPI&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5199;&#x5728;wx.ready&#x7684;&#x56DE;&#x8C03;&#x4E2D;&#x3002;</li>
+<li>&#x786E;&#x8BA4;config&#x7684;jsApiList&#x53C2;&#x6570;&#x5305;&#x542B;&#x4E86;&#x8FD9;&#x4E2A;JSAPI&#x3002;<br><br></li>
+</ul>
+</li>
+<li>permission denied&#x8BE5;&#x516C;&#x4F17;&#x53F7;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;JSAPI&#xFF0C;&#x6216;&#x8005;&#x662F;&#x8C03;&#x7528;&#x7684;JSAPI&#x6CA1;&#x6709;&#x4F20;&#x5165;config&#x7684;jsApiList&#x53C2;&#x6570;&#x4E2D;&#xFF08;&#x90E8;&#x5206;&#x63A5;&#x53E3;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#xFF09;&#x3002;<br>  <br></li>
+<li>function not exist&#x5F53;&#x524D;&#x5BA2;&#x6237;&#x7AEF;&#x7248;&#x672C;&#x4E0D;&#x652F;&#x6301;&#x8BE5;&#x63A5;&#x53E3;&#xFF0C;&#x8BF7;&#x5347;&#x7EA7;&#x5230;&#x65B0;&#x7248;&#x4F53;&#x9A8C;&#x3002;<br>  <br></li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;6.0.1&#x7248;&#x672C;config:ok&#xFF0C;&#x4F46;&#x662F;6.0.2&#x7248;&#x672C;&#x4E4B;&#x540E;&#x4E0D;ok&#xFF08;&#x56E0;&#x4E3A;6.0.2&#x7248;&#x672C;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x505A;&#x6743;&#x9650;&#x9A8C;&#x8BC1;&#xFF0C;&#x6240;&#x4EE5;config&#x90FD;&#x662F;ok&#xFF0C;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x4F60;config&#x4E2D;&#x7684;&#x7B7E;&#x540D;&#x662F;OK&#x7684;&#xFF0C;&#x8BF7;&#x5728;6.0.2&#x68C0;&#x9A8C;&#x662F;&#x5426;&#x751F;&#x6210;&#x6B63;&#x786E;&#x7684;&#x7B7E;&#x540D;&#x4EE5;&#x4FDD;&#x8BC1;config&#x5728;&#x9AD8;&#x7248;&#x672C;&#x4E2D;&#x4E5F;ok&#x3002;&#xFF09;<br>  <br></li>
+<li>Android&#x7528;&#x6237;&#x5DF2;&#x53D6;&#x6D88;&#x5206;&#x4EAB;&#x670B;&#x53CB;&#x5708;&#xFF0C;&#x4F46;&#x4ECD;&#x8FD4;&#x56DE;&#x5206;&#x4EAB;&#x6210;&#x529F;&#xFF08;&#x5FAE;&#x4FE1;&#x56E2;&#x961F;&#x5DF2;&#x4FEE;&#x590D;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5DF2;&#x5728;Android6.1&#x7248;&#x672C;&#x4E0A;&#x7EBF;&#xFF09;<br>  <br></li>
+<li>&#x5728;iOS&#x548C;Android&#x90FD;&#x65E0;&#x6CD5;&#x5206;&#x4EAB;&#xFF08;&#x8BF7;&#x786E;&#x8BA4;&#x516C;&#x4F17;&#x53F7;&#x5DF2;&#x7ECF;&#x8BA4;&#x8BC1;&#xFF0C;&#x53EA;&#x6709;&#x8BA4;&#x8BC1;&#x7684;&#x516C;&#x4F17;&#x53F7;&#x624D;&#x5177;&#x6709;&#x5206;&#x4EAB;&#x76F8;&#x5173;&#x63A5;&#x53E3;&#x6743;&#x9650;&#xFF0C;&#x5982;&#x679C;&#x786E;&#x5B9E;&#x5DF2;&#x7ECF;&#x8BA4;&#x8BC1;&#xFF0C;&#x5219;&#x8981;&#x68C0;&#x67E5;&#x76D1;&#x542C;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5728;wx.ready&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x89E6;&#x53D1;&#xFF09;<br>  <br></li>
+<li>Android6.0.2&#x90E8;&#x5206;&#x5BA2;&#x6237;&#x7AEF;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x76D1;&#x542C;&#x5206;&#x4EAB;&#x63A5;&#x53E3;&#xFF08;Android6.0.2&#x4E4B;&#x524D;&#x4EE5;&#x53CA;6.0.2.58&#x4EE5;&#x540E;&#x7684;&#x7248;&#x672C;&#x90FD;&#x4E0D;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x8BF7;&#x4ECE;&#x5B98;&#x7F51;weixin.qq.com&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4F53;&#x9A8C;&#xFF09;<br>  <br></li>
+<li>&#x670D;&#x52A1;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;jsapi_ticket&#xFF0C;&#x81EA;&#x5DF1;&#x6D4B;&#x8BD5;&#x65F6;&#x6CA1;&#x95EE;&#x9898;&#x3002;&#xFF08;&#x56E0;&#x4E3A;access_token&#x548C;jsapi_ticket&#x5FC5;&#x987B;&#x8981;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7F13;&#x5B58;&#xFF0C;&#x5426;&#x5219;&#x4E0A;&#x7EBF;&#x540E;&#x4F1A;&#x89E6;&#x53D1;&#x9891;&#x7387;&#x9650;&#x5236;&#x3002;&#x8BF7;&#x786E;&#x4FDD;&#x4E00;&#x5B9A;&#x5BF9;token&#x548C;ticket&#x505A;&#x7F13;&#x5B58;&#x4EE5;&#x51CF;&#x5C11;2&#x6B21;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x89E6;&#x53D1;&#x9891;&#x7387;&#x9650;&#x5236;&#xFF0C;&#x8FD8;&#x52A0;&#x5FEB;&#x4F60;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x901F;&#x5EA6;&#x3002;&#x76EE;&#x524D;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#x63D0;&#x4F9B;&#x4E86;1w&#x7684;&#x83B7;&#x53D6;&#x91CF;&#xFF0C;&#x8D85;&#x8FC7;&#x9600;&#x503C;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5C06;&#x4E0D;&#x518D;&#x53EF;&#x7528;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x5728;&#x670D;&#x52A1;&#x4E0A;&#x7EBF;&#x524D;&#x4E00;&#x5B9A;&#x5168;&#x5C40;&#x7F13;&#x5B58;access_token&#x548C;jsapi_ticket&#xFF0C;&#x4E24;&#x8005;&#x6709;&#x6548;&#x671F;&#x5747;&#x4E3A;7200&#x79D2;&#xFF0C;&#x5426;&#x5219;&#x4E00;&#x65E6;&#x4E0A;&#x7EBF;&#x89E6;&#x53D1;&#x9891;&#x7387;&#x9650;&#x5236;&#xFF0C;&#x670D;&#x52A1;&#x5C06;&#x4E0D;&#x518D;&#x53EF;&#x7528;&#xFF09;&#x3002;<br>  <br></li>
+<li>Android&#x90E8;&#x5206;&#x7248;&#x672C;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x63A5;&#x53E3;&#x5076;&#x5C14;&#x5361;&#x4F4F;&#xFF08;&#x65E9;&#x671F;&#x7684;Android6.0.2&#x7248;&#x672C;&#x5B58;&#x5728;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5B98;&#x65B9;&#x5DF2;&#x4FEE;&#x590D;&#xFF0C;6.0.2.58&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x90FD;&#x652F;&#x6301;&#xFF0C;&#x8BF7;&#x4ECE;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4F53;&#x9A8C;&#xFF09;<br>  <br></li>
+<li>uploadImage&#x600E;&#x4E48;&#x4F20;&#x591A;&#x56FE;&#xFF08;&#x76EE;&#x524D;&#x53EA;&#x652F;&#x6301;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x4E00;&#x5F20;&#xFF0C;&#x591A;&#x5F20;&#x56FE;&#x7247;&#x9700;&#x7B49;&#x524D;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x4E0A;&#x4F20;&#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528;&#x8BE5;&#x63A5;&#x53E3;&#xFF09;<br>  <br></li>
+<li>&#x6CA1;&#x6CD5;&#x5BF9;&#x672C;&#x5730;&#x9009;&#x62E9;&#x7684;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x9884;&#x89C8;&#xFF08;chooseImage&#x63A5;&#x53E3;&#x672C;&#x8EAB;&#x5C31;&#x652F;&#x6301;&#x9884;&#x89C8;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x652F;&#x6301;&#xFF09;<br>  <br></li>
+<li>&#x901A;&#x8FC7;a&#x94FE;&#x63A5;(&#x4F8B;&#x5982;&#x5148;&#x901A;&#x8FC7;&#x5FAE;&#x4FE1;&#x6388;&#x6743;&#x767B;&#x5F55;)&#x8DF3;&#x8F6C;&#x5230;b&#x94FE;&#x63A5;&#xFF0C;invalid signature&#x7B7E;&#x540D;&#x5931;&#x8D25;&#xFF08;&#x540E;&#x53F0;&#x751F;&#x6210;&#x7B7E;&#x540D;&#x7684;&#x94FE;&#x63A5;&#x4E3A;&#x4F7F;&#x7528;jssdk&#x7684;&#x5F53;&#x524D;&#x94FE;&#x63A5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8DF3;&#x8F6C;&#x540E;&#x7684;b&#x94FE;&#x63A5;&#xFF0C;&#x8BF7;&#x4E0D;&#x8981;&#x7528;&#x5FAE;&#x4FE1;&#x767B;&#x5F55;&#x7684;&#x6388;&#x6743;&#x94FE;&#x63A5;&#x8FDB;&#x884C;&#x7B7E;&#x540D;&#x8BA1;&#x7B97;&#xFF0C;&#x540E;&#x53F0;&#x7B7E;&#x540D;&#x7684;url&#x4E00;&#x5B9A;&#x662F;&#x4F7F;&#x7528;jssdk&#x7684;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x5B8C;&#x6574;url&#x9664;&#x53BB;&#x2019;#&#x2019;&#x90E8;&#x5206;&#xFF09;<br>  <br></li>
+<li>&#x51FA;&#x73B0;config:fail&#x9519;&#x8BEF;&#xFF08;&#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x4F20;&#x5165;&#x7684;config&#x53C2;&#x6570;&#x4E0D;&#x5168;&#x5BFC;&#x81F4;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x4F20;&#x5165;&#x6B63;&#x786E;&#x7684;appId&#x3001;timestamp&#x3001;nonceStr&#x3001;signature&#x548C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;jsApiList&#xFF09;<br>  <br></li>
+<li>&#x5982;&#x4F55;&#x628A;jsapi&#x4E0A;&#x4F20;&#x5230;&#x5FAE;&#x4FE1;&#x7684;&#x591A;&#x5A92;&#x4F53;&#x8D44;&#x6E90;&#x4E0B;&#x8F7D;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x8BF7;&#x53C2;&#x89C1;&#x6587;&#x6863;&#x4E2D;uploadVoice&#x548C;uploadImage&#x63A5;&#x53E3;&#x7684;&#x5907;&#x6CE8;&#x8BF4;&#x660E;&#xFF09;<br>  <br></li>
+<li>&#x5728;Android&#x4E2D;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x8BBE;&#x5907;&#x4E0A;&#x4F20;&#x7684;serverId&#xFF0C;&#x80FD;&#x4E0B;&#x8F7D;&#x6210;&#x529F;&#x4F46;&#x65E0;&#x6CD5;&#x64AD;&#x653E;&#xFF08;&#x5FAE;&#x4FE1;&#x56E2;&#x961F;&#x5DF2;&#x7ECF;&#x786E;&#x8BA4;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5DF2;&#x5728;Android6.1&#x7248;&#x672C;&#x4E2D;&#x4FEE;&#x590D;&#xFF09;<br>  <br></li>
+<li>Android&#x901A;&#x8FC7;jssdk&#x4E0A;&#x4F20;&#x5230;&#x5FAE;&#x4FE1;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x7B2C;&#x4E09;&#x65B9;&#x518D;&#x4ECE;&#x5FAE;&#x4FE1;&#x4E0B;&#x8F7D;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x6742;&#x97F3;&#xFF08;&#x5FAE;&#x4FE1;&#x56E2;&#x961F;&#x5DF2;&#x7ECF;&#x4FEE;&#x590D;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x76EE;&#x524D;&#x540E;&#x53F0;&#x5DF2;&#x4F18;&#x5316;&#x4E0A;&#x7EBF;&#xFF09;<br>  <br></li>
+<li>&#x7ED1;&#x5B9A;&#x7236;&#x7EA7;&#x57DF;&#x540D;&#xFF0C;&#x662F;&#x5426;&#x5176;&#x5B50;&#x57DF;&#x540D;&#x4E5F;&#x662F;&#x53EF;&#x7528;&#x7684;&#xFF08;&#x662F;&#x7684;&#xFF0C;&#x5408;&#x6CD5;&#x7684;&#x5B50;&#x57DF;&#x540D;&#x5728;&#x7ED1;&#x5B9A;&#x7236;&#x57DF;&#x540D;&#x4E4B;&#x540E;&#x662F;&#x5B8C;&#x5168;&#x652F;&#x6301;&#x7684;&#xFF09;<br>  <br></li>
+<li>&#x5728;Android&#x4E2D;&#x901A;&#x8FC7;&#x626B;&#x4E00;&#x626B;&#x6253;&#x5F00;&#x9875;&#x9762;&#xFF0C;&#x518D;&#x8C03;&#x7528;scanQRCode&#x5E76;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7ED9;&#x7B2C;&#x4E09;&#x65B9;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x5F53;&#x524D;&#x9875;&#xFF08;&#x5FAE;&#x4FE1;&#x56E2;&#x961F;&#x5DF2;&#x7ECF;&#x786E;&#x8BA4;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5DF2;&#x5728;Android6.1&#x7248;&#x672C;&#x4E2D;&#x4FEE;&#x590D;&#xFF09;<br>  <br></li>
+<li>&#x5728;iOS&#x5FAE;&#x4FE1;6.1&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x5206;&#x4EAB;&#x7684;&#x56FE;&#x7247;&#x5916;&#x94FE;&#x4E0D;&#x663E;&#x793A;&#xFF0C;&#x53EA;&#x80FD;&#x663E;&#x793A;&#x516C;&#x4F17;&#x53F7;&#x9875;&#x9762;&#x5185;&#x94FE;&#x7684;&#x56FE;&#x7247;&#x6216;&#x8005;&#x5FAE;&#x4FE1;&#x670D;&#x52A1;&#x5668;&#x7684;&#x56FE;&#x7247;&#xFF08;&#x5FAE;&#x4FE1;&#x56E2;&#x961F;&#x5DF2;&#x7ECF;&#x786E;&#x8BA4;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x4F1A;&#x5728;6.2&#x4E2D;&#x4FEE;&#x590D;&#xFF09;<br>  <br></li>
+<li>&#x662F;&#x5426;&#x9700;&#x8981;&#x5BF9;&#x4F4E;&#x7248;&#x672C;&#x81EA;&#x5DF1;&#x505A;&#x517C;&#x5BB9;&#xFF08;jssdk&#x90FD;&#x662F;&#x517C;&#x5BB9;&#x4F4E;&#x7248;&#x672C;&#x7684;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7B2C;&#x4E09;&#x65B9;&#x81EA;&#x5DF1;&#x989D;&#x5916;&#x505A;&#x66F4;&#x591A;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x6709;&#x7684;&#x63A5;&#x53E3;&#x662F;6.0.2&#x65B0;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x53EA;&#x6709;&#x65B0;&#x7248;&#x624D;&#x53EF;&#x8C03;&#x7528;&#xFF09;<br>  <br></li>
+<li>&#x8BE5;&#x516C;&#x4F17;&#x53F7;&#x652F;&#x4ED8;&#x7B7E;&#x540D;&#x65E0;&#x6548;&#xFF0C;&#x65E0;&#x6CD5;&#x53D1;&#x8D77;&#x8BE5;&#x7B14;&#x4EA4;&#x6613;&#xFF08;&#x8BF7;&#x786E;&#x4FDD;&#x4F60;&#x4F7F;&#x7528;&#x7684;jweixin.js&#x662F;&#x5B98;&#x65B9;&#x7EBF;&#x4E0A;&#x7248;&#x672C;&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x7528;&#x6237;&#x6D41;&#x91CF;&#xFF0C;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x5BF9;&#x67D0;&#x4E9B;bug&#x8FDB;&#x884C;&#x4FEE;&#x590D;&#xFF0C;&#x62F7;&#x8D1D;&#x5230;&#x7B2C;&#x4E09;&#x65B9;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x5B98;&#x65B9;&#x5C06;&#x4E0D;&#x5BF9;&#x5176;&#x51FA;&#x73B0;&#x7684;&#x4EFB;&#x4F55;&#x95EE;&#x9898;&#x63D0;&#x4F9B;&#x4FDD;&#x969C;&#xFF0C;&#x5177;&#x4F53;&#x652F;&#x4ED8;&#x7B7E;&#x540D;&#x7B97;&#x6CD5;&#x53EF;&#x53C2;&#x8003; JSSDK&#x5FAE;&#x4FE1;&#x652F;&#x4ED8;&#x4E00;&#x680F;&#xFF09;<br>  <br></li>
+<li>&#x76EE;&#x524D;Android&#x5FAE;&#x4FE1;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x652F;&#x6301;pushState&#x7684;H5&#x65B0;&#x7279;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;pushState&#x6765;&#x5B9E;&#x73B0;web app&#x7684;&#x9875;&#x9762;&#x4F1A;&#x5BFC;&#x81F4;&#x7B7E;&#x540D;&#x5931;&#x8D25;&#xFF0C;&#x6B64;&#x95EE;&#x9898;&#x4F1A;&#x5728;Android6.2&#x4E2D;&#x4FEE;&#x590D;<br>  <br></li>
+<li>uploadImage&#x5728;chooseImage&#x7684;&#x56DE;&#x8C03;&#x4E2D;&#x6709;&#x65F6;&#x5019;Android&#x4F1A;&#x4E0D;&#x6267;&#x884C;&#xFF0C;Android6.2&#x4F1A;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x76EE;&#x524D;&#x53EF;&#x4EE5;&#x628A;&#x8C03;&#x7528;uploadImage&#x653E;&#x5728;setTimeout&#x4E2D;&#x5EF6;&#x8FDF;100ms&#x89E3;&#x51B3;<br>  <br></li>
+<li>chooseImage&#x8FD4;&#x56DE;&#x7684;localId&#x5728;Android6.1&#x4E0B;&#x663E;&#x793A;&#x6A21;&#x7CCA;&#xFF0C;6.2&#x7684;&#x7248;&#x672C;&#x4F1A;&#x4FEE;&#x590D;&#x6B64;&#x95EE;&#x9898;<br>  <br></li>
+<li>require subscribe&#x9519;&#x8BEF;&#x8BF4;&#x660E;&#x4F60;&#x6CA1;&#x6709;&#x8BA2;&#x9605;&#x8BE5;&#x6D4B;&#x8BD5;&#x53F7;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4EC5;&#x6D4B;&#x8BD5;&#x53F7;&#x4F1A;&#x51FA;&#x73B0;<br>  <br></li>
+<li>getLocation&#x8FD4;&#x56DE;&#x7684;&#x5750;&#x6807;&#x5728;openLocation&#x6709;&#x504F;&#x5DEE;&#xFF0C;&#x56E0;&#x4E3A;getLocation&#x8FD4;&#x56DE;&#x7684;&#x662F;gps&#x5750;&#x6807;&#xFF0C;openLocation&#x6253;&#x5F00;&#x7684;&#x817E;&#x8BAF;&#x5730;&#x56FE;&#x4E3A;&#x706B;&#x661F;&#x5750;&#x6807;&#xFF0C;&#x9700;&#x8981;&#x7B2C;&#x4E09;&#x65B9;&#x81EA;&#x5DF1;&#x505A;&#x8F6C;&#x6362;&#xFF0C;6.2&#x7248;&#x672C;&#x4F1A;&#x652F;&#x6301;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x706B;&#x661F;&#x5750;&#x6807;</li>
+<li>&#x67E5;&#x770B;&#x516C;&#x4F17;&#x53F7;&#xFF08;&#x672A;&#x6DFB;&#x52A0;&#xFF09;: &#x201C;menuItem:addContact&#x201D;&#x4E0D;&#x663E;&#x793A;&#xFF0C;&#x76EE;&#x524D;&#x4EC5;&#x6709;&#x4ECE;&#x516C;&#x4F17;&#x53F7;&#x4F20;&#x64AD;&#x51FA;&#x53BB;&#x7684;&#x94FE;&#x63A5;&#x624D;&#x80FD;&#x663E;&#x793A;&#xFF0C;&#x6765;&#x6E90;&#x5FC5;&#x987B;&#x662F;&#x516C;&#x4F17;&#x53F7;</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/微信/">微信</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<script>
+  var tocEx = function(el){
+    var toc = document.querySelector(el), content = toc.innerHTML;
+    content = content.replace('<!-- toc -->', '<div class="toc"><b>文章目录</b>').replace('<!-- tocstop -->', '</div>');
+    toc.innerHTML = content;
+  }('.entry');
+</script>
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2016/03/17/vim常用插件/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/12/08/Hexo生成文章目录/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random()*20) + 1;
+
+    var bgUrl = dataPrefix + randomNumber + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

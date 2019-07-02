@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javascript-patterns学习笔记（一） | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="javascript-patterns学习笔记（一）">
+  <meta property="og:site_name" content="Landerqi Blog">
+
+  
+    <meta property="og:image" content="undefined">
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-09T06:57:08.000Z"><a href="/2018/07/09/javascript-patterns学习笔记（一）/">2018-07-09</a></time>
+      
+      
+  
+    <h1 class="title">javascript-patterns学习笔记（一）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="&#x5728;&#x672C;&#x4E66;&#x4E2D;&#x591A;&#x6B21;&#x63D0;&#x5230;&#x7A7A;&#x5BF9;&#x8C61;blank-object&#x548C;empty-object-&#x8FD9;&#x53EA;&#x662F;&#x67D0;&#x79CD;&#x7B80;&#x79F0;&#x8981;&#x77E5;&#x9053;javascript&#x4E2D;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x771F;&#x6B63;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#x7406;&#x89E3;&#x8FD9;&#x4E00;&#x70B9;&#x81F3;&#x5173;&#x91CD;&#x8981;-&#x5373;&#x4F7F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4ECE;objectprototype&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;-&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;&#x7A7A;empty&#x5BF9;&#x8C61;&#x53EA;&#x662F;&#x8BF4;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x8003;&#x8651;&#x5B83;&#x662F;&#x5426;&#x6709;&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;"><a href="#&#x5728;&#x672C;&#x4E66;&#x4E2D;&#x591A;&#x6B21;&#x63D0;&#x5230;&#x201C;&#x7A7A;&#x5BF9;&#x8C61;&#x201D;&#xFF08;&#x201C;blank-object&#x201D;&#x548C;&#x201C;empty-object&#x201D;&#xFF09;&#x3002;&#x8FD9;&#x53EA;&#x662F;&#x67D0;&#x79CD;&#x7B80;&#x79F0;&#xFF0C;&#x8981;&#x77E5;&#x9053;JavaScript&#x4E2D;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x771F;&#x6B63;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x7406;&#x89E3;&#x8FD9;&#x4E00;&#x70B9;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x5373;&#x4F7F;&#x6700;&#x7B80;&#x5355;&#x7684;-&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4ECE;Object-prototype&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;&#x201C;&#x7A7A;&#xFF08;empty&#xFF09;&#x5BF9;&#x8C61;&#x201D;&#x53EA;&#x662F;&#x8BF4;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x8003;&#x8651;&#x5B83;&#x662F;&#x5426;&#x6709;&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x3002;" class="headerlink" title="&#x5728;&#x672C;&#x4E66;&#x4E2D;&#x591A;&#x6B21;&#x63D0;&#x5230;&#x201C;&#x7A7A;&#x5BF9;&#x8C61;&#x201D;&#xFF08;&#x201C;blank object&#x201D;&#x548C;&#x201C;empty object&#x201D;&#xFF09;&#x3002;&#x8FD9;&#x53EA;&#x662F;&#x67D0;&#x79CD;&#x7B80;&#x79F0;&#xFF0C;&#x8981;&#x77E5;&#x9053;JavaScript&#x4E2D;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x771F;&#x6B63;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x7406;&#x89E3;&#x8FD9;&#x4E00;&#x70B9;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x5373;&#x4F7F;&#x6700;&#x7B80;&#x5355;&#x7684;{}&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4ECE;Object.prototype&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;&#x201C;&#x7A7A;&#xFF08;empty&#xFF09;&#x5BF9;&#x8C61;&#x201D;&#x53EA;&#x662F;&#x8BF4;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x8003;&#x8651;&#x5B83;&#x662F;&#x5426;&#x6709;&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x3002;"></a>&#x5728;&#x672C;&#x4E66;&#x4E2D;&#x591A;&#x6B21;&#x63D0;&#x5230;&#x201C;&#x7A7A;&#x5BF9;&#x8C61;&#x201D;&#xFF08;&#x201C;blank object&#x201D;&#x548C;&#x201C;empty object&#x201D;&#xFF09;&#x3002;&#x8FD9;&#x53EA;&#x662F;&#x67D0;&#x79CD;&#x7B80;&#x79F0;&#xFF0C;&#x8981;&#x77E5;&#x9053;JavaScript&#x4E2D;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x771F;&#x6B63;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x7406;&#x89E3;&#x8FD9;&#x4E00;&#x70B9;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x5373;&#x4F7F;&#x6700;&#x7B80;&#x5355;&#x7684;{}&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4ECE;Object.prototype&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;&#x201C;&#x7A7A;&#xFF08;empty&#xFF09;&#x5BF9;&#x8C61;&#x201D;&#x53EA;&#x662F;&#x8BF4;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x8003;&#x8651;&#x5B83;&#x662F;&#x5426;&#x6709;&#x7EE7;&#x627F;&#x6765;&#x7684;&#x5C5E;&#x6027;&#x3002;</h4><h3 id="&#x5F3A;&#x5236;&#x4F7F;&#x7528;new&#x7684;&#x6A21;&#x5F0F;"><a href="#&#x5F3A;&#x5236;&#x4F7F;&#x7528;new&#x7684;&#x6A21;&#x5F0F;" class="headerlink" title="&#x5F3A;&#x5236;&#x4F7F;&#x7528;new&#x7684;&#x6A21;&#x5F0F;"></a>&#x5F3A;&#x5236;&#x4F7F;&#x7528;new&#x7684;&#x6A21;&#x5F0F;</h3><p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#x65E0;&#x5F02;&#xFF0C;&#x53EA;&#x662F;&#x901A;&#x8FC7;new&#x8C03;&#x7528;&#x800C;&#x5DF2;&#x3002;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x5FD8;&#x8BB0;new&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x6F0F;&#x6389;new&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x4E5F;&#x4E0D;&#x4F1A;&#x6709;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x903B;&#x8F91;&#x9519;&#x8BEF;&#xFF0C;&#x5BFC;&#x81F4;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x4E0D;&#x7B26;&#x5408;&#x9884;&#x671F;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x4E0D;&#x5199;new&#x7684;&#x8BDD;&#xFF0C;&#x51FD;&#x6570;&#x5185;&#x7684;this&#x4F1A;&#x6307;&#x5411;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF08;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;this&#x6307;&#x5411;window&#xFF09;&#x3002;<br>&#x5F53;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x5305;&#x542B;this.member&#x4E4B;&#x7C7B;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x7701;&#x7565;new&#xFF09;&#xFF0C;&#x5B9E;&#x9645;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;member&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;window.member&#x6216;member&#x8BBF;&#x95EE;&#x5230;&#x5B83;&#x3002;&#x8FD9;&#x5FC5;&#x7136;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8981;&#x52AA;&#x529B;&#x786E;&#x4FDD;&#x5168;&#x5C40;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x6574;&#x6D01;&#x5E72;&#x51C0;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// constructor</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Waffle</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.tastes = <span class="string">&quot;yummy&quot;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// a new object</span></span><br><span class="line"><span class="keyword">var</span> good_morning = <span class="keyword">new</span> Waffle();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> good_morning); <span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(good_morning.tastes); <span class="comment">// &quot;yummy&quot;</span></span><br><span class="line"><span class="comment">// antipattern:</span></span><br><span class="line"><span class="comment">// forgotten `new`</span></span><br><span class="line"><span class="keyword">var</span> good_morning = Waffle();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> good_morning); <span class="comment">// &quot;undefined&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.tastes); <span class="comment">// &quot;yummy&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>ECMAScript5&#x4E2D;&#x4FEE;&#x6B63;&#x4E86;&#x8FD9;&#x79CD;&#x975E;&#x6B63;&#x5E38;&#x7684;&#x884C;&#x4E3A;&#x903B;&#x8F91;&#x3002;&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;this&#x662F;&#x4E0D;&#x80FD;&#x6307;&#x5411;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x3002;&#x5982;&#x679C;&#x5728;&#x4E0D;&#x652F;&#x6301;ES5&#x7684;JavaScript&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x4ECD;&#x7136;&#x540E;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x884C;&#x4E3A;&#x5373;&#x4FBF;&#x5728;&#x7701;&#x7565;new&#x8C03;&#x7528;&#x65F6;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#x3002;</strong></p>
+<a id="more"></a>
+<h3 id="&#x4F7F;&#x7528;that"><a href="#&#x4F7F;&#x7528;that" class="headerlink" title="&#x4F7F;&#x7528;that"></a>&#x4F7F;&#x7528;that</h3><p>&#x9075;&#x5B88;&#x547D;&#x540D;&#x7EA6;&#x5B9A;&#x7684;&#x786E;&#x80FD;&#x5E2E;&#x4E0A;&#x4E00;&#x4E9B;&#x5FD9;&#xFF0C;&#x4F46;&#x7EA6;&#x5B9A;&#x6BD5;&#x7ADF;&#x4E0D;&#x662F;&#x5F3A;&#x5236;&#xFF0C;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x907F;&#x514D;&#x51FA;&#x9519;&#x3002;&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x5B9A;&#x4F1A;&#x6309;&#x7167;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x3002;&#x4E0D;&#x8981;&#x5C06;&#x6240;&#x6709;&#x6210;&#x5458;&#x6302;&#x5728;this&#x4E0A;&#xFF0C;&#x5C06;&#x5B83;&#x4EEC;&#x6302;&#x5728;that&#x4E0A;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;that&#x3002;<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Waffle() {</span><br><span class="line"><span class="keyword">var</span> <span class="literal">that</span> = {};</span><br><span class="line">    <span class="literal">that</span>.tastes = <span class="string">&quot;yummy&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">that</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x8981;&#x521B;&#x5EFA;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x751A;&#x81F3;&#x4E0D;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;that&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x91CF;&#xFF0C;&#x5C31;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">Waffle</span>() {</span><br><span class="line">    <span class="keyword">return</span> <span class="type">{</span></span><br><span class="line">        tastes: <span class="string">&quot;yummy&quot;</span></span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0D;&#x7BA1;&#x7528;&#x4EC0;&#x4E48;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x5B83;&#xFF08;&#x4F7F;&#x7528;new&#x6216;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#xFF09;&#xFF0C;&#x5B83;&#x540C;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">first</span> = <span class="built_in">new</span> Waffle(),</span><br><span class="line">    <span class="built_in">second</span> = Waffle();</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">first</span>.tastes); // <span class="string">&quot;yummy&quot;</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">second</span>.tastes); // <span class="string">&quot;yummy&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#x662F;&#x4E22;&#x5931;&#x4E86;&#x539F;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x5728;Waffle()&#x7684;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x6210;&#x5458;&#x4E0D;&#x4F1A;&#x7EE7;&#x627F;&#x5230;&#x8FD9;&#x4E9B;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#x3002;</p>
+<p><strong>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x7528;&#x7684;that&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x547D;&#x540D;&#x7EA6;&#x5B9A;&#xFF0C;that&#x4E0D;&#x662F;&#x8BED;&#x8A00;&#x7684;&#x4FDD;&#x7559;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x66FF;&#x6362;&#x4E3A;&#x4EFB;&#x4F55;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6BD4;&#x5982;self&#x6216;me&#x3002;</strong></p>
+<p>4.&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</p>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x6A21;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x80FD;&#x591F;&#x8BA9;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7EE7;&#x627F;&#x539F;&#x578B;&#x5C5E;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x9996;&#x5148;&#x68C0;&#x67E5;this&#x662F;&#x5426;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF0C;&#x518D;&#x901A;&#x8FC7;new&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5C06;new&#x7684;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Waffle</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Waffle)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Waffle();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">this</span>.tastes = <span class="string">&quot;yummy&quot;</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">Waffle.prototype.wantAnother = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// testing invocations</span></span><br><span class="line"><span class="keyword">var</span> first = <span class="keyword">new</span> Waffle(),</span><br><span class="line">    second = Waffle();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(first.tastes); <span class="comment">// &quot;yummy&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(second.tastes); <span class="comment">// &quot;yummy&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(first.wantAnother); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(second.wantAnother); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x68C0;&#x67E5;&#x5B9E;&#x4F8B;&#x7684;&#x901A;&#x7528;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;arguments.callee&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x540D;&#x5199;&#x6B7B;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> <span class="built_in">arguments</span>.callee)) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">arguments</span>.callee();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x90FD;&#x4F1A;&#x81EA;&#x884C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;arguments&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x3002;&#x540C;&#x65F6;arguments&#x5305;&#x542B;&#x4E00;&#x4E2A;callee&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x5B83;&#x6240;&#x5728;&#x7684;&#x6B63;&#x5728;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;ES5&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#x662F;&#x7981;&#x6B62;&#x4F7F;&#x7528;arguments.callee&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x597D;&#x5BF9;&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x52A0;&#x4EE5;&#x9650;&#x5236;&#xFF0C;&#x5E76;&#x5220;&#x9664;&#x4EFB;&#x4F55;&#x4F60;&#x80FD;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x627E;&#x5230;&#x7684;&#x5B9E;&#x4F8B;&#xFF08;&#x8BD1;&#x6CE8;&#xFF1A;&#x8FD9;&#x91CC;&#x4F5C;&#x8005;&#x7684;&#x8868;&#x8FF0;&#x5F88;&#x59D4;&#x5A49;&#xFF0C;&#x5176;&#x5B9E;&#x4F5C;&#x8005;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x5168;&#x9762;&#x7981;&#x6B62;&#x4F7F;&#x7528;arguments.callee&#xFF09;&#x3002;</strong></p>
+<h3 id="&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x6570;&#x7EC4;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x6570;&#x7EC4;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x6570;&#x7EC4;"></a>&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x6570;&#x7EC4;</h3><p>&#x5982;&#x679C;typeof&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x201C;object&#x201D;&#x3002;<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> [<span class="number">1</span>, <span class="number">2</span>]); <span class="regexp">//</span> <span class="string">&quot;object&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x52C9;&#x5F3A;&#x8BF4;&#x5F97;&#x8FC7;&#x53BB;&#xFF0C;&#x6BD5;&#x7ADF;&#x6570;&#x7EC4;&#x662F;&#x4E00;&#x79CD;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x5BF9;&#x6211;&#x4EEC;&#x7528;&#x5904;&#x4E0D;&#x5927;&#x3002;&#x5F80;&#x5F80;&#x4F60;&#x9700;&#x8981;&#x77E5;&#x9053;&#x4E00;&#x4E2A;&#x503C;&#x662F;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x89C1;&#x5230;&#x8FC7;&#x8FD9;&#x79CD;&#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;&#x68C0;&#x67E5;length&#x5C5E;&#x6027;&#x3001;&#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x65B9;&#x6CD5;&#x6BD4;&#x5982;slice()&#x7B49;&#x7B49;&#x3002;&#x4F46;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x975E;&#x5E38;&#x8106;&#x5F31;&#xFF0C;&#x975E;&#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#x4E5F;&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x8FD9;&#x4E9B;&#x540C;&#x540D;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x8FD8;&#x6709;&#x4E9B;&#x4EBA;&#x4F7F;&#x7528;instanceof Array&#x6765;&#x5224;&#x65AD;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5728;&#x67D0;&#x4E9B;&#x7248;&#x672C;&#x7684;IE&#x91CC;&#x7684;&#x591A;&#x4E2A;iframe&#x7684;&#x573A;&#x666F;&#x4E2D;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#xFF08;&#x8BD1;&#x6CE8;&#xFF1A;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x5728;&#x4E0D;&#x540C;iframe&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x6570;&#x7EC4;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5171;&#x4EAB;&#x5176;prototype&#x5C5E;&#x6027;&#xFF09;&#x3002;</p>
+<p>ECMAScript 5&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x65B9;&#x6CD5;Array.isArray()&#xFF0C;&#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x8BDD;&#x5C31;&#x8FD4;&#x56DE;true&#x3002;&#x6BD4;&#x5982;&#xFF1A;<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Array.isArray([]); // true</span><br><span class="line"></span><br><span class="line">// trying to fool the check</span><br><span class="line">// with an<span class="built_in"> array-like </span>object</span><br><span class="line">Array.isArray({</span><br><span class="line">    length: 1,</span><br><span class="line">    <span class="string">&quot;0&quot;</span>: 1,</span><br><span class="line">    slice: function () {}</span><br><span class="line">}); // false</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0D;&#x652F;&#x6301;ECMAScript5&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Object.prototype.toString()&#x65B9;&#x6CD5;&#x6765;&#x4EE3;&#x66FF;&#x3002;&#x5982;&#x8C03;&#x7528;toString&#x7684;call()&#x65B9;&#x6CD5;&#x5E76;&#x4F20;&#x5165;&#x6570;&#x7EC4;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x201C;[object Array]&#x201D;&#x3002;&#x5982;&#x679C;&#x4F20;&#x5165;&#x5BF9;&#x8C61;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x201C;[object Object]&#x201D;&#x3002;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Array</span>.isArray === <span class="string">&quot;undefined&quot;</span>) {</span><br><span class="line">    <span class="built_in">Array</span>.isArray = <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arg) === <span class="string">&quot;[object Array]&quot;</span>;</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h3 id="json"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>&#x4E0A;&#x6587;&#x6211;&#x4EEC;&#x521A;&#x521A;&#x8BA8;&#x8BBA;&#x8FC7;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;&#x76F4;&#x63A5;&#x91CF;&#xFF0C;&#x4F60;&#x5DF2;&#x7ECF;&#x5BF9;&#x6B64;&#x5F88;&#x719F;&#x6089;&#x4E86;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5C06;&#x76EE;&#x5149;&#x8F6C;&#x5411;JSON&#x3002;JSON&#xFF08;JavaScript Object Notation&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#x3002;&#x5F88;&#x591A;&#x8BED;&#x8A00;&#x4E2D;&#x90FD;&#x5B9E;&#x73B0;&#x4E86;JSON&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;JavaScript&#x4E2D;&#x3002;</p>
+<p>JSON&#x683C;&#x5F0F;&#x53CA;&#x5176;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x91CF;&#x7684;&#x6DF7;&#x5408;&#x5199;&#x6CD5;&#xFF0C;&#x770B;&#x4E00;&#x4E2A;JSON&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{<span class="attr">&quot;name&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="attr">&quot;some&quot;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]}</span><br></pre></td></tr></table></figure></p>
+<p><strong>JSON&#x548C;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x91CF;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;&#xFF0C;&#x5408;&#x6CD5;&#x7684;JSON&#x5C5E;&#x6027;&#x540D;&#x5747;&#x7528;&#x5F15;&#x53F7;&#x5305;&#x542B;&#x3002;&#x800C;&#x5728;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x91CF;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x5C5E;&#x6027;&#x540D;&#x662F;&#x975E;&#x6CD5;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#x65F6;&#x91C7;&#x7528;&#x5F15;&#x53F7;&#x5305;&#x542B;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x5C5E;&#x6027;&#x540D;&#x4E2D;&#x5305;&#x542B;&#x7A7A;&#x683C;{&#x201C;first name&#x201D;: &#x201C;Dave&#x201D;}&#x3002; &#x5728;JSON&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x548C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x76F4;&#x63A5;&#x91CF;&#x3002;</strong></p>
+<h4 id="&#x4F7F;&#x7528;json"><a href="#&#x4F7F;&#x7528;JSON" class="headerlink" title="&#x4F7F;&#x7528;JSON"></a>&#x4F7F;&#x7528;JSON</h4><p>&#x5728;&#x524D;&#x9762;&#x7684;&#x7AE0;&#x8282;&#x4E2D;&#x8BB2;&#x5230;&#xFF0C;&#x51FA;&#x4E8E;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;eval()&#x6765;&#x201C;&#x7C97;&#x7CD9;&#x7684;&#x201D;&#x89E3;&#x6790;JSON&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x6700;&#x597D;&#x4F7F;&#x7528;JSON.parse()&#x65B9;&#x6CD5;&#xFF0C;ES5&#x4E2D;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x7684;JavaScript&#x5F15;&#x64CE;&#x4E2D;&#x5DF2;&#x7ECF;&#x5185;&#x7F6E;&#x652F;&#x6301;JSON&#x4E86;&#x3002;&#x5BF9;&#x4E8E;&#x8001;&#x65E7;&#x7684;JavaScript&#x5F15;&#x64CE;&#x6765;&#x8BF4;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;JSON.org&#x6240;&#x63D0;&#x4F9B;&#x7684;JS&#x6587;&#x4EF6; <a href="https://cdnjs.com/libraries/json2" target="_blank" rel="noopener">https://cdnjs.com/libraries/json2</a> &#x6765;&#x83B7;&#x5F97;JSON&#x5BF9;&#x8C61;&#x548C;&#x65B9;&#x6CD5;&#x3002;<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// an input JSON string</span></span><br><span class="line"><span class="built_in">var</span> jstr = <span class="string">&apos;{&quot;mykey&quot;: &quot;my value&quot;}&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// antipattern</span></span><br><span class="line"><span class="built_in">var</span> <span class="built_in">data</span> = eval(<span class="string">&apos;(&apos;</span> + jstr + <span class="string">&apos;)&apos;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// preferred</span></span><br><span class="line"><span class="built_in">var</span> <span class="built_in">data</span> = JSON.parse(jstr);</span><br><span class="line"></span><br><span class="line">console.<span class="keyword">log</span>(<span class="built_in">data</span>.mykey); <span class="comment">// &quot;my value&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5728;&#x4F7F;&#x7528;&#x67D0;&#x4E2A;JavaScript&#x5E93;&#x4E86;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x5E93;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x89E3;&#x6790;JSON&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x4E0D;&#x5FC5;&#x518D;&#x989D;&#x5916;&#x5F15;&#x5165;JSON.org&#x7684;&#x5E93;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;&#x4E86;YUI3&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// an input JSON string</span></span><br><span class="line"><span class="keyword">var</span> jstr = <span class="string">&apos;{&quot;mykey&quot;: &quot;my value&quot;}&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// parse the string and turn it into an object</span></span><br><span class="line"><span class="comment">// using a YUI instance</span></span><br><span class="line">YUI().use(<span class="string">&apos;json-parse&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Y</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> data = Y.JSON.parse(jstr);</span><br><span class="line">    <span class="built_in">console</span>.log(data.mykey); <span class="comment">// &quot;my value&quot;</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F;jQuery&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B83;&#x63D0;&#x4F9B;&#x7684;parseJSON()&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// an input JSON string</span></span><br><span class="line"><span class="built_in">var</span> jstr = <span class="string">&apos;{&quot;mykey&quot;: &quot;my value&quot;}&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">var</span> <span class="built_in">data</span> = jQuery.parseJSON(jstr);</span><br><span class="line">console.<span class="keyword">log</span>(<span class="built_in">data</span>.mykey); <span class="comment">// &quot;my value&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x548C;JSON.parse()&#x65B9;&#x6CD5;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x662F;JSON.stringify()&#x3002;&#x5B83;&#x5C06;&#x5BF9;&#x8C61;&#x6216;&#x6570;&#x7EC4;&#xFF08;&#x6216;&#x4EFB;&#x4F55;&#x539F;&#x59CB;&#x503C;&#xFF09;&#x8F6C;&#x6362;&#x4E3A;JSON&#x5B57;&#x7B26;&#x4E32;&#x3002;<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dog = {</span><br><span class="line">    <span class="built_in">na</span><span class="symbol">me:</span> <span class="string">&quot;Fido&quot;</span>,</span><br><span class="line">    d<span class="symbol">ob:ne</span>w <span class="built_in">Date</span>(),</span><br><span class="line">    le<span class="symbol">gs:</span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">var</span> jsonstr = JSON.stringify(dog);</span><br><span class="line"></span><br><span class="line">// jsonstr is <span class="built_in">n</span><span class="symbol">ow:</span></span><br><span class="line">// {<span class="string">&quot;name&quot;</span><span class="symbol">:</span><span class="string">&quot;Fido&quot;</span>,<span class="string">&quot;dob&quot;</span><span class="symbol">:</span><span class="string">&quot;2010-04-11T22:36:22.436Z&quot;</span>,<span class="string">&quot;legs&quot;</span><span class="symbol">:</span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]}</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<script>
+  var tocEx = function(el){
+    var toc = document.querySelector(el), content = toc.innerHTML;
+    content = content.replace('<!-- toc -->', '<div class="toc"><b>文章目录</b>').replace('<!-- tocstop -->', '</div>');
+    toc.innerHTML = content;
+  }('.entry');
+</script>
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2018/07/10/javascript-patterns学习笔记（二）/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2018/06/29/shell-git常用命令/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random()*20) + 1;
+
+    var bgUrl = dataPrefix + randomNumber + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

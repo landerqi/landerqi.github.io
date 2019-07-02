@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>忽略浏览器对部分HTML的解析 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="忽略浏览器对部分HTML的解析">
+  <meta property="og:site_name" content="Landerqi Blog">
+
+  
+    <meta property="og:image" content="undefined">
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-06T09:40:42.000Z"><a href="/2015/09/06/忽略浏览器对部分HTML的解析/">2015-09-06</a></time>
+      
+      
+  
+    <h1 class="title">忽略浏览器对部分HTML的解析</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5FFD;&#x7565;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x90E8;&#x5206;HTML&#x89E3;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;HTML&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>&lt;plaintext&gt;</code>&#x548C;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x3002;</p>
+<p><code>&lt;plaintext&gt;</code>&#x662F;&#x5355;&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x63D2;&#x5165;&#x5230;HTML&#x4EE3;&#x7801;&#x4E2D;&#x65F6;&#xFF0C;&#x5176;<strong>&#x540E;&#x9762;&#x7684;&#x6240;&#x6709;HTML&#x6807;&#x7B7E;&#x5168;&#x90E8;&#x5931;&#x6548;</strong>&#xFF0C;&#x5373;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;<code>&lt;plaintext&gt;</code>&#x540E;&#x9762;&#x6240;&#x6709;&#x7684;HTML&#x6807;&#x7B7E;&#x4E0D;&#x4F5C;&#x89E3;&#x6790;&#xFF0C;&#x76F4;&#x63A5;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x3002;<strong>&#x56E0;&#x4E3A;&#x672C;&#x535A;&#x5BA2;&#x662F;&#x7528;markdown&#x5199;&#x7684;&#xFF0C;&#x5F53;&#x65F6;&#x6CA1;&#x6709;&#x7ED9;<code>&lt;plaintext&gt;</code>&#x6807;&#x7B7E;&#x52A0;&#x53CD;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x7ED3;&#x679C;&#x5BFC;&#x81F4;&#x5176;&#x540E;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x4E0D;&#x89E3;&#x6790;&#x4E86;0.0</strong></p>
+<p><code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#x662F;&#x53CC;&#x6807;&#x7B7E;&#xFF0C;&#x5B83;<strong>&#x53EA;&#x4F7F;&#x5176;&#x5305;&#x542B;&#x7684;&#x5185;&#x5BB9;&#x4E2D;&#x7684;&#x6807;&#x7B7E;&#x5931;&#x6548;</strong>&#xFF0C;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#x7684;&#x4F7F;&#x7528;&#x66F4;&#x4E3A;&#x666E;&#x904D;&#x3002;</p>
+<p>###&#x6548;&#x679C;&#xFF1A;</p>
+<ol>
+<li><p>&#x672A;&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="http://landerqi.lefzs.com/xmp_01.jpg" alt></p>
+</li>
+<li><p>&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="http://landerqi.lefzs.com/xmp_02.jpg" alt></p>
+</li>
+</ol>
+<a id="more"></a>
+<p><br><br><code>&lt;plaintext&gt;</code>&#x6807;&#x7B7E;&#x7684;&#x6548;&#x679C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8BD5;&#x8BD5; :)</p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/前端/">前端</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<script>
+  var tocEx = function(el){
+    var toc = document.querySelector(el), content = toc.innerHTML;
+    content = content.replace('<!-- toc -->', '<div class="toc"><b>文章目录</b>').replace('<!-- tocstop -->', '</div>');
+    toc.innerHTML = content;
+  }('.entry');
+</script>
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/07/16/雅虎十四条/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random()*20) + 1;
+
+    var bgUrl = dataPrefix + randomNumber + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

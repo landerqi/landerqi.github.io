@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Landerqi Blog">
+
+  
+    <meta property="og:image" content="undefined">
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+</html>
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-01T08:40:38.000Z"><a href="/2016/12/01/react遇到的坑/">2016-12-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/01/react遇到的坑/">react遇到的坑</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="&#x52A0;&#x8F7D;sass-loader-&#x62A5;&#x9519;"><a href="#&#x52A0;&#x8F7D;sass-loader-&#x62A5;&#x9519;" class="headerlink" title="&#x52A0;&#x8F7D;sass-loader &#x62A5;&#x9519;"></a>&#x52A0;&#x8F7D;sass-loader &#x62A5;&#x9519;</h3><ul>
+<li>&#x9519;&#x8BEF;&#x4FE1;&#x606F;: <code>no such file or dictionary node_modules/node-sass/vendor @.src/xxx.scss</code><br>  &#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">node_modules</span>/<span class="keyword">node</span><span class="title">-sass</span>/scripts/install.js</span><br><span class="line"><span class="keyword">node</span> <span class="title">node_modules</span>/<span class="keyword">node</span><span class="title">-sass</span>/scripts/build.js</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-13T15:40:34.000Z"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">python学习笔记(2-urllib2-beautifulSoup)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <blockquote>
+<p>以下代码是基于python 2.7.12, 在此版本下，print不用加括号，后续新版本是需要加上括号的。<br>文件开头需要加上#coding=utf-8, 否则中文注释会报错，这是由于Phthon源码必须完全由ASCII集合组成。</p>
+</blockquote>
+<h3 id="实现一个简易python爬虫准备"><a href="#实现一个简易python爬虫准备" class="headerlink" title="实现一个简易python爬虫准备"></a>实现一个简易python爬虫准备</h3><h4 id="urllib2网页下载器测试代码"><a href="#urllib2网页下载器测试代码" class="headerlink" title="urllib2网页下载器测试代码:"></a>urllib2网页下载器测试代码:</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#coding=utf-8</span></span><br><span class="line">import urllib2, cookielib</span><br><span class="line"></span><br><span class="line">URL = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#直接请求</span></span><br><span class="line">response = urllib2.urlopen(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#获取状态码，如果是200,则表示获取成功</span></span><br><span class="line">print response.getcode()</span><br><span class="line"></span><br><span class="line"><span class="meta">#读取内容</span></span><br><span class="line">cont = response.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">#print cont</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建Requst对象</span></span><br><span class="line">request = urllib2.Request(URL)</span><br><span class="line"></span><br><span class="line"><span class="meta">#添加数据</span></span><br><span class="line"><span class="meta">#request.add_data('a', '1')</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#添加http header</span></span><br><span class="line">request.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0'</span>)</span><br><span class="line"></span><br><span class="line">response2 = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="meta">#print response2.read()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建cookie容器</span></span><br><span class="line">cj = cookielib.CookieJar()</span><br><span class="line"></span><br><span class="line"><span class="meta">#创建一个opener</span></span><br><span class="line">opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</span><br><span class="line"></span><br><span class="line"><span class="meta">#给urllib2 安装opener</span></span><br><span class="line">urllib2.install_opener(opener)</span><br><span class="line"></span><br><span class="line"><span class="meta">#使用带有cookie 的urllib2 访问网页</span></span><br><span class="line">response3 = urllib2.urlopen(URL)</span><br><span class="line"></span><br><span class="line">print cj</span><br><span class="line">print response3.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">##</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-13T15:36:43.000Z"><a href="/2016/09/13/python学习笔记-1/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/13/python学习笔记-1/">python学习笔记(1)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>python学习笔记基础篇</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/13/python学习笔记-1/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-05T08:01:11.000Z"><a href="/2016/07/05/如何极客/">2016-07-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/05/如何极客/">如何极客</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这是一篇译文，<a href="http://www.howtogeek.com/school/sysinternals-pro/" target="_blank" rel="noopener">原文地址</a>。</p>
+<p>这个“如何极客”系列将教您如何像专家一样使用SysInternals（一个工具集的名字）工具，即使是资深极客也有可能从中学到一些新的东西。加入我们，让我们一起进入SysInternals的世界。</p>
+<h3 id="第一课：-SysInternals工具是什么及如何使用"><a href="#第一课：-SysInternals工具是什么及如何使用" class="headerlink" title="第一课： SysInternals工具是什么及如何使用?"></a><a href="http://www.howtogeek.com/school/sysinternals-pro/lesson1/" target="_blank" rel="noopener">第一课： SysInternals工具是什么及如何使用?</a></h3><p>这个“如何极客”系列将教您如何像专家一样使用SysInternals工具，所以我们不会谈论你的极客信誉。也不会质疑你的极客技能。那么您使用SysInternals 工具，对吗？</p>
+<h3 id="第二课：-理解进程管理"><a href="#第二课：-理解进程管理" class="headerlink" title="第二课： 理解进程管理"></a><a href="http://www.howtogeek.com/school/sysinternals-pro/lesson2/" target="_blank" rel="noopener">第二课： 理解进程管理</a></h3><p>在“如何极客”系列中这一节课主要是讲进程管理，进程管理很有可能是SysInternals工具集中用的最多、用处最大的应用了。但是对这个功能你真的了解多少呢？</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/07/05/如何极客/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-12T07:03:01.000Z"><a href="/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/">2016-05-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/">如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>直接new 一个长度为100的数组，再map的话是会返回空数组的，因为map会跳过空位。<br>下面介绍几种方法。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-25T07:23:09.000Z"><a href="/2016/03/25/vim使用技巧/">2016-03-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/25/vim使用技巧/">vim使用技巧</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这篇文章想给大家介绍一些vim非常实用的小技巧，相信大家用熟练了以后，会更加喜欢vim的。里面有些是自己在使用中需要用到的，所以搜集整理一下，也方便日后自己查询使用。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/03/25/vim使用技巧/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-17T08:24:23.000Z"><a href="/2016/03/17/vim常用插件/">2016-03-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/17/vim常用插件/">vim常用插件</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>vim 是一款非常棒的编辑器，可能大家刚接触的时候会不适应，但是一旦用起来习惯后，会发现vim实在是一款非常有魅力的编辑器。我记得自己刚开始接触vim的时候，每次安装插件都被折磨的要死，安装过程繁琐，有些文档也写的不详细，一度想要放弃vim。后来发现有款叫<code>Pathogen</code>的插件，简直如或至宝，通过这款插件去安装、管理vim的插件真是太方便了。终于可以轻轻松松管理vim插件了，下面我为大家推介几款实用的vim插件。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/03/17/vim常用插件/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-23T09:48:19.000Z"><a href="/2015/12/23/微信jssdk常见的错误及解决方法/">2015-12-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/23/微信jssdk常见的错误及解决方法/">微信jssdk常见的错误及解决方法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h6 id="转至-Bestsdk-com"><a href="#转至-Bestsdk-com" class="headerlink" title="转至 Bestsdk.com"></a>转至 <a href="http://bbs.bestsdk.com/detail/163.html" target="_blank" rel="noopener">Bestsdk.com</a></h6><p>非常详细，存一下，方便以后查阅。<br>调用config 接口的时候传入参数 debug: true 可以开启debug模式，页面会alert出错误信息。以下为常见错误及解决方法：</p>
+<ul>
+<li><strong>加重：当所有config:ok, 所有信息都正确的时候，但是分享不会使用自定义的内容，也没有任何报错，那么很有可能是账号过期了！！！需要再交费了！</strong></li>
+<li><p>invalid url domain当前页面所在域名与使用的appid没有绑定，请确认正确填写绑定的域名，如果使用了端口号，则配置的绑定域名也要加上端口号（一个appid可以绑定三个有效域名，见 目录1.1.1）。</p>
+</li>
+<li><p>invalid signature签名错误。建议按如下顺序检查：</p>
+<ul>
+<li>确认签名算法正确，可用 <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign" target="_blank" rel="noopener">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign</a> 页面工具进行校验。</li>
+<li>确认config中nonceStr__（js中驼峰标准大写S）__, timestamp与用以签名中的对应noncestr, timestamp一致。</li>
+<li>确认url是页面完整的url(请在当前页面alert(location.href.split(‘#’)[0])确认)，包括’http(s)://‘部分，以及’？’后面的GET参数部分,但不包括’#’hash后面的部分。</li>
+<li>确认 config 中的 appid 与用来获取 jsapi_ticket 的 appid 一致。</li>
+<li>确保一定缓存access_token和jsapi_ticket。</li>
+<li><p>确保你获取用来签名的url是动态获取的，动态页面可参见实例代码中php的实现方式。如果是html的静态页面在前端通过ajax将url传到后台签名，前端需要用js获取当前页面除去’#’hash部分的链接（可用location.href.split(‘#’)[0]获取,而且需要encodeURIComponent），因为页面一旦分享，微信客户端会在你的链接末尾加入其它参数，如果不是动态获取当前链接，将导致分享后的页面签名失败。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/23/微信jssdk常见的错误及解决方法/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-08T14:18:36.000Z"><a href="/2015/12/08/Hexo生成文章目录/">2015-12-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/08/Hexo生成文章目录/">Hexo生成文章目录</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>当一篇文章非常长，又没有目录，是非常难阅读的。所以为了使博客体验更好、博文结构更加清晰、读者更易找到文章中自己需要的部分，添加文章目录是非常必要的。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/08/Hexo生成文章目录/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-08T13:43:13.000Z"><a href="/2015/12/08/迁移博客至gitcafe/">2015-12-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/08/迁移博客至gitcafe/">迁移博客至gitcafe</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>由于各种原因，决定把博客由<code>github</code>迁移至<code>gitcafe</code><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/08/迁移博客至gitcafe/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>7</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random()*20) + 1;
+
+    var bgUrl = dataPrefix + randomNumber + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->
