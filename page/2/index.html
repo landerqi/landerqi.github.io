@@ -66,6 +66,45 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-07-09T06:57:08.000Z"><a href="/2018/07/09/javascript-patterns学习笔记（一）/">2018-07-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/07/09/javascript-patterns学习笔记（一）/">javascript-patterns学习笔记（一）</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="在本书中多次提到“空对象”（“blank-object”和“empty-object”）。这只是某种简称，要知道JavaScript中根本不存在真正的空对象，理解这一点至关重要。即使最简单的-对象包含从Object-prototype继承来的属性和方法。我们提到的“空（empty）对象”只是说这个对象没有自己的属性，不考虑它是否有继承来的属性。"><a href="#在本书中多次提到“空对象”（“blank-object”和“empty-object”）。这只是某种简称，要知道JavaScript中根本不存在真正的空对象，理解这一点至关重要。即使最简单的-对象包含从Object-prototype继承来的属性和方法。我们提到的“空（empty）对象”只是说这个对象没有自己的属性，不考虑它是否有继承来的属性。" class="headerlink" title="在本书中多次提到“空对象”（“blank object”和“empty object”）。这只是某种简称，要知道JavaScript中根本不存在真正的空对象，理解这一点至关重要。即使最简单的{}对象包含从Object.prototype继承来的属性和方法。我们提到的“空（empty）对象”只是说这个对象没有自己的属性，不考虑它是否有继承来的属性。"></a>在本书中多次提到“空对象”（“blank object”和“empty object”）。这只是某种简称，要知道JavaScript中根本不存在真正的空对象，理解这一点至关重要。即使最简单的{}对象包含从Object.prototype继承来的属性和方法。我们提到的“空（empty）对象”只是说这个对象没有自己的属性，不考虑它是否有继承来的属性。</h4><h3 id="强制使用new的模式"><a href="#强制使用new的模式" class="headerlink" title="强制使用new的模式"></a>强制使用new的模式</h3><p>我们知道，构造函数和普通的函数无异，只是通过new调用而已。那么如果调用构造函数时忘记new会发生什么呢？漏掉new不会产生语法错误也不会有运行时错误，但可能会造成逻辑错误，导致执行结果不符合预期。这是因为如果不写new的话，函数内的this会指向全局对象（在浏览器端this指向window）。<br>当构造函数内包含this.member之类的代码，并直接调用这个函数（省略new），实际会创建一个全局对象的属性member，可以通过window.member或member访问到它。这必然不是我们想要的结果，因为我们要努力确保全局命名空间的整洁干净。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// constructor</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Waffle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.tastes = <span class="string">"yummy"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a new object</span></span><br><span class="line"><span class="keyword">var</span> good_morning = <span class="keyword">new</span> Waffle();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> good_morning); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(good_morning.tastes); <span class="comment">// "yummy"</span></span><br><span class="line"><span class="comment">// antipattern:</span></span><br><span class="line"><span class="comment">// forgotten `new`</span></span><br><span class="line"><span class="keyword">var</span> good_morning = Waffle();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> good_morning); <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.tastes); <span class="comment">// "yummy"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>ECMAScript5中修正了这种非正常的行为逻辑。在严格模式中，this是不能指向全局对象的。如果在不支持ES5的JavaScript环境中，仍然后很多方法可以确保构造函数的行为即便在省略new调用时也不会出问题。</strong></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/07/09/javascript-patterns学习笔记（一）/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-06-29T08:48:11.000Z"><a href="/2018/06/29/shell-git常用命令/">2018-06-29</a></time>
       
       
@@ -441,44 +480,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-12-08T14:18:36.000Z"><a href="/2015/12/08/Hexo生成文章目录/">2015-12-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/12/08/Hexo生成文章目录/">Hexo生成文章目录</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>当一篇文章非常长，又没有目录，是非常难阅读的。所以为了使博客体验更好、博文结构更加清晰、读者更易找到文章中自己需要的部分，添加文章目录是非常必要的。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/12/08/Hexo生成文章目录/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -520,7 +521,7 @@
   
     <li><a href="/tags/前端/">前端</a><small>7</small></li>
   
-    <li><a href="/tags/工具/">工具</a><small>6</small></li>
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
   
     <li><a href="/tags/微信/">微信</a><small>3</small></li>
   
@@ -536,7 +537,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/AI/" style="font-size: 11.67px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.67px;">python</a> <a href="/tags/前端/" style="font-size: 18.33px;">前端</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/微信/" style="font-size: 13.33px;">微信</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+    <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 16px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/前端/" style="font-size: 18px;">前端</a> <a href="/tags/工具/" style="font-size: 18px;">工具</a> <a href="/tags/微信/" style="font-size: 14px;">微信</a> <a href="/tags/摄影/" style="font-size: 12px;">摄影</a> <a href="/tags/读书笔记/" style="font-size: 14px;">读书笔记</a>
   </div>
 </div>
 
