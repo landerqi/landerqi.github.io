@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://landerqi.com/"/>
-  <updated>2019-08-12T11:57:00.119Z</updated>
+  <updated>2019-08-12T11:41:15.090Z</updated>
   <id>http://landerqi.com/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://landerqi.com/2019/08/12/test/"/>
-    <id>http://landerqi.com/2019/08/12/test/</id>
-    <published>2019-08-12T11:56:39.000Z</published>
-    <updated>2019-08-12T11:57:00.119Z</updated>
-    
-    <content type="html"><![CDATA[<p>test</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;test&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://landerqi.com/tags/python/"/>
-    
-  </entry>
   
   <entry>
     <title>mongodb update数据updatedAt时间不更新问题</title>
@@ -481,6 +457,28 @@
     
     
       <category term="工具" scheme="http://landerqi.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标</title>
+    <link href="http://landerqi.com/2016/05/12/%E5%A6%82%E4%BD%95%E4%B8%8D%E4%BD%BF%E7%94%A8loop%E5%BE%AA%E7%8E%AF%EF%BC%8C%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%95%BF%E5%BA%A6%E4%B8%BA100%E7%9A%84%E6%95%B0%E7%BB%84%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%80%BC%E7%AD%89%E4%BA%8E%E5%AE%83%E7%9A%84%E4%B8%8B%E6%A0%87/"/>
+    <id>http://landerqi.com/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/</id>
+    <published>2016-05-12T07:03:01.000Z</published>
+    <updated>2019-07-02T06:28:51.125Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#x76F4;&#x63A5;new &#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;100&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x518D;map&#x7684;&#x8BDD;&#x662F;&#x4F1A;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;map&#x4F1A;&#x8DF3;&#x8FC7;&#x7A7A;&#x4F4D;&#x3002;<br>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#x3002;<br><a id="more"></a></p><!-- toc --><ul><li><a href="#&#x76F4;&#x63A5;-map">&#x76F4;&#x63A5; map</a></li><li><a href="#arrayfillhttpswwwgooglecomhkurlsatrctjqesrcssourcewebcd1ved0ahukewib26-pgdtmahudp5qkhstwa1wqfggamaaurlhttps3a2f2fdeveloper2emozilla2eorg2fen2fdocs2fweb2fjavascript2freference2fglobal_objects2farray2ffillusgafqjcnecx58m1curii4fa5p0pz7xqyiwmwsig2qabovx3nk6vdqwu-v-vhig"><a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwiB26-pgdTMAhUDp5QKHStWA1wQFggaMAA&amp;url=https%3a%2f%2fdeveloper%2emozilla%2eorg%2fen%2fdocs%2fWeb%2fJavaScript%2fReference%2fGlobal_Objects%2fArray%2ffill&amp;usg=AFQjCNEcx58m1cuRii4Fa5P0Pz7xqyIwMw&amp;sig2=qABOVx3Nk6VDqwu-v-vHIg" target="_blank" rel="noopener">Array.fill</a></a></li><li><a href="#generator">Generator</a></li><li><a href="#&#x9012;&#x5F52;">&#x9012;&#x5F52;</a></li><li><a href="#&#x5C3E;&#x9012;&#x5F52;">&#x5C3E;&#x9012;&#x5F52;</a></li><li><a href="#arrayfromhttpsdevelopermozillaorgendocswebjavascriptreferenceglobal_objectsarrayfrom"><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from</a></a></li><li><a href="#y-combinator">Y combinator</a></li></ul><!-- tocstop --><h3 id="&#x76F4;&#x63A5;-map"><a href="#&#x76F4;&#x63A5;-map" class="headerlink" title="&#x76F4;&#x63A5; map"></a>&#x76F4;&#x63A5; map</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&apos;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&apos;</span>.split(<span class="string">&apos;&apos;</span>).map(<span class="function"><span class="keyword">function</span> <span class="params">(v, i)</span> </span>{ <span class="keyword">return</span> i; });</span><br></pre></td></tr></table></figure><p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;<code>&apos;&apos;</code>&#x91CC;&#x9762;&#x6709;100&#x4E2A;<a href="http://www.fileformat.info/info/unicode/char/200b/index.htm" target="_blank" rel="noopener">0&#x5BBD;&#x7A7A;&#x683C;</a><code>&amp;#8203</code>(<code>&lt;200b&gt;</code>)&#xFF0C;&#x6240;&#x4EE5;&#x4ED6;&#x7684;length&#x662F;100,&#x8FD9;&#x6837;&#x5C31;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x4E86;&#x3002;</p><h3 id="arrayfill"><a href="#Array-fill" class="headerlink" title="Array.fill"></a><a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwiB26-pgdTMAhUDp5QKHStWA1wQFggaMAA&amp;url=https%3a%2f%2fdeveloper%2emozilla%2eorg%2fen%2fdocs%2fWeb%2fJavaScript%2fReference%2fGlobal_Objects%2fArray%2ffill&amp;usg=AFQjCNEcx58m1cuRii4Fa5P0Pz7xqyIwMw&amp;sig2=qABOVx3Nk6VDqwu-v-vHIg" target="_blank" rel="noopener">Array.fill</a></h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span>(<span class="number">100</span>).fill(<span class="symbol">&apos;aaa</span>&apos;).map(<span class="keyword">function</span> <span class="title"></span>(v, i) { <span class="keyword">return</span> <span class="type">i</span>; });</span><br></pre></td></tr></table></figure><h3 id="generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">angry</span>(<span class="params">i</span>) </span>{</span><br><span class="line">  <span class="keyword">yield</span> i;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">99</span>) { <span class="keyword">yield</span>* angry(i + <span class="number">1</span>); }</span><br><span class="line">};</span><br><span class="line"><span class="built_in">Array</span>.from(angry(<span class="number">0</span>));</span><br></pre></td></tr></table></figure><h3 id="&#x9012;&#x5F52;"><a href="#&#x9012;&#x5F52;" class="headerlink" title="&#x9012;&#x5F52;"></a>&#x9012;&#x5F52;</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> wallace (<span class="name">i</span>) { return (<span class="name">i</span> &lt; <span class="number">0</span>) ? [] : wallace(<span class="name">i</span> - <span class="number">1</span>).concat(<span class="name">i</span>)<span class="comment">; })(99);</span></span><br></pre></td></tr></table></figure><h3 id="&#x5C3E;&#x9012;&#x5F52;"><a href="#&#x5C3E;&#x9012;&#x5F52;" class="headerlink" title="&#x5C3E;&#x9012;&#x5F52;"></a>&#x5C3E;&#x9012;&#x5F52;</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> mistake (<span class="name">i</span>, acc) { return (<span class="name">i</span> &lt; <span class="number">100</span>) ? mistake(<span class="name">i</span> + <span class="number">1</span>, acc.concat(<span class="name">i</span>)) : acc; })(<span class="number">0</span>, [])<span class="comment">;</span></span><br></pre></td></tr></table></figure><h3 id="arrayfrom"><a href="#Array-from" class="headerlink" title="Array.from"></a><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from</a></h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array.<span class="keyword">from</span>(</span><br><span class="line">  <span class="keyword">new</span> Array(<span class="number">100</span>),</span><br><span class="line">  (_, idx) =&gt; idx</span><br><span class="line">);</span><br><span class="line">Array.<span class="keyword">from</span>(</span><br><span class="line">  {length: <span class="number">100</span>},</span><br><span class="line">  (_, idx) =&gt; idx</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h3 id="y-combinator"><a href="#Y-combinator" class="headerlink" title="Y combinator"></a>Y combinator</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">function</span> (<span class="name">excited</span>) {</span><br><span class="line">   return function (<span class="name">f</span>) {</span><br><span class="line">     return f(<span class="name">f</span>)<span class="comment">;</span></span><br><span class="line">   }(<span class="name">function</span> (<span class="name">f</span>) {</span><br><span class="line">      return excited(<span class="name">function</span> (<span class="name">x</span>) { return (<span class="name">f</span>(<span class="name">f</span>))(<span class="name">x</span>)<span class="comment">; });</span></span><br><span class="line">   })<span class="comment">;</span></span><br><span class="line">})(<span class="name">function</span> (<span class="name">excited</span>) {</span><br><span class="line">  return function(<span class="name">i</span>) {</span><br><span class="line">    return (<span class="name">i</span> &lt; <span class="number">0</span>) ? [] : excited(<span class="name">i</span> - <span class="number">1</span>).concat(<span class="name">i</span>)<span class="comment">;</span></span><br><span class="line">  }</span><br><span class="line">})(<span class="number">99</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;直接new 一个长度为100的数组，再map的话是会返回空数组的，因为map会跳过空位。&lt;br&gt;下面介绍几种方法。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://landerqi.com/tags/javascript/"/>
+    
+      <category term="前端" scheme="http://landerqi.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
