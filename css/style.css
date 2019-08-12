@@ -534,11 +534,9 @@ article .entry .video-container {
 article .entry blockquote {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  font-style: italic;
   font-family: "Georgia", serif;
   font-size: 1.2em;
   padding: 0 30px 15px;
-  text-align: center;
 }
 article .entry blockquote footer {
   border-top: none;
