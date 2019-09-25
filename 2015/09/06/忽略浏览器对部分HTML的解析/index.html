@@ -38,7 +38,7 @@
 </html>
 
 <body>
-  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
   </div>
   <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">Landerqi Blog</a></h1>
@@ -80,9 +80,9 @@
 <p><code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#x662F;&#x53CC;&#x6807;&#x7B7E;&#xFF0C;&#x5B83;<strong>&#x53EA;&#x4F7F;&#x5176;&#x5305;&#x542B;&#x7684;&#x5185;&#x5BB9;&#x4E2D;&#x7684;&#x6807;&#x7B7E;&#x5931;&#x6548;</strong>&#xFF0C;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#x7684;&#x4F7F;&#x7528;&#x66F4;&#x4E3A;&#x666E;&#x904D;&#x3002;</p>
 <p>###&#x6548;&#x679C;&#xFF1A;</p>
 <ol>
-<li><p>&#x672A;&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="http://landerqi.lefzs.com/xmp_01.jpg" alt></p>
+<li><p>&#x672A;&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382131017465893.jpg" alt></p>
 </li>
-<li><p>&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="http://landerqi.lefzs.com/xmp_02.jpg" alt></p>
+<li><p>&#x4F7F;&#x7528;<code>&lt;xmp&gt;&lt;/xmp&gt;</code>&#xFF1A;<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382176474551863.jpg" alt></p>
 </li>
 </ol>
 <a id="more"></a>
@@ -280,12 +280,13 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 </body>
 <script>
   var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
     var bg = document.getElementById(el);
     var dataPrefix = bg.attributes["data-prefix"].value;
     var dataExt = bg.attributes["data-ext"].value;
-    var randomNumber = Math.floor(Math.random()*20) + 1;
+    var randomNumber = Math.floor(Math.random() * 10);
 
-    var bgUrl = dataPrefix + randomNumber + dataExt;
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
 
     bg.style.backgroundImage='url('+ bgUrl +')';
 

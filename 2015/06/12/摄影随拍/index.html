@@ -38,7 +38,7 @@
 </html>
 
 <body>
-  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
   </div>
   <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">Landerqi Blog</a></h1>
@@ -75,11 +75,11 @@
     </header>
     <div class="entry">
       
-        <p>###&#x6BD5;&#x4E1A;&#x5B63;&#x5E2E;&#x62CD;<br><img src="http://landerqi.lefzs.com/sy222.jpg" alt> <a id="more"></a> <img src="http://landerqi.lefzs.com/sy111.jpg" alt><br><img src="http://landerqi.lefzs.com/sy333.jpg" alt></p>
+        <p>###&#x6BD5;&#x4E1A;&#x5B63;&#x5E2E;&#x62CD;<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569383401855223843.jpg" alt> <a id="more"></a> <img src="https://bookstorage.bs2dl.yy.com/26218_1569383436812951699.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569384764249598703.jpg" alt></p>
 <p><br></p>
-<p>###&#x4E1C;&#x5C71;&#x6E56;<br><img src="http://landerqi.lefzs.com/sy555.jpg" alt><br><img src="http://landerqi.lefzs.com/sy444.jpg" alt><br><img src="http://landerqi.lefzs.com/sy666.jpg" alt></p>
+<p>###&#x4E1C;&#x5C71;&#x6E56;<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569384838150170337.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569384877912342989.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569384907184877622.jpg" alt></p>
 <p><br></p>
-<p>###&#x7B2C;&#x4E00;&#x6B21;&#x53BB;&#x6C99;&#x9762;<br><img src="http://landerqi.lefzs.com/sy777.jpg" alt><br><img src="http://landerqi.lefzs.com/sy888.jpg" alt><br><img src="http://landerqi.lefzs.com/sy999.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000.jpg" alt><br><img src="http://landerqi.lefzs.com/sy1221312.jpg" alt></p>
+<p>###&#x7B2C;&#x4E00;&#x6B21;&#x53BB;&#x6C99;&#x9762;<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569384987714550483.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569385026072288316.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569385058666764743.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569385109644488034.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569385154717962038.jpg" alt></p>
 
       
     </div>
@@ -273,12 +273,13 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 </body>
 <script>
   var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
     var bg = document.getElementById(el);
     var dataPrefix = bg.attributes["data-prefix"].value;
     var dataExt = bg.attributes["data-ext"].value;
-    var randomNumber = Math.floor(Math.random()*20) + 1;
+    var randomNumber = Math.floor(Math.random() * 10);
 
-    var bgUrl = dataPrefix + randomNumber + dataExt;
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
 
     bg.style.backgroundImage='url('+ bgUrl +')';
 

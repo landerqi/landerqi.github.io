@@ -38,7 +38,7 @@
 </html>
 
 <body>
-  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
   </div>
   <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">Landerqi Blog</a></h1>
@@ -76,7 +76,7 @@
     <div class="entry">
       
         <p>###&#x4E2D;&#x5927;&#x6821;&#x56ED;&#x5F88;&#x7F8E;&#xFF01;</p>
-<p><img src="http://landerqi.lefzs.com/sy000001.jpg" alt> <a id="more"></a><img src="http://landerqi.lefzs.com/sy000002.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000003.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000004.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000005.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000006.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000007.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000008.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000009.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000010.jpg" alt><br><img src="http://landerqi.lefzs.com/sy000011.jpg" alt></p>
+<p><img src="https://fesystem.bs2dl.yy.com/1569380091777199" alt> <a id="more"></a><img src="https://fesystem.bs2dl.yy.com/1569380128405490" alt><br><img src="https://fesystem.bs2dl.yy.com/156938018946685" alt><br><img src="https://fesystem.bs2dl.yy.com/1569380231454236" alt><br><img src="https://fesystem.bs2dl.yy.com/156938026330116" alt><br><img src="https://fesystem.bs2dl.yy.com/1569380428167168" alt><br><img src="https://fesystem.bs2dl.yy.com/1569380461329215" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569380630399431196.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569380680979715797.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569380724301645754.jpg" alt><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569380773199844192.jpg" alt></p>
 
       
     </div>
@@ -270,12 +270,13 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 </body>
 <script>
   var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
     var bg = document.getElementById(el);
     var dataPrefix = bg.attributes["data-prefix"].value;
     var dataExt = bg.attributes["data-ext"].value;
-    var randomNumber = Math.floor(Math.random()*20) + 1;
+    var randomNumber = Math.floor(Math.random() * 10);
 
-    var bgUrl = dataPrefix + randomNumber + dataExt;
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
 
     bg.style.backgroundImage='url('+ bgUrl +')';
 

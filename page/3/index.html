@@ -38,7 +38,7 @@
 </html>
 
 <body>
-  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
   </div>
   <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">Landerqi Blog</a></h1>
@@ -354,7 +354,7 @@
     </header>
     <div class="entry">
       
-        <p>最近在做微信分享的功能，微信官方现在要求，如果要调用微信分享的接口，需要通过<code>appid, appsecret</code> 生成一个<code>signature签名</code>,我这里获取签名的方法是在前端页面里面异步传递当前<code>url</code>给<code>java</code>来获取：<br><img src="http://landerqi.lefzs.com/wxYY图片20151106164818.png?imageView2/2/w/600" alt="获取签名代码"></p>
+        <p>最近在做微信分享的功能，微信官方现在要求，如果要调用微信分享的接口，需要通过<code>appid, appsecret</code> 生成一个<code>signature签名</code>,我这里获取签名的方法是在前端页面里面异步传递当前<code>url</code>给<code>java</code>来获取：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382463820245891.png?imageview/4/0/w/600/blur/1" alt="获取签名代码"></p>
       
     </div>
     <footer>
@@ -397,9 +397,9 @@
 <p><code>&lt;xmp&gt;&lt;/xmp&gt;</code>是双标签，它<strong>只使其包含的内容中的标签失效</strong>，<code>&lt;xmp&gt;&lt;/xmp&gt;</code>的使用更为普遍。</p>
 <p>###效果：</p>
 <ol>
-<li><p>未使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="http://landerqi.lefzs.com/xmp_01.jpg" alt></p>
+<li><p>未使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382131017465893.jpg" alt></p>
 </li>
-<li><p>使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="http://landerqi.lefzs.com/xmp_02.jpg" alt></p>
+<li><p>使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382176474551863.jpg" alt></p>
 </li>
 </ol>
       
@@ -599,12 +599,13 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 </body>
 <script>
   var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
     var bg = document.getElementById(el);
     var dataPrefix = bg.attributes["data-prefix"].value;
     var dataExt = bg.attributes["data-ext"].value;
-    var randomNumber = Math.floor(Math.random()*20) + 1;
+    var randomNumber = Math.floor(Math.random() * 10);
 
-    var bgUrl = dataPrefix + randomNumber + dataExt;
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
 
     bg.style.backgroundImage='url('+ bgUrl +')';
 

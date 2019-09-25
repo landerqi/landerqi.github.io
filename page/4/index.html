@@ -38,7 +38,7 @@
 </html>
 
 <body>
-  <div id="bg" class="bg-fixed" data-prefix="http://landerqi.lefzs.com/bg-" data-ext=".jpg">
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
   </div>
   <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">Landerqi Blog</a></h1>
@@ -255,7 +255,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
     <div class="entry">
       
         <p>###中大校园很美！</p>
-<p><img src="http://landerqi.lefzs.com/sy000001.jpg" alt>
+<p><img src="https://fesystem.bs2dl.yy.com/1569380091777199" alt>
       
     </div>
     <footer>
@@ -293,7 +293,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
     </header>
     <div class="entry">
       
-        <p>###毕业季帮拍<br><img src="http://landerqi.lefzs.com/sy222.jpg" alt>
+        <p>###毕业季帮拍<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569383401855223843.jpg" alt>
       
     </div>
     <footer>
@@ -332,7 +332,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
     <div class="entry">
       
         <p>steps(n,[ start | end ] ]?)函数，这个函数可以把动画平均划分为基本相等的，这个n是一个自然数，意思就是把一个动画平均分成n等分，直到平均地走完这个动画，<strong>与linear不同，linear是不间断的完成一个动画，而steps是一帧一帧执行的。</strong>step-start等同于steps(1,start)，动画分成1步，动画执行时为开始左侧端点的部分为开始；step-end等同于steps(1,end)：动画分成一步，动画执行时以结尾端点为开始，默认值为end。</p>
-<p><strong>w3c图解如下：</strong><br><img src="http://landerqi.lefzs.com/step.png" alt><br>
+<p><strong>w3c图解如下：</strong><br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382900240653501.png" alt><br>
       
     </div>
     <footer>
@@ -411,7 +411,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
     </header>
     <div class="entry">
       
-        <p>1.<code>//switchtabpos</code>：<strong>让微信tab更贴合Android Design</strong><br>　　如果你并不喜欢微信Android版和iOS端同用一套UI，现在有一个小方法可以实现Tab的转移：在微信任意聊天窗口输入//switchtabpos并按发送，Tab就会从转移到屏幕顶端，Android范十足。如果想再调整回来，再输入一遍并发送就好了。<br><img src="http://landerqi.lefzs.com/wx1216302229.jpg" alt><br>
+        <p>1.<code>//switchtabpos</code>：<strong>让微信tab更贴合Android Design</strong><br>　　如果你并不喜欢微信Android版和iOS端同用一套UI，现在有一个小方法可以实现Tab的转移：在微信任意聊天窗口输入//switchtabpos并按发送，Tab就会从转移到屏幕顶端，Android范十足。如果想再调整回来，再输入一遍并发送就好了。<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382306908363064.jpg" alt><br>
       
     </div>
     <footer>
@@ -606,12 +606,13 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 </body>
 <script>
   var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
     var bg = document.getElementById(el);
     var dataPrefix = bg.attributes["data-prefix"].value;
     var dataExt = bg.attributes["data-ext"].value;
-    var randomNumber = Math.floor(Math.random()*20) + 1;
+    var randomNumber = Math.floor(Math.random() * 10);
 
-    var bgUrl = dataPrefix + randomNumber + dataExt;
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
 
     bg.style.backgroundImage='url('+ bgUrl +')';
 
