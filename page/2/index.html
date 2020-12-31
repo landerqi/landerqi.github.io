@@ -66,6 +66,85 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-10-25T06:27:10.000Z"><a href="/2018/10/25/一个简单的广播队列/">2018-10-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/10/25/一个简单的广播队列/">一个简单的广播队列</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>记录一些需求开发中的小代码，如果以后有类似的功能需求，可快速复用。</strong></p>
+<h3 id="调用："><a href="#调用：" class="headerlink" title="调用："></a>调用：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BroadcastQueue <span class="keyword">from</span> <span class="string">'./BroadcastQueue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化调用</span></span><br><span class="line"><span class="keyword">this</span>.broadcastQueue = <span class="keyword">new</span> BroadcastQueue(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.showHighlightTip(data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">showHighlightTip(queueItem) &#123;</span><br><span class="line">    <span class="comment">// 取出队列 item后的处理逻辑</span></span><br><span class="line">    ...</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">//  收到广播的时候，一条条push进队列</span></span><br><span class="line"><span class="keyword">this</span>.broadcastQueue.push(&#123;</span><br><span class="line">    tip,</span><br><span class="line">    showBtn: <span class="literal">false</span>,</span><br><span class="line">    order: <span class="number">3</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除队列</span></span><br><span class="line"><span class="keyword">this</span>.broadcastQueue.clear()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/10/25/一个简单的广播队列/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-09-04T12:18:02.000Z"><a href="/2018/09/04/javascript-patterns学习笔记（三）/">2018-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/09/04/javascript-patterns学习笔记（三）/">javascript-patterns学习笔记（三）</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>callback</strong><br>一个回调的例子</p>
+<p>我们从一个例子开始，首先介绍无回调的情况，然后在作修改。假设你有一个通用的函数，用来完成某种复杂的逻辑并返回一大段数据。假设我们用findNodes()来命名这个通用函数，这个函数用来对DOM树进行遍历，并返回我所感兴趣的页面节点：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findNodes = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">100000</span>, <span class="comment">// big, heavy loop</span></span><br><span class="line">        nodes = [], <span class="comment">// stores the result</span></span><br><span class="line">        found; <span class="comment">// the next node found</span></span><br><span class="line">    <span class="keyword">while</span> (i) &#123;</span><br><span class="line">        i -= <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// complex logic here...</span></span><br><span class="line">        nodes.push(found);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nodes;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/09/04/javascript-patterns学习笔记（三）/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-09-04T09:34:05.000Z"><a href="/2018/09/04/一本书读懂财报/">2018-09-04</a></time>
       
       
@@ -394,85 +473,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-09-13T15:40:34.000Z"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">2016-09-13</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">python学习笔记(2-urllib2-beautifulSoup)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <blockquote>
-<p>以下代码是基于python 2.7.12, 在此版本下，print不用加括号，后续新版本是需要加上括号的。<br>文件开头需要加上#coding=utf-8, 否则中文注释会报错，这是由于Phthon源码必须完全由ASCII集合组成。</p>
-</blockquote>
-<h3 id="实现一个简易python爬虫准备"><a href="#实现一个简易python爬虫准备" class="headerlink" title="实现一个简易python爬虫准备"></a>实现一个简易python爬虫准备</h3><h4 id="urllib2网页下载器测试代码"><a href="#urllib2网页下载器测试代码" class="headerlink" title="urllib2网页下载器测试代码:"></a>urllib2网页下载器测试代码:</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#coding=utf-8</span></span><br><span class="line">import urllib2, cookielib</span><br><span class="line"></span><br><span class="line">URL = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#直接请求</span></span><br><span class="line">response = urllib2.urlopen(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#获取状态码，如果是200,则表示获取成功</span></span><br><span class="line">print response.getcode()</span><br><span class="line"></span><br><span class="line"><span class="meta">#读取内容</span></span><br><span class="line">cont = response.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">#print cont</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建Requst对象</span></span><br><span class="line">request = urllib2.Request(URL)</span><br><span class="line"></span><br><span class="line"><span class="meta">#添加数据</span></span><br><span class="line"><span class="meta">#request.add_data('a', '1')</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#添加http header</span></span><br><span class="line">request.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0'</span>)</span><br><span class="line"></span><br><span class="line">response2 = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="meta">#print response2.read()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建cookie容器</span></span><br><span class="line">cj = cookielib.CookieJar()</span><br><span class="line"></span><br><span class="line"><span class="meta">#创建一个opener</span></span><br><span class="line">opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</span><br><span class="line"></span><br><span class="line"><span class="meta">#给urllib2 安装opener</span></span><br><span class="line">urllib2.install_opener(opener)</span><br><span class="line"></span><br><span class="line"><span class="meta">#使用带有cookie 的urllib2 访问网页</span></span><br><span class="line">response3 = urllib2.urlopen(URL)</span><br><span class="line"></span><br><span class="line">print cj</span><br><span class="line">print response3.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">##</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-09-13T15:36:43.000Z"><a href="/2016/09/13/python学习笔记-1/">2016-09-13</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/09/13/python学习笔记-1/">python学习笔记(1)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>python学习笔记基础篇</p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2016/09/13/python学习笔记-1/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -510,7 +510,7 @@
   
     <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>10</small></li>
   
     <li><a href="/tags/python/">python</a><small>2</small></li>
   
@@ -565,7 +565,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2019 Landerqi
+  &copy; 2020 Landerqi
   
 </div>
 <div class="clearfix"></div></footer>

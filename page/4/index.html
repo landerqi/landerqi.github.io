@@ -66,6 +66,91 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-11-06T08:39:58.000Z"><a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/">2015-11-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/">微信分享之后点击不能生成签名（invalid signature）</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近在做微信分享的功能，微信官方现在要求，如果要调用微信分享的接口，需要通过<code>appid, appsecret</code> 生成一个<code>signature签名</code>,我这里获取签名的方法是在前端页面里面异步传递当前<code>url</code>给<code>java</code>来获取：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382463820245891.png?imageview/4/0/w/600/blur/1" alt="获取签名代码"></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-06T09:40:42.000Z"><a href="/2015/09/06/忽略浏览器对部分HTML的解析/">2015-09-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/06/忽略浏览器对部分HTML的解析/">忽略浏览器对部分HTML的解析</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>当我们需要忽略浏览器对部分HTML解析的时候，HTML代码中的<code>&lt;plaintext&gt;</code>和<code>&lt;xmp&gt;&lt;/xmp&gt;</code>可以帮我们实现。</p>
+<p><code>&lt;plaintext&gt;</code>是单标签，它插入到HTML代码中时，其<strong>后面的所有HTML标签全部失效</strong>，即浏览器对<code>&lt;plaintext&gt;</code>后面所有的HTML标签不作解析，直接在页面上显示。<strong>因为本博客是用markdown写的，当时没有给<code>&lt;plaintext&gt;</code>标签加反单引号，结果导致其后所有代码浏览器都不解析了0.0</strong></p>
+<p><code>&lt;xmp&gt;&lt;/xmp&gt;</code>是双标签，它<strong>只使其包含的内容中的标签失效</strong>，<code>&lt;xmp&gt;&lt;/xmp&gt;</code>的使用更为普遍。</p>
+<p>###效果：</p>
+<ol>
+<li><p>未使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382131017465893.jpg" alt></p>
+</li>
+<li><p>使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382176474551863.jpg" alt></p>
+</li>
+</ol>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/06/忽略浏览器对部分HTML的解析/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-16T02:57:00.000Z"><a href="/2015/07/16/雅虎十四条/">2015-07-16</a></time>
       
       
@@ -393,85 +478,6 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-06-08T16:37:43.000Z"><a href="/2015/06/09/hexo如何删除多余-tags/">2015-06-09</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/06/09/hexo如何删除多余-tags/">hexo如何删除多余标签、及同时添加多个标签(tags)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>今天写博客的时候碰到个问题，在文章中写标签（tags）的时候不小心写错了。更让人郁闷的是，在文章中删除标签之后，页面上还是显示有。在百度搜了一会，似乎没有任何关于如何清除多余标签（tags）这个问题的答案。最后谷歌之后发现，其实非常简单，只需要运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></p>
-<p>就行了！</p>
-<p>####<strong>同时添加多个标签</strong>:<br><code>[xxx,xxxxx]</code></p>
-<p>记录一下：）</p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/06/09/hexo如何删除多余-tags/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-06-05T01:33:49.000Z"><a href="/2015/06/05/微信13个隐藏功能/">2015-06-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/06/05/微信13个隐藏功能/">微信13个隐藏功能</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<code>//switchtabpos</code>：<strong>让微信tab更贴合Android Design</strong><br>　　如果你并不喜欢微信Android版和iOS端同用一套UI，现在有一个小方法可以实现Tab的转移：在微信任意聊天窗口输入//switchtabpos并按发送，Tab就会从转移到屏幕顶端，Android范十足。如果想再调整回来，再输入一遍并发送就好了。<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382306908363064.jpg" alt><br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/06/05/微信13个隐藏功能/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -509,7 +515,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
   
     <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>10</small></li>
   
     <li><a href="/tags/python/">python</a><small>2</small></li>
   
@@ -564,7 +570,7 @@ JavaScript：   数据类型、面向对象、继承、闭包、插件、作用�
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2019 Landerqi
+  &copy; 2020 Landerqi
   
 </div>
 <div class="clearfix"></div></footer>

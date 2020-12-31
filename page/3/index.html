@@ -66,6 +66,85 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-09-13T15:40:34.000Z"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/">python学习笔记(2-urllib2-beautifulSoup)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <blockquote>
+<p>以下代码是基于python 2.7.12, 在此版本下，print不用加括号，后续新版本是需要加上括号的。<br>文件开头需要加上#coding=utf-8, 否则中文注释会报错，这是由于Phthon源码必须完全由ASCII集合组成。</p>
+</blockquote>
+<h3 id="实现一个简易python爬虫准备"><a href="#实现一个简易python爬虫准备" class="headerlink" title="实现一个简易python爬虫准备"></a>实现一个简易python爬虫准备</h3><h4 id="urllib2网页下载器测试代码"><a href="#urllib2网页下载器测试代码" class="headerlink" title="urllib2网页下载器测试代码:"></a>urllib2网页下载器测试代码:</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#coding=utf-8</span></span><br><span class="line">import urllib2, cookielib</span><br><span class="line"></span><br><span class="line">URL = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#直接请求</span></span><br><span class="line">response = urllib2.urlopen(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#获取状态码，如果是200,则表示获取成功</span></span><br><span class="line">print response.getcode()</span><br><span class="line"></span><br><span class="line"><span class="meta">#读取内容</span></span><br><span class="line">cont = response.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">#print cont</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建Requst对象</span></span><br><span class="line">request = urllib2.Request(URL)</span><br><span class="line"></span><br><span class="line"><span class="meta">#添加数据</span></span><br><span class="line"><span class="meta">#request.add_data('a', '1')</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#添加http header</span></span><br><span class="line">request.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0'</span>)</span><br><span class="line"></span><br><span class="line">response2 = urllib2.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="meta">#print response2.read()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#创建cookie容器</span></span><br><span class="line">cj = cookielib.CookieJar()</span><br><span class="line"></span><br><span class="line"><span class="meta">#创建一个opener</span></span><br><span class="line">opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</span><br><span class="line"></span><br><span class="line"><span class="meta">#给urllib2 安装opener</span></span><br><span class="line">urllib2.install_opener(opener)</span><br><span class="line"></span><br><span class="line"><span class="meta">#使用带有cookie 的urllib2 访问网页</span></span><br><span class="line">response3 = urllib2.urlopen(URL)</span><br><span class="line"></span><br><span class="line">print cj</span><br><span class="line">print response3.read()</span><br><span class="line"></span><br><span class="line"><span class="meta">##</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/13/python学习笔记-2-urllib2-beautifulSoup/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-09-13T15:36:43.000Z"><a href="/2016/09/13/python学习笔记-1/">2016-09-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/09/13/python学习笔记-1/">python学习笔记(1)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>python学习笔记基础篇</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/09/13/python学习笔记-1/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-05T08:01:11.000Z"><a href="/2016/07/05/如何极客/">2016-07-05</a></time>
       
       
@@ -379,91 +458,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-06T08:39:58.000Z"><a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/">2015-11-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/">微信分享之后点击不能生成签名（invalid signature）</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>最近在做微信分享的功能，微信官方现在要求，如果要调用微信分享的接口，需要通过<code>appid, appsecret</code> 生成一个<code>signature签名</code>,我这里获取签名的方法是在前端页面里面异步传递当前<code>url</code>给<code>java</code>来获取：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382463820245891.png?imageview/4/0/w/600/blur/1" alt="获取签名代码"></p>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/11/06/微信分享之后点击不能生成签名（invalid-signature）/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-06T09:40:42.000Z"><a href="/2015/09/06/忽略浏览器对部分HTML的解析/">2015-09-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/06/忽略浏览器对部分HTML的解析/">忽略浏览器对部分HTML的解析</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>当我们需要忽略浏览器对部分HTML解析的时候，HTML代码中的<code>&lt;plaintext&gt;</code>和<code>&lt;xmp&gt;&lt;/xmp&gt;</code>可以帮我们实现。</p>
-<p><code>&lt;plaintext&gt;</code>是单标签，它插入到HTML代码中时，其<strong>后面的所有HTML标签全部失效</strong>，即浏览器对<code>&lt;plaintext&gt;</code>后面所有的HTML标签不作解析，直接在页面上显示。<strong>因为本博客是用markdown写的，当时没有给<code>&lt;plaintext&gt;</code>标签加反单引号，结果导致其后所有代码浏览器都不解析了0.0</strong></p>
-<p><code>&lt;xmp&gt;&lt;/xmp&gt;</code>是双标签，它<strong>只使其包含的内容中的标签失效</strong>，<code>&lt;xmp&gt;&lt;/xmp&gt;</code>的使用更为普遍。</p>
-<p>###效果：</p>
-<ol>
-<li><p>未使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382131017465893.jpg" alt></p>
-</li>
-<li><p>使用<code>&lt;xmp&gt;&lt;/xmp&gt;</code>：<br><img src="https://bookstorage.bs2dl.yy.com/26218_1569382176474551863.jpg" alt></p>
-</li>
-</ol>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/09/06/忽略浏览器对部分HTML的解析/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -501,7 +495,7 @@
   
     <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>10</small></li>
   
     <li><a href="/tags/python/">python</a><small>2</small></li>
   
@@ -556,7 +550,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2019 Landerqi
+  &copy; 2020 Landerqi
   
 </div>
 <div class="clearfix"></div></footer>
