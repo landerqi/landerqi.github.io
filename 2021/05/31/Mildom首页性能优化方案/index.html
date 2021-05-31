@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mildom首页性能优化方案 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Mildom首页性能优化方案"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2021-05-31T06:42:26.000Z"><a href="/2021/05/31/Mildom首页性能优化方案/">2021-05-31</a></time>
+      
+      
+  
+    <h1 class="title">Mildom首页性能优化方案</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <!-- toc -->
+
+<ul>
+<li><a href="#%E9%A2%84%E6%B8%B2%E6%9F%93">预渲染</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96">图片资源优化</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96">代码优化</a></li>
+<li><a href="#pwa%E6%B8%90%E8%BF%9B%E5%BC%8Fweb%E5%BA%94%E7%94%A8">PWA(渐进式web应用)</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考：</a></li>
+</ul>
+<!-- tocstop -->
+
+<h3><span id="预渲染">预渲染</span></h3><p>无需使用web 服务器实时动态编译 HTML，不需要服务器支持。在构建时 (build time) 简单地生成针对特定路由的静态HTML 文件。这个提高效果应该会比较明显。</p>
+<ol>
+<li><p>利用<code>prerender-spa-plugin</code>，生成模板。<code>style components</code>需要升级到5.x以上版本，这样才支持css提取。注意需要配置：<code>renderAfterDocumentEvent: &#39;render-event&#39;，renderAfterTime: 5000</code>，在index.js入口处监听dom loaded，然后延迟5s触法自定义事件‘render-event’，否则无法请求到数据；</p>
+</li>
+<li><p>生成模板的时间需要：</p>
+ <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   injectProperty: <span class="string">&#x27;__PRERENDER_INJECTED&#x27;</span>,</span><br><span class="line">   <span class="comment">// Optional - Any values you&#x27;d like your app to have access to via window.injectProperty.</span></span><br><span class="line">   <span class="keyword">inject</span>: &#123;</span><br><span class="line">        prerender: <span class="keyword">true</span>,</span><br><span class="line">        isDarkMode: process.env.THEME === <span class="string">&#x27;dark&#x27;</span>,</span><br><span class="line">​    &#125;</span><br></pre></td></tr></table></figure>
+<p>注入全局变量，然后通过npm run 命令传参生成 日间、夜间 两个模板；</p>
+</li>
+<li><p>生成完模板之后，拷贝到 client/pages/prerender目录下保存（index.white.html、index.dark.html）；</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<ol start="4">
+<li><p>在jenkens上运行npm run prod命令之后，会在static目录上生成index.tmpl.html文件，这个文件里面的css, js都已经被webpack注入进去，我们需要做的是把client/pages/prerender目录下保存的样式和Dom，提取出来，注入到index.tmpl.html文件，同时在static目录下生成index.white.html、index.dark.html两个文件。</p>
+</li>
+<li><p>把用户设置的主题保存在cookie中，访问页面的时候go server根据cookie中主题的值，选择返回 日间、夜间 模板。</p>
+</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>首页用到的组件一定要写骨架，因为首页数据是动态的，渲染出的数据只能是当时的数据片段，这样显然不行，所以我们需要在预渲染的时候注入全局变量，当判断到是预渲染时，则渲染骨架；</p>
+</li>
+<li><p>自定义事件一定要延迟触发，否则无法生成内容，这里很多资料都没提到，有点坑:</p>
+ <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.dispatchEvent(<span class="keyword">new</span> Event(<span class="string">&#x27;render-event&#x27;</span>));</span><br><span class="line"></span><br><span class="line"> &#125;, <span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>要避免闪烁，当判断root element下有子节点的时候需要用 hydrate方法替代render方法；</p>
+</li>
+<li><p>首页需要特定的 RouteLoaderIndex，避免闪烁；</p>
+</li>
+<li><p>go server需要判断只有匹配到首页才返回日间、夜间模板，其他则返回之前的正常模板。</p>
+</li>
+</ol>
+<h3><span id="图片资源优化">图片资源优化</span></h3><ol>
+<li>使用合适的图片大小，目前首页图片都是1，200kb的，而且有的用户头像甚至达到了700kb；</li>
+<li>使用JPEG 2000、JPEG XR 和 WebP 等新图片格式，压缩率更好；</li>
+<li>Banner图片压缩，是否流程化，是否在cms上传源头就加上大小限制；</li>
+<li>延长图片等静态资源缓存时间：wia.mildom.com下的图片是1天，<a target="_blank" rel="noopener" href="http://www.mildom.com下的图片、js、css是15天,vpic.mildom.com下的图片等是30天,up.mildom.com下的是90天./">www.mildom.com下的图片、js、css是15天，vpic.mildom.com下的图片等是30天，up.mildom.com下的是90天。</a></li>
+<li>使用JPEG 2000、JPEG XR 和 WebP 等新图片格式，压缩率更好；（咨询，不一定做）</li>
+</ol>
+<h3><span id="代码优化">代码优化</span></h3><p>分析工具：<a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/insights/?url=https://www.mildom.com/&tab=desktop">Pagespeed Insights</a>。</p>
+<p>chunk_main.js体积很大，目前看这个js有788kb，这个js加载完之前，一直白屏。</p>
+<ol>
+<li><p>不使用服务器端直出，可考虑使用 <code>React.lazy()</code><sup> [1]</sup>拆分 JavaScript  代码。或者使用第三方库（如 <a target="_blank" rel="noopener" href="https://www.smooth-code.com/open-source/loadable-components/docs/getting-started/">loadable-components</a>）拆分代码；</p>
+</li>
+<li><p>首屏外资源延迟加载；</p>
+</li>
+<li><p>首屏展示没有用到的组件懒加载；</p>
+</li>
+<li><p>减少主线程工作：优化第三方js(cdn，公共组件抽离)、使用Web workers<sup>[2]</sup>；</p>
+</li>
+<li><p>优化Largest Contentful Paint (<a target="_blank" rel="noopener" href="https://web.dev/lighthouse-largest-contentful-paint/?utm_source=lighthouse&utm_medium=unknown">LCP，最大内容渲染时间</a>)<sup>[3]</sup>;</p>
+</li>
+<li><p>避免出现长时间运行的主线程任务，可利用“火焰图“分析<sup>[4]</sup>;</p>
+</li>
+<li><p>优化Cumulative Layout Shift (CLS)<sup>[5]</sup>。</p>
+</li>
+</ol>
+<h3><span id="pwa渐进式web应用">PWA(渐进式web应用)</span></h3><p>PWA应用是指那些使用指定技术和标准模式来开发的web应用，这将同时赋予它们web应用和原生应用的特性。</p>
+<p>引入<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Workers</a>来进行缓存, 以此来节省带宽和时间。</p>
+<h3><span id="参考">参考：</span></h3><p>[1] <a target="_blank" rel="noopener" href="https://web.dev/code-splitting-suspense/?utm_source=lighthouse&utm_medium=unknown">Code splitting with React.lazy and Suspense</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://web.dev/off-main-thread/">Use web workers to run JavaScript off the browser’s main thread</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://web.dev/lcp/#how-to-improve-largest-contentful-paint-on-your-site">How to improve largest contentful paint on your site</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://web.dev/long-tasks-devtools/?utm_source=lighthouse&utm_medium=unknown">Are long JavaScript tasks delaying your Time to Interactive?</a></p>
+<p>[5] <a target="_blank" rel="noopener" href="https://web.dev/cls/#how-to-improve-cls">How to improve CLS</a></p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/前端/">前端</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2020/12/31/Vue-VS-React/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

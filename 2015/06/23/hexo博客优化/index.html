@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hexo博客优化 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="hexo博客优化"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-23T03:51:44.000Z"><a href="/2015/06/23/hexo博客优化/">2015-06-23</a></time>
+      
+      
+  
+    <h1 class="title">hexo博客优化</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>##添加RSS<br>hexo有提供RSS生成插件：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-feed">hexo-generator-feed</a>，需要自己手动安装：</p>
+<ol>
+<li><p>在博客目录下运行</p>
+ <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-feed <span class="comment">--save</span></span><br></pre></td></tr></table></figure></li>
+<li><p>配置<code>hexo/_config.yml</code>文件</p>
+ <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">feed:</span></span><br><span class="line"><span class="symbol">  type:</span> atom</span><br><span class="line"><span class="symbol">  path:</span> atom.xml</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">20</span>	```</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 访问本地地址：<span class="params">&lt;http://localhost:<span class="number">4000</span>/atom.xml&gt;</span>,插件启用成功的话，会自动生成atom.xml文件。</span><br><span class="line"><span class="number">4.</span> 在站点导航中添加链接：</span><br><span class="line">在`themes<span class="meta-keyword">/light/</span>_config.yml`中，编辑 `rss: /atom.xml`</span><br><span class="line">在`themes<span class="meta-keyword">/light/</span>layout/_partial/header.ejs`中，`<span class="params">&lt;ul&gt;</span><span class="params">&lt;/ul&gt;</span>`之间，添加一样代码`<span class="params">&lt;li&gt;</span> <span class="params">&lt;a href=&quot;/atom.xml&quot;&gt;</span>RSS<span class="params">&lt;/a&gt;</span> <span class="params">&lt;/li&gt;</span>`</span><br><span class="line"></span><br><span class="line"><span class="params">&lt;!-- more --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="params">&lt;br&gt;</span></span><br><span class="line"><span class="meta">##添加sitemap站点地图</span></span><br><span class="line">为了方便搜索引擎收录我们的网站，我们可以通过[hexo-generator-sitemap](https:<span class="comment">//github.com/hexojs/hexo-generator-sitemap)插件，生成一个sitemap.xml文件，然后登录站长平台，在提交Sitempas界面里提交自己网站的sitemap.xml文件，比如我的文件：&lt;http://landerqi.com/sitemap.xml&gt;。</span></span><br><span class="line"></span><br><span class="line">__四大搜索站长平台地址__：</span><br><span class="line"></span><br><span class="line">- 百度站长平台：<span class="params">&lt;http://zhanzhang.baidu.com&gt;</span></span><br><span class="line">- <span class="number">360</span>站长平台：<span class="params">&lt;http://zhanzhang.haosou.com&gt;</span></span><br><span class="line">- 搜狗站长平台：<span class="params">&lt;http://zhanzhang.sogou.com&gt;</span></span><br><span class="line">- 谷歌站长平台：<span class="params">&lt;http://google.com/webmasters&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 安装，在博客目录下运行：</span><br></pre></td></tr></table></figure>
+<p> $ npm install hexo-generator-sitemap –save</p>
+ <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2</span>. 配置`hexo/_config.yml`文件</span><br></pre></td></tr></table></figure>
+<p> sitemap:<br> path: sitemap.xml</p>
+ <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line">##添加百度统计</span><br><span class="line">到百度统计注册账号，添加网站地址，将百度提供给你的一段js代码加入你的网站即可。__大概类似这样的代码：__</span><br></pre></td></tr></table></figure>
+<script>
+ var _hmt = _hmt || [];
+ (function() {
+   var hm = document.createElement("script");
+   hm.src = "//hm.baidu.com/hm.js?";
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(hm, s);
+ })();
+</script>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">我把它加在了`themes/lightqi/layout/_partial/head.ejs` 中的head标签里面。</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"><span class="comment">##添加百度分享</span></span><br><span class="line">找到`themes\lightqi\layout\_partial\article.ejs`里的如下代码:</span><br></pre></td></tr></table></figure>
+<p>&lt;%- partial(‘post/category’) %&gt;<br>&lt;%- partial(‘post/tag’) %&gt;</p>
+ <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">修改成如下:</span></span><br></pre></td></tr></table></figure>
+ <div class="nirdonkey">
+   <%- partial('post category') %>
+   <%- partial('post tag') %>
+</%-></%-></div>
+<div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+</div>
+<div class="clearfix"></div>
+ <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">还需要添加如下代码至 themes<span class="symbol">\l</span>ightqi<span class="symbol">\l</span>ayout<span class="symbol">\_</span>partial<span class="symbol">\a</span>fter_footer.ejs .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<script> window._bd_share_config = {
+ "common": {
+     "bdSnsKey": {},
+     "bdText": "",
+     "bdMini": "2",
+     "bdPic": "",
+     "bdStyle": "0",
+     "bdSize": "16"
+ },
+ "share": {},
+ "image": {
+     "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+     "viewText": "分享到：",
+     "viewSize": "16"
+ },
+ "selectShare": {
+     "bdContainerClass": null,
+     "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+ }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)];
+</script>
+ <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">最后美化一下样式，找到`themes\lightqi\source\css\_partial\archive.styl`加入出下代码：</span><br></pre></td></tr></table></figure>
+.archive
+article
+ .nirdonkey
+   float left
+ .bdsharebuttonbox
+   float right
+
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="section">##添加多说评论</span></span><br><span class="line"><span class="bullet">-</span> 注册[<span class="string">多说</span>](<span class="link">http://duoshuo.com/</span>)账号，获得通用代码。</span><br><span class="line"><span class="bullet">-</span> 将通用代码粘贴到<span class="code">`themes\light\layout\_partial\comment.ejs`</span>里面，如下：</span><br></pre></td></tr></table></figure>
+<p>&lt;% if ( page.comments){ %&gt;</p>
+<section id="comment">
+通用代码
+</section>
+<% } %>
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="code">`hexo\_config.yml`</span>中加入:</span><br></pre></td></tr></table></figure>
+# duoshuo comment
+duoshuo_shortname: landerqi(你站点的short_name)
+ ```
+ short_name是指你在http://duoshuo.com/create-site/申请网站后的duoshuo.com前的字段。</%></li>
+</ol>
+<br>
+##文章中插入图片
+- 插入图片格式为`![图片名称](图片连接地址)`，图片大家可以上传到七牛云存储或者一些其他的存储服务，我自己现在是在用七牛，免费的基本已经够用了。
+- 使用本地路径：在`hexo/source`目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为`/img/图片名称`。
+
+<br>
+##绑定自己的域名
+- 首页你得拥有自己的域名，你可以到万网，或Godaddy这些域名提供商上挑选自己喜欢的域名。
+- 注册DNSPOD，用DNSPOD解析域名：
+![](https://fesystem.bs2dl.yy.com/156938311221483)
+记录类型选CNAME。
+__如果是在万网或Godaddy上购买的域名，需要修改DNS地址为`f1g1ns1.dnspod.net`和`f1g1ns1.dnspod.net`，DNSPOD才可以成功解析。__
+- 在`source`目录下新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如`landerqi.com`。
+
+<br>
+__我自己的主题代码已提交到Github上了，大家如果觉得配置麻烦，可以直接使用我的主题[lightqi](https://github.com/landerqi/lightqi)，使用方法非常简单，在博客根目录下输入`git clone https://github.com/landerqi/lightqi.git themes/lightqi`。再修改hexo/_config.yml的theme为lightqi即可__
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/hexo/">hexo</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/07/14/在git-Bash下进行复制粘贴/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/06/16/Sublime-Text-3-插件安装方法及热门插件推荐/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

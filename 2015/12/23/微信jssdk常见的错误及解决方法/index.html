@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>微信jssdk常见的错误及解决方法 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="微信jssdk常见的错误及解决方法"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-23T09:48:19.000Z"><a href="/2015/12/23/微信jssdk常见的错误及解决方法/">2015-12-23</a></time>
+      
+      
+  
+    <h1 class="title">微信jssdk常见的错误及解决方法</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h6><span id="转至-bestsdkcom">转至 </span></h6><p>非常详细，存一下，方便以后查阅。<br>调用config 接口的时候传入参数 debug: true 可以开启debug模式，页面会alert出错误信息。以下为常见错误及解决方法：</p>
+<ul>
+<li><p><strong>加重：当所有config:ok, 所有信息都正确的时候，但是分享不会使用自定义的内容，也没有任何报错，那么很有可能是账号过期了！！！需要再交费了！</strong></p>
+</li>
+<li><p>invalid url domain当前页面所在域名与使用的appid没有绑定，请确认正确填写绑定的域名，如果使用了端口号，则配置的绑定域名也要加上端口号（一个appid可以绑定三个有效域名，见 目录1.1.1）。</p>
+</li>
+<li><p>invalid signature签名错误。建议按如下顺序检查：</p>
+<ul>
+<li>确认签名算法正确，可用 <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign</a> 页面工具进行校验。</li>
+<li>确认config中nonceStr__（js中驼峰标准大写S）__, timestamp与用以签名中的对应noncestr, timestamp一致。</li>
+<li>确认url是页面完整的url(请在当前页面alert(location.href.split(‘#’)[0])确认)，包括’http(s)://‘部分，以及’？’后面的GET参数部分,但不包括’#’hash后面的部分。</li>
+<li>确认 config 中的 appid 与用来获取 jsapi_ticket 的 appid 一致。</li>
+<li>确保一定缓存access_token和jsapi_ticket。</li>
+<li>确保你获取用来签名的url是动态获取的，动态页面可参见实例代码中php的实现方式。如果是html的静态页面在前端通过ajax将url传到后台签名，前端需要用js获取当前页面除去’#’hash部分的链接（可用location.href.split(‘#’)[0]获取,而且需要encodeURIComponent），因为页面一旦分享，微信客户端会在你的链接末尾加入其它参数，如果不是动态获取当前链接，将导致分享后的页面签名失败。</li>
+</ul>
+  <span id="more"></span></li>
+<li><p>the permission value is offline verifying这个错误是因为config没有正确执行，或者是调用的JSAPI没有传入config的jsApiList参数中。建议按如下顺序检查：</p>
+<ul>
+<li>确认config正确通过。</li>
+<li>如果是在页面加载好时就调用了JSAPI，则必须写在wx.ready的回调中。</li>
+<li>确认config的jsApiList参数包含了这个JSAPI。<br></li>
+</ul>
+</li>
+<li><p>permission denied该公众号没有权限使用这个JSAPI，或者是调用的JSAPI没有传入config的jsApiList参数中（部分接口需要认证之后才能使用）。</p>
+  <br></li>
+<li><p>function not exist当前客户端版本不支持该接口，请升级到新版体验。</p>
+  <br></li>
+<li><p>为什么6.0.1版本config:ok，但是6.0.2版本之后不ok（因为6.0.2版本之前没有做权限验证，所以config都是ok，但这并不意味着你config中的签名是OK的，请在6.0.2检验是否生成正确的签名以保证config在高版本中也ok。）</p>
+  <br></li>
+<li><p>Android用户已取消分享朋友圈，但仍返回分享成功（微信团队已修复此问题，已在Android6.1版本上线）</p>
+  <br></li>
+<li><p>在iOS和Android都无法分享（请确认公众号已经认证，只有认证的公众号才具有分享相关接口权限，如果确实已经认证，则要检查监听接口是否在wx.ready回调函数中触发）</p>
+  <br></li>
+<li><p>Android6.0.2部分客户端无法使用监听分享接口（Android6.0.2之前以及6.0.2.58以后的版本都不会有问题，请从官网weixin.qq.com下载最新版本体验）</p>
+  <br></li>
+<li><p>服务上线之后无法获取jsapi_ticket，自己测试时没问题。（因为access_token和jsapi_ticket必须要在自己的服务器缓存，否则上线后会触发频率限制。请确保一定对token和ticket做缓存以减少2次服务器请求，不仅可以避免触发频率限制，还加快你们自己的服务速度。目前为了方便测试提供了1w的获取量，超过阀值后，服务将不再可用，请确保在服务上线前一定全局缓存access_token和jsapi_ticket，两者有效期均为7200秒，否则一旦上线触发频率限制，服务将不再可用）。</p>
+  <br></li>
+<li><p>Android部分版本上传图片接口偶尔卡住（早期的Android6.0.2版本存在此问题，官方已修复，6.0.2.58之后的版本都支持，请从官网下载最新版本体验）</p>
+  <br></li>
+<li><p>uploadImage怎么传多图（目前只支持一次上传一张，多张图片需等前一张图片上传之后再调用该接口）</p>
+  <br></li>
+<li><p>没法对本地选择的图片进行预览（chooseImage接口本身就支持预览，不需要额外支持）</p>
+  <br></li>
+<li><p>通过a链接(例如先通过微信授权登录)跳转到b链接，invalid signature签名失败（后台生成签名的链接为使用jssdk的当前链接，也就是跳转后的b链接，请不要用微信登录的授权链接进行签名计算，后台签名的url一定是使用jssdk的当前页面的完整url除去’#’部分）</p>
+  <br></li>
+<li><p>出现config:fail错误（这是由于传入的config参数不全导致，请确保传入正确的appId、timestamp、nonceStr、signature和需要使用的jsApiList）</p>
+  <br></li>
+<li><p>如何把jsapi上传到微信的多媒体资源下载到自己的服务器（请参见文档中uploadVoice和uploadImage接口的备注说明）</p>
+  <br></li>
+<li><p>在Android中通过其他设备上传的serverId，能下载成功但无法播放（微信团队已经确认此问题，已在Android6.1版本中修复）</p>
+  <br></li>
+<li><p>Android通过jssdk上传到微信服务器，第三方再从微信下载到自己的服务器，会出现杂音（微信团队已经修复此问题，目前后台已优化上线）</p>
+  <br></li>
+<li><p>绑定父级域名，是否其子域名也是可用的（是的，合法的子域名在绑定父域名之后是完全支持的）</p>
+  <br></li>
+<li><p>在Android中通过扫一扫打开页面，再调用scanQRCode并返回数据给第三方，会直接退出当前页（微信团队已经确认此问题，已在Android6.1版本中修复）</p>
+  <br></li>
+<li><p>在iOS微信6.1版本中，分享的图片外链不显示，只能显示公众号页面内链的图片或者微信服务器的图片（微信团队已经确认此问题，会在6.2中修复）</p>
+  <br></li>
+<li><p>是否需要对低版本自己做兼容（jssdk都是兼容低版本的，不需要第三方自己额外做更多工作，但有的接口是6.0.2新引入的，只有新版才可调用）</p>
+  <br></li>
+<li><p>该公众号支付签名无效，无法发起该笔交易（请确保你使用的jweixin.js是官方线上版本，不仅可以减少用户流量，还有可能对某些bug进行修复，拷贝到第三方服务器中使用，官方将不对其出现的任何问题提供保障，具体支付签名算法可参考 JSSDK微信支付一栏）</p>
+  <br></li>
+<li><p>目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题会在Android6.2中修复</p>
+  <br></li>
+<li><p>uploadImage在chooseImage的回调中有时候Android会不执行，Android6.2会解决此问题，目前可以把调用uploadImage放在setTimeout中延迟100ms解决</p>
+  <br></li>
+<li><p>chooseImage返回的localId在Android6.1下显示模糊，6.2的版本会修复此问题</p>
+  <br></li>
+<li><p>require subscribe错误说明你没有订阅该测试号，该错误仅测试号会出现</p>
+  <br></li>
+<li><p>getLocation返回的坐标在openLocation有偏差，因为getLocation返回的是gps坐标，openLocation打开的腾讯地图为火星坐标，需要第三方自己做转换，6.2版本会支持直接获取火星坐标</p>
+</li>
+<li><p>查看公众号（未添加）: “menuItem:addContact”不显示，目前仅有从公众号传播出去的链接才能显示，来源必须是公众号</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/微信/">微信</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2016/03/17/vim常用插件/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/12/08/Hexo生成文章目录/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

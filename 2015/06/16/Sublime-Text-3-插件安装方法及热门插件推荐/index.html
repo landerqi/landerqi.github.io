@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sublime Text 3 插件安装方法及热门插件推荐 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Sublime Text 3 插件安装方法及热门插件推荐"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-16T15:15:40.000Z"><a href="/2015/06/16/Sublime-Text-3-插件安装方法及热门插件推荐/">2015-06-16</a></time>
+      
+      
+  
+    <h1 class="title">Sublime Text 3 插件安装方法及热门插件推荐</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前工作的时候一直用的Webstorm（前端开发神器）。在性能高的电脑上用Webstorm挺好的，可是Webstorm在我的macbook air运行起来非常卡。所以决定使用一下Sublime Text :)</p>
+<p>Sublime Text是一款非常精巧的文本编辑器，速度快得出奇。这些非常棒的特性包括任意跳转（Goto Anything）、多重选择（multiple selections）、指令面板（command palette）、免打扰模式（distraction free mode）、分区编辑（split editing）、快速项目切换（instant project switch），你还可以随意地自定义更多功能。还有，这款编辑器支持Mac、Windows和Linux平台。</p>
+<p><strong>因为自己一直习惯用vim快捷键，以及用惯了Webstorm的自动保存功能，所以做了些简单配置：</strong><br><strong>preferences-&gt; User Settings</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;ignored_packages&quot;</span>: [], <span class="comment">//使用vim快捷键</span></span><br><span class="line">    <span class="attr">&quot;save_on_focus_lost&quot;</span>: <span class="literal">true</span>, <span class="comment">//这是设置当Sublime 失去焦点后自动保存</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>##插件安装</p>
+<ol>
+<li><p>直接安装<br> 可以直接下载安装包解压缩到Packages目录（菜单-&gt;preferences-&gt;packages）。</p>
+</li>
+<li><p>使用Package Control组件安装（个人比较喜欢的方式，方便快捷）</p>
+<ul>
+<li>按Ctrl+`调出console（注：安装有QQ输入法的这个快捷键会有冲突的，输入法属性设置-输入法管理-取消热键切换至QQ拼音）</li>
+<li>粘贴以下代码到底部命令行并回车：<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">&#x27;Package Control.sublime-package&#x27;</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">open</span>(os.path.<span class="keyword">join</span>(ipp, pf), <span class="string">&#x27;wb&#x27;</span>).<span class="keyword">write</span>(urllib.request.urlopen( <span class="string">&#x27;http://sublime.wbond.net/&#x27;</span> + pf.replace(<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;%20&#x27;</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure></li>
+<li>重启Sublime Text 3。</li>
+<li>如果在Perferences-&gt;package settings中看到package control这一项，则安装成功。</li>
+<li>Sublime Text2 的代码<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib2,<span class="built_in">os</span>; pf=<span class="string">&#x27;Package Control.sublime-package&#x27;</span>; ipp = sublime.installed_packages_path(); <span class="built_in">os</span>.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">os</span>.<span class="built_in">path</span>.exists(ipp) <span class="keyword">else</span> None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); <span class="built_in">open</span>( <span class="built_in">os</span>.<span class="built_in">path</span>.join( ipp, pf), <span class="string">&#x27;wb&#x27;</span> ).<span class="built_in">write</span>( urllib2.urlopen( <span class="string">&#x27;http://sublime.wbond.net/&#x27;</span> +pf.replace( <span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;%20&#x27;</span> )).<span class="built_in">read</span>()); <span class="built_in">print</span>( <span class="string">&#x27;Please restart Sublime Text to finish installation&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<p><strong>用Package Control安装插件的方法：</strong></p>
+<ul>
+<li>按下Ctrl(command)+Shift+P调出命令面板</li>
+<li>输入install 调出 Install Package 选项并回车，然后在列表中选中要安装的插件。(删除的话输入remove 调出Remove Package)</li>
+</ul>
+<br>
+##常用插件
+
+<p>###<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/Emmet">Emmet</a>(<a target="_blank" rel="noopener" href="https://github.com/sergeche/emmet-sublime">Github</a>)<br>Emmet 其前身是 Zen Coding。它让编写 HTML 代码变得简单。Emmet 的基本用法是：输入简写形式，然后按 Tab 键。<br>关于 Emmet 的更多用法，请看<a target="_blank" rel="noopener" href="http://docs.emmet.io/">官方文档</a>，这份<a target="_blank" rel="noopener" href="http://docs.emmet.io/cheat-sheet/">速查表</a>可以帮你快速记忆简写形式。<br><br></p>
+<p>###<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/Theme%20-%20Soda">Theme – Soda</a> (<a target="_blank" rel="noopener" href="https://github.com/buymeasoda/soda-theme">GitHub</a>)<br><img src="https://fesystem.bs2dl.yy.com/1569383230508157"><br><img src="https://fesystem.bs2dl.yy.com/1569383255363438"><br>安装后你还需要在你的配置文件（菜单 Preferences -&gt; Settings - User）中加入”theme”: “Soda Light.sublime-theme” 或 “theme”: “Soda Dark.sublime-theme”。要达到图中的效果，你还需要下载与之搭配的 color scheme。</p>
+<p>如果你喜欢 Soda Dark 和 Monokai，我建议你使用 <a target="_blank" rel="noopener" href="https://sublime.wbond.net/packages/Monokai%20Extended">Monokai Extended</a> (<a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/sublime-monokai-extended">GitHub</a>)。这个 color scheme 是 Monokai Soda 的增强，如果再配合 <a target="_blank" rel="noopener" href="https://sublime.wbond.net/packages/Markdown%20Extended">Markdown Extended</a> (<a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/sublime-markdown-extended">GitHub</a>)，将大大改善 Markdown 的语法高亮。<br><img src="https://fesystem.bs2dl.yy.com/1569383284839445"><br><br></p>
+<p>###JS Format(<a target="_blank" rel="noopener" href="https://github.com/jdc0589/JsFormat">Github</a>)<br>JS代码格式化插件。<br><br></p>
+<p>###Bracket Highlighter(<a target="_blank" rel="noopener" href="https://github.com/facelessuser/BracketHighlighter">Github</a>)<br>类似于代码匹配，可以匹配括号，引号等符号内的范围。<br><br></p>
+<p>###Sublime Prefixr(<a target="_blank" rel="noopener" href="https://github.com/wbond/sublime_prefixr">Github</a>)<br>Prefixr，CSS3 私有前缀自动补全插件</p>
+<br>
+###[Alignment](https://sublime.wbond.net/packages/Alignment)([Github](https://github.com/wbond/sublime_alignment))
+代码中“＝”自动对齐插件，快捷键： ctrl+alt+a（Mac OS 上是 cmd+ctrl+a）。
+<br>
+
+<p>###<a target="_blank" rel="noopener" href="https://packagecontrol.io/packages/SublimeCodeIntel">Sublime​Code​Intel</a> (<a target="_blank" rel="noopener" href="https://github.com/SublimeCodeIntel/SublimeCodeIntel">GitHub</a>)<br>代码自动提示,详细的<a target="_blank" rel="noopener" href="https://github.com/SublimeCodeIntel/SublimeCodeIntel/blob/development/README.rst#configuring">说明</a>。<br>不建议把 Sublime​Code​Intel 与其他单个语言的扩展 package 一同使用，虽然很多语言扩展 package 比 Sublime​Code​Intel 的代码提示功能要完善。如果需要一同使用，请在用户配置文件（菜单Preferences -&gt; Package Settings -&gt; Sublime​Code​Intel -&gt; Settings - User 中加入下面的内容，并去掉要禁用的语言。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;codeintel_enabled_languages&quot;</span>:</span><br><span class="line"> [<span class="meta"></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;JavaScript&quot;</span>, <span class="meta-string">&quot;Mason&quot;</span>, <span class="meta-string">&quot;XBL&quot;</span>, <span class="meta-string">&quot;XUL&quot;</span>, <span class="meta-string">&quot;RHTML&quot;</span>, <span class="meta-string">&quot;SCSS&quot;</span>, <span class="meta-string">&quot;Python&quot;</span>, <span class="meta-string">&quot;HTML&quot;</span>,<span class="meta-string">&quot;Ruby&quot;</span>, <span class="meta-string">&quot;Python3&quot;</span>, <span class="meta-string">&quot;XML&quot;</span>, <span class="meta-string">&quot;Sass&quot;</span>, <span class="meta-string">&quot;XSLT&quot;</span>, <span class="meta-string">&quot;Django&quot;</span>, <span class="meta-string">&quot;HTML5&quot;</span>, <span class="meta-string">&quot;Perl&quot;</span>, <span class="meta-string">&quot;CSS&quot;</span>,<span class="meta-string">&quot;Twig&quot;</span>, <span class="meta-string">&quot;Less&quot;</span>, <span class="meta-string">&quot;Smarty&quot;</span>, <span class="meta-string">&quot;Node.js&quot;</span>, <span class="meta-string">&quot;Tcl&quot;</span>, <span class="meta-string">&quot;TemplateToolkit&quot;</span>, <span class="meta-string">&quot;PHP&quot;</span></span></span><br><span class="line"><span class="meta"> </span>],</span><br><span class="line"> <span class="string">&quot;codeintel_live_enabled_languages&quot;</span>:</span><br><span class="line"> [<span class="meta"></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;JavaScript&quot;</span>, <span class="meta-string">&quot;Mason&quot;</span>, <span class="meta-string">&quot;XBL&quot;</span>, <span class="meta-string">&quot;XUL&quot;</span>, <span class="meta-string">&quot;RHTML&quot;</span>, <span class="meta-string">&quot;SCSS&quot;</span>, <span class="meta-string">&quot;Python&quot;</span>, <span class="meta-string">&quot;HTML&quot;</span>,<span class="meta-string">&quot;Ruby&quot;</span>, <span class="meta-string">&quot;Python3&quot;</span>, <span class="meta-string">&quot;XML&quot;</span>, <span class="meta-string">&quot;Sass&quot;</span>, <span class="meta-string">&quot;XSLT&quot;</span>, <span class="meta-string">&quot;Django&quot;</span>, <span class="meta-string">&quot;HTML5&quot;</span>, <span class="meta-string">&quot;Perl&quot;</span>, <span class="meta-string">&quot;CSS&quot;</span>,<span class="meta-string">&quot;Twig&quot;</span>, <span class="meta-string">&quot;Less&quot;</span>, <span class="meta-string">&quot;Smarty&quot;</span>, <span class="meta-string">&quot;Node.js&quot;</span>, <span class="meta-string">&quot;Tcl&quot;</span>, <span class="meta-string">&quot;TemplateToolkit&quot;</span>, <span class="meta-string">&quot;PHP&quot;</span></span></span><br><span class="line"><span class="meta"> </span>]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>###AutoFileName<br>自动补全文件(目录)名，很重要的插件<br><br></p>
+<p>###其他语法支持<br>如果有一个 SublimeText 本身所带语言包不包含的语言，它就无法显示适当的语法高亮。这些语言包括 LESS，Sass，SCSS，Styls 和 Jade（或其它）。如果您正在使用这些语言，你可能要安装它们的语法插件。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/danro/LESS-sublime">LESS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nathos/sass-textmate-bundle">SASS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MarioRicalde/SCSS.tmbundle">SCSS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/billymoon/Stylus">Styls</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/P233/Jade-Snippets-for-Sublime-Text-2">Jade</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/前端/">前端</a>, <a href="/tags/工具/">工具</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/06/23/hexo博客优化/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/06/15/漫时光中山大学/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

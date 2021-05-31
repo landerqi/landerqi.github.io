@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vim使用技巧 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="vim使用技巧"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-25T07:23:09.000Z"><a href="/2016/03/25/vim使用技巧/">2016-03-25</a></time>
+      
+      
+  
+    <h1 class="title">vim使用技巧</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这篇文章想给大家介绍一些vim非常实用的小技巧，相信大家用熟练了以后，会更加喜欢vim的。里面有些是自己在使用中需要用到的，所以搜集整理一下，也方便日后自己查询使用。</p>
+<span id="more"></span>
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%A4%9A%E8%A1%8C%E7%BC%A9%E8%BF%9B">多行缩进</a></li>
+<li><a href="#%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A">多行注释</a></li>
+<li><a href="#ls%E5%91%BD%E4%BB%A4"><code>:ls</code>命令</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%AF%B9%E6%AF%94">文件对比</a></li>
+<li><a href="#%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE">实用快捷键</a></li>
+<li><a href="#vimgrep%E6%90%9C%E7%B4%A2">vimgrep搜索</a></li>
+</ul>
+<!-- tocstop -->
+
+<h3><span id="多行缩进">多行缩进</span></h3><p>大家在复制粘贴代码的时候，经常会需要用到多行缩进，vim 中在<code>normal mode(命令模式)</code>下命令<code>&gt;&gt;</code>是对当前行增加缩进，命令<code>&lt;&lt;</code>是对当前行减少缩进。<br>这个命令也像vim中大多数命令一样，可以在前面加个数字，比如<code>3&gt;&gt;</code>，这样就是给3行增加缩进。<br>在<code>insert/Replace Mode</code>下，<code>Ctrl-Shift-t</code>可以增加当前行的缩进，而<code>Ctrl-Shift-d</code>则可以减少当前行的缩进。在插入模式中用这种方式增加当行缩进还是挺方便的。</p>
+<h3><span id="多行注释">多行注释</span></h3><p>这也是经常会用到的命令，多行注释有好几种方法。</p>
+<ol>
+<li>在<code>normal mode</code>下直接<code>\cc</code>注释当前行，在<code>normal mode</code>下按<code>v</code>进入 <code>visual mode(可视化模式)</code>，或者直接<code>Shift-v</code>这样可以直接选中一行，然后再上下移动光标，选中多行<code>\cc</code>即可注释多行。</li>
+<li>在<code>normal mode</code>下<code>Ctrl-v</code>进入块可视化模式，上下移动光标选中多行，再<code>Shift-i</code>，之后输入’\(你的注释符号)’，输入好后按两下<code>Esc</code>。</li>
+<li>下面是我最常用的一种：<code>:1,3s#^#//#g</code>，用<code>#</code>号做分隔符是特殊情况，一般都是用<code>/</code>做分隔符，1, 3代表起止行号，这个命令的意思就是从1行到3行的行首加上<code>//</code>，删除命令<code>:1,3s#^//##g</code>。#号注释: <code>:1,3s/^/#/g</code>, 删除<code>:1,3s/^#//g</code>。大家有没有发现用这种方式也可以做多行缩进。</li>
+</ol>
+<h3><span id="ls命令"><code>:ls</code>命令</span></h3><p>此命令可以查看缓存区，每个缓存文件前面都有一个序号<code>n</code>，再输入<code>:buff n</code>可以跳转到此缓存文件，(有时间再配上截图)</p>
+<h3><span id="文件对比">文件对比</span></h3><ol>
+<li>使用vim的比较模式打开两个文件，在终端输入：<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vim</span> -d file1 file2</span><br><span class="line">或</span><br><span class="line">vimdiff file1 file2</span><br></pre></td></tr></table></figure></li>
+<li>分别在要对比的两个文件中输入<code>diffthis</code>。</li>
+<li>如果已经打开了文件file1，再打开另一个文件file2进行比较：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">vert</span> <span class="keyword">diffsplit</span> file2     //如果没有用<span class="keyword">vert</span>命令，<span class="keyword">diffsplit</span>则会分上下两个窗口。</span><br></pre></td></tr></table></figure></li>
+<li>如果更改了某个窗口的内容，vim又没有自动更新diff检查，可以使用如下命令更新：<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:diffupdate</span></span><br></pre></td></tr></table></figure></li>
+<li>定位到不同差异点：<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[c     <span class="regexp">//</span>跳到前一个不同点</span><br><span class="line">]c     <span class="regexp">//</span>跳到后一个不同点</span><br></pre></td></tr></table></figure></li>
+<li>合并文档：<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp          <span class="regexp">//</span>将差异点的当前文档内容应用到另一文档（diff put）</span><br><span class="line"><span class="keyword">do</span>          <span class="regexp">//</span>将差异点的另一文档的内容拷贝到当前文档（diff get）,之所以不用dg，是因为已经有其他快捷键占用了。</span><br></pre></td></tr></table></figure></li>
+<li>上下文的展开和查看:<br>比较和合并文件的时候经常需要结合上下文来确定最终要采取的操作。Vimdiff 缺省是会把不同之处上下各 6 行的文本都显示出来以供参考。其他的相同的文本行被自动折叠。如果希望修改缺省的上下文行数为3行，可以这样设置：<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="builtin-name">set</span> <span class="attribute">diffopt</span>=context:3</span><br></pre></td></tr></table></figure>
+<h3><span id="实用快捷键">实用快捷键</span></h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">zf           <span class="regexp">//</span>创建折叠（使用数字表示创建有当前行到下多少行的折叠，比如<span class="number">3</span>j就创建包括<span class="number">4</span>行的折叠）</span><br><span class="line">zo           <span class="regexp">//</span>打开折叠(l也可以打开折叠）</span><br><span class="line">zc           <span class="regexp">//</span>关闭当前折叠</span><br><span class="line">zm           <span class="regexp">//</span>关闭所有折叠</span><br><span class="line">zr           <span class="regexp">//</span>打开所有折叠</span><br><span class="line">zE           <span class="regexp">//</span>删除所有折叠</span><br><span class="line">zd           <span class="regexp">//</span>删除当前折叠</span><br><span class="line">za           <span class="regexp">//</span>若当前打开则关闭，若当前关闭则打开</span><br><span class="line">zj           <span class="regexp">//</span>到下一折叠的开始处</span><br><span class="line">zk           <span class="regexp">//</span>到上一折叠的末尾</span><br><span class="line">C            <span class="regexp">//</span>删除当前行光标之后的字符，并开始输入</span><br><span class="line">f            <span class="regexp">//</span>f 后面输入x, 就是在当前行光标后查找x字符，如果是<span class="number">2</span>fx就是查找第二个</span><br><span class="line">F            <span class="regexp">//</span>F 后面输入x, 就是在当前行光标前查找x字符，如果是<span class="number">2</span>Fx就是查找第二个</span><br><span class="line">u            <span class="regexp">//</span>回退</span><br><span class="line">shift-v      <span class="regexp">//</span>选中整行,  选中某些字母后按Ｕ，字母变大写；按u，变小写</span><br><span class="line">ctrl-r       <span class="regexp">//</span>撤销回退</span><br><span class="line">ctrl-w w     <span class="regexp">//</span>跳到下一个窗口</span><br><span class="line">ctrl-w h     <span class="regexp">//</span>跳到左侧窗口</span><br><span class="line">ctrl-w l     <span class="regexp">//</span>跳到右侧窗口</span><br><span class="line">ctrl-w j     <span class="regexp">//</span>跳到下方的窗口</span><br><span class="line">ctrl-w k     <span class="regexp">//</span>跳到上方的窗口</span><br><span class="line">ctrl-w &lt;     <span class="regexp">//</span>缩小窗口宽度，前面加数字n，就是缩小n列</span><br><span class="line">ctrl-w &gt;     <span class="regexp">//</span>扩大窗口宽度，前面加数字n，就是扩大n列</span><br><span class="line">ctrl-w -     <span class="regexp">//</span>减小窗口高度，前面加数字n，就是减小n行</span><br><span class="line">ctrl-w +     <span class="regexp">//</span>扩大窗口高度，前面加数字n，就是扩大n行</span><br><span class="line">ctrl-w =     <span class="regexp">//</span>窗口高度等分</span><br><span class="line">ctrl-w _     <span class="regexp">//</span>窗口高度最大化</span><br><span class="line">ctrl-w s     <span class="regexp">//</span>上下分割当前窗口</span><br><span class="line">ctrl-w v     <span class="regexp">//</span>左右分割当前窗口</span><br><span class="line">ctrl-f       <span class="regexp">//</span>向下翻一屏</span><br><span class="line">ctrl-d       <span class="regexp">//</span>向下翻半屏</span><br><span class="line">ctrl-b       <span class="regexp">//</span>向上翻一屏</span><br><span class="line">ctrl-u       <span class="regexp">//</span>向上翻半屏</span><br></pre></td></tr></table></figure>
+<h3><span id="vimgrep搜索">vimgrep搜索</span></h3></li>
+</ol>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vimgrep</span> /匹配模式/[g][<span class="keyword">j</span>] 要搜索的文件/范围</span><br><span class="line">g：表示是否把每一行的多个匹配结果都加入</span><br><span class="line"><span class="keyword">j</span>：表示是否搜索完后定位到第一个匹配位置</span><br><span class="line"></span><br><span class="line"><span class="keyword">vimgrep</span> /pattern/ %             在当前打开文件中查找</span><br><span class="line"><span class="keyword">vimgrep</span> /pattern/ *             在当前目录下查找所有</span><br><span class="line"><span class="keyword">vimgrep</span> /pattern/ **            在当前目录及子目录下查找所有</span><br><span class="line"><span class="keyword">vimgrep</span> /pattern/ *.<span class="keyword">c</span>           查找当前目录下所有.<span class="keyword">c</span>文件</span><br><span class="line"><span class="keyword">vimgrep</span> /pattern/ **/*          只查找子目录</span><br><span class="line"></span><br><span class="line"><span class="keyword">cn</span>                              查找下一个</span><br><span class="line"><span class="keyword">cp</span>                              查找上一个</span><br><span class="line"><span class="keyword">copen</span>                           打开quickfix</span><br><span class="line"><span class="keyword">cw</span>                              打开quickfix</span><br><span class="line"><span class="keyword">cclose</span> | <span class="keyword">ccl</span>                    关闭qucikfix</span><br><span class="line"><span class="keyword">help</span> <span class="keyword">vimgrep</span>                    查看<span class="keyword">vimgrep</span>帮助</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/工具/">工具</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2016/05/12/如何不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2016/03/17/vim常用插件/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

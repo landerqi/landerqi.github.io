@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>卷积神经网络（CNN）原理及应用 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="卷积神经网络（CNN）原理及应用"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-07-04T05:16:06.000Z"><a href="/2019/07/04/卷积神经网络（CNN）原理及应用/">2019-07-04</a></time>
+      
+      
+  
+    <h1 class="title">卷积神经网络（CNN）原理及应用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2><span id="一-cnn原理">一、CNN原理</span></h2><p>卷积神经网络（CNN）主要是用于<strong>图像识别领域</strong>，它指的是一类网络，而不是某一种，其包含很多不同种结构的网络。不同的网络结构通常表现会不一样。从CNN的一些典型结构中，可以看到这些网络创造者非常有创造力，很多结构都非常巧妙，有机会再介绍现今主流的一些典型结构。 现在我们先来简单介绍一下卷积神经网络的原理。</p>
+<p><strong>Very Deep Convolutional Networks for Large-Scale Image Recognition(2014), arXiv: 1409.1556:</strong></p>
+<img src="https://rhinosystem.bs2dl.yy.com/fes1562146667035866" width="600" alt="VGG">
+
+<span id="more"></span>
+
+<p>所有CNN最终都是把一张图片转化为<strong>特征向量</strong>，特征向量就相当于这张图片的DNA。就像<strong>上图VGG网络</strong>一样，通过多层的卷积，池化，全连接，降低图片维度，最后转化成了一个一维向量。这个向量就包含了图片的特征，当然这个特征不是肉眼上的图片特征，而是针对于神经网络的特征。</p>
+<p><strong>之所以用VGG举例，因为他的网络结构非常简洁，清晰，相当好理解，简单介绍一下：</strong></p>
+<ol>
+<li>他的输入是一张224x224 的三通道图片，经过两层卷积之后，图片维度不变，通道数增加到了64。</li>
+<li>之后那个红色的层是最大池化（max pooling）把图片维度变成了112x112。后续就是不断重复步骤1，2。</li>
+<li>当变成1维向量之后，经过全连接（fully connected）加ReLU激活，softmax处理之后，变成了一个包含1000个数字的特征向量。</li>
+</ol>
+<p><strong>以上就是CNN所做的事情。</strong></p>
+<h2><span id="二-cnn如何训练">二、 CNN如何训练</span></h2><h3><span id="1-卷积神经网络的前向传播过程">1. 卷积神经网络的前向传播过程</span></h3><p>在前向传播过程中，输入的图形数据经过多层卷积层的卷积和池化处理，提出特征向量，将特征向量传入全连接层中，得出分类识别的结果。当输出的结果与我们的期望值相符时，输出结果。</p>
+<h4><span id="11-前向传播中的卷积操作">1.1 前向传播中的卷积操作</span></h4><ul>
+<li>用一个小的权重矩阵去覆盖输入数据，对应位置加权相乘，其和作为结果的一个像素点；</li>
+<li>这个权重在输入数据上滑动，形成一张新的矩阵：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562213771124475" width="200" alt="卷积"></li>
+<li>这个权重矩阵称为卷积核（convolution kernel）；</li>
+<li>其覆盖位置称为感受野（receptive field）；</li>
+<li>参数共享；</li>
+<li>滑动的像素数量叫做步长（stride）:<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562214001010487" width="150" alt="卷积"></li>
+<li>以卷积核的边还是中心点作为开始/结束的依据，决定了卷积的补齐（padding）方式。上面的图片是valid方式（这种方式新的矩阵维度可能会降低），而same方式则会在图像边缘用0补齐（这种方式图像维度不会降低）：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562214361852171" width="217" alt="卷积"></li>
+<li>如果输入通道不只一个，那么卷积核是三阶的。所有通道的结果累加：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562214470197519" width="232" alt="卷积"></li>
+</ul>
+<p>如图：<br><br><img src="https://rhinosystem.bs2dl.yy.com/fes156221464750468" width="644" alt="卷积"></p>
+<h4><span id="12-前向传播中的池化操作">1.2 前向传播中的池化操作</span></h4><p>池化又称为降采样（down_sampling），类型：</p>
+<ol>
+<li>最大池化（max pooling）：在感受野内取最大值输出；</li>
+<li>平均池化（average pooling）：在感受野内取平均值进行输出；</li>
+<li>其他如L2池化等。</li>
+</ol>
+<p>理解：</p>
+<ul>
+<li>一个选择框，将输入数据某个范围（矩阵）的所有数值进行相应计算，得到一个新的值，作为结果的一个像素点；</li>
+<li>池化也有步长和补齐的概念，但是很少使用，通常选择框以不重叠的方式，在padding=0的输入数据上滑动，生成一张新的特征图：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562215203483923" width="290" alt="卷积">
+<img src="https://rhinosystem.bs2dl.yy.com/fes1562215198177517" width="574" alt="卷积"></li>
+</ul>
+<h4><span id="13-前向传播中的全连接">1.3 前向传播中的全连接</span></h4><p>特征图进过卷积层和下采样层的特征提取之后，将提取出来的特征传到全连接层中，通过全连接层，进行分类，获得分类模型，得到最后的结果。</p>
+<h3><span id="2-卷积神经网络的反向传播过程">2. 卷积神经网络的反向传播过程</span></h3><p>当卷积神经网络输出的结果与我们的期望值不相符时，则进行反向传播过程。求出结果与期望值的误差，再将误差一层一层的返回，计算出每一层的误差，然后进行权值更新。</p>
+<h3><span id="3-卷积神经网络的权值更新">3. 卷积神经网络的权值更新</span></h3><p>卷积层的误差更新过程为：将误差矩阵当做卷积核，卷积输入的特征图，并得到了权值的偏差矩阵，然后与原先的卷积核的权值相加，并得到了更新后的卷积核。</p>
+<p><strong>卷积神经网络的训练过程流程图：</strong></p>
+<img src="https://rhinosystem.bs2dl.yy.com/fes1562206854699605" width="500" alt="卷积神经网络的训练过程流程图">
+
+<p><strong>就像这张流程图一样，不断循环这个过程。最后得到一个稳定的权值和阈值。</strong></p>
+<p>目前主流框架是**pytorch(facebook)和tensorflow(google)**。<br><br><strong>举个例子(一个手写数字识别网络，其代码量也就100多行)：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"><span class="keyword">from</span> tinyenv.flags <span class="keyword">import</span> flags</span><br><span class="line"></span><br><span class="line">FLAGS = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span>():</span></span><br><span class="line">    mnist = input_data.read_data_sets(</span><br><span class="line">        FLAGS.data_dir, one_hot=<span class="literal">True</span>, fake_data=FLAGS.fake_data,</span><br><span class="line">    )</span><br><span class="line">    sess = tf.InteractiveSession()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;input&#x27;</span>):</span><br><span class="line">        x = tf.placeholder(tf.float32, [<span class="literal">None</span>, <span class="number">784</span>], name=<span class="string">&#x27;x-input&#x27;</span>)</span><br><span class="line">        y_ = tf.placeholder(tf.float32, [<span class="literal">None</span>, <span class="number">10</span>], name=<span class="string">&#x27;y-input&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;input_reshape&#x27;</span>):</span><br><span class="line">        image_shaped_input = tf.reshape(x, [-<span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>])</span><br><span class="line">        tf.summary.image(<span class="string">&#x27;input&#x27;</span>, image_shaped_input, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span>(<span class="params">shape</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;Create a weight variable with appropriate initialization.&quot;&quot;&quot;</span></span><br><span class="line">        initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>)</span><br><span class="line">        <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span>(<span class="params">shape</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;Create a bias variable with appropriate initialization.&quot;&quot;&quot;</span></span><br><span class="line">        initial = tf.constant(<span class="number">0.1</span>, shape=shape)</span><br><span class="line">        <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">variable_summaries</span>(<span class="params">var</span>):</span></span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;summaries&#x27;</span>):</span><br><span class="line">            mean = tf.reduce_mean(var)</span><br><span class="line">            tf.summary.scalar(<span class="string">&#x27;mean&#x27;</span>, mean)</span><br><span class="line">            <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;stddev&#x27;</span>):</span><br><span class="line">                stddev = tf.sqrt(tf.reduce_mean(tf.square(var - mean)))</span><br><span class="line">            tf.summary.scalar(<span class="string">&#x27;stddev&#x27;</span>, stddev)</span><br><span class="line">            tf.summary.scalar(<span class="string">&#x27;max&#x27;</span>, tf.reduce_max(var))</span><br><span class="line">            tf.summary.scalar(<span class="string">&#x27;min&#x27;</span>, tf.reduce_min(var))</span><br><span class="line">            tf.summary.histogram(<span class="string">&#x27;histogram&#x27;</span>, var)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nn_layer</span>(<span class="params">input_tensor, input_dim, output_dim, layer_name,</span></span></span><br><span class="line"><span class="params"><span class="function">                 act=tf.nn.relu</span>):</span></span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(layer_name):</span><br><span class="line">            <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;weights&#x27;</span>):</span><br><span class="line">                weights = weight_variable([input_dim, output_dim])</span><br><span class="line">                variable_summaries(weights)</span><br><span class="line">            <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;biases&#x27;</span>):</span><br><span class="line">                biases = bias_variable([output_dim])</span><br><span class="line">                variable_summaries(biases)</span><br><span class="line">            <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;Wx_plus_b&#x27;</span>):</span><br><span class="line">                preactivate = tf.matmul(input_tensor, weights) + biases</span><br><span class="line">                tf.summary.histogram(<span class="string">&#x27;pre_activations&#x27;</span>, preactivate)</span><br><span class="line">            activations = act(preactivate, name=<span class="string">&#x27;activation&#x27;</span>)</span><br><span class="line">            tf.summary.histogram(<span class="string">&#x27;activations&#x27;</span>, activations)</span><br><span class="line">            <span class="keyword">return</span> activations</span><br><span class="line"></span><br><span class="line">    hidden1 = nn_layer(x, <span class="number">784</span>, <span class="number">500</span>, <span class="string">&#x27;layer1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;dropout&#x27;</span>):</span><br><span class="line">        keep_prob = tf.placeholder(tf.float32)</span><br><span class="line">        tf.summary.scalar(<span class="string">&#x27;dropout_keep_probability&#x27;</span>, keep_prob)</span><br><span class="line">        dropped = tf.nn.dropout(hidden1, keep_prob)</span><br><span class="line"></span><br><span class="line">    y = nn_layer(dropped, <span class="number">500</span>, <span class="number">10</span>, <span class="string">&#x27;layer2&#x27;</span>, act=tf.identity)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;cross_entropy&#x27;</span>):</span><br><span class="line">        diff = tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y)</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;total&#x27;</span>):</span><br><span class="line">            cross_entropy = tf.reduce_mean(diff)</span><br><span class="line">    tf.summary.scalar(<span class="string">&#x27;cross_entropy&#x27;</span>, cross_entropy)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;train&#x27;</span>):</span><br><span class="line">        train_step = tf.train.AdamOptimizer(FLAGS.learning_rate).minimize(</span><br><span class="line">            cross_entropy)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;accuracy&#x27;</span>):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;correct_prediction&#x27;</span>):</span><br><span class="line">            correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;accuracy&#x27;</span>):</span><br><span class="line">            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line">    tf.summary.scalar(<span class="string">&#x27;accuracy&#x27;</span>, accuracy)</span><br><span class="line"></span><br><span class="line">    merged = tf.summary.merge_all()</span><br><span class="line">    train_writer = tf.summary.FileWriter(FLAGS.log_dir + <span class="string">&#x27;/train&#x27;</span>, sess.graph)</span><br><span class="line">    test_writer = tf.summary.FileWriter(FLAGS.log_dir + <span class="string">&#x27;/test&#x27;</span>)</span><br><span class="line">    tf.global_variables_initializer().run()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feed_dict</span>(<span class="params">train</span>):</span></span><br><span class="line">        <span class="keyword">if</span> train <span class="keyword">or</span> FLAGS.fake_data:</span><br><span class="line">            xs, ys = mnist.train.next_batch(<span class="number">100</span>, fake_data=FLAGS.fake_data)</span><br><span class="line">            k = FLAGS.dropout</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            xs, ys = mnist.test.images, mnist.test.labels</span><br><span class="line">            k = <span class="number">1.0</span></span><br><span class="line">        <span class="keyword">return</span> &#123;x: xs, y_: ys, keep_prob: k&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(FLAGS.iterations):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">10</span> == <span class="number">0</span>:  <span class="comment"># Record summaries and test-set accuracy</span></span><br><span class="line">            summary, acc = sess.run(</span><br><span class="line">                [merged, accuracy], feed_dict=feed_dict(<span class="literal">False</span>))</span><br><span class="line">            test_writer.add_summary(summary, i)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;Accuracy at step %s: %s&#x27;</span> % (i, acc))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">100</span> == <span class="number">99</span>:</span><br><span class="line">                run_options = tf.RunOptions(</span><br><span class="line">                    trace_level=tf.RunOptions.FULL_TRACE)</span><br><span class="line">                run_metadata = tf.RunMetadata()</span><br><span class="line">                summary, _ = sess.run([merged, train_step],</span><br><span class="line">                                      feed_dict=feed_dict(<span class="literal">True</span>),</span><br><span class="line">                                      options=run_options,</span><br><span class="line">                                      run_metadata=run_metadata)</span><br><span class="line">                train_writer.add_run_metadata(run_metadata, <span class="string">&#x27;step%03d&#x27;</span> % i)</span><br><span class="line">                train_writer.add_summary(summary, i)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                summary, _ = sess.run(</span><br><span class="line">                    [merged, train_step], feed_dict=feed_dict(<span class="literal">True</span>))</span><br><span class="line">                train_writer.add_summary(summary, i)</span><br><span class="line">    train_writer.close()</span><br><span class="line">    test_writer.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">_</span>):</span></span><br><span class="line">    <span class="keyword">if</span> tf.gfile.Exists(FLAGS.log_dir):</span><br><span class="line">        tf.gfile.DeleteRecursively(FLAGS.log_dir)</span><br><span class="line">    tf.gfile.MakeDirs(FLAGS.log_dir)</span><br><span class="line">    train()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    FLAGS = flags()</span><br><span class="line">    tf.app.run(main=main, argv=[sys.argv[<span class="number">0</span>]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>训练之后，其识别准确度已达到96.7%:<br><br><img src="https://rhinosystem.bs2dl.yy.com/fes1562216103780594" width="700" alt="运行结果"></p>
+<h2><span id="三-应用">三、 应用</span></h2><h3><span id="1-图片分类">1. 图片分类</span></h3><p>假设每张图片最后获得了6维特征向量v: [-0.24754368, -0.19974484, 0.45622883, 0.01130153, 0.08802839, -0.0419769]。<br><strong>我们要把图片分为3类， 那么分类矩阵就应该是6 x 3维的矩阵。</strong><br><strong>因为根据矩阵乘法：m,n维的矩阵乘以n,l维的矩阵，会得到一个m,l维的矩阵。</strong><br><strong>所以1 x 6维的矩阵乘以6 x 3维的矩阵最后会得到一个1 x 3的向量。</strong><br>如上述6维向量乘以分类矩阵之后得到：[-0.7777777, -0.9999999, 1.02222222]，那么很明显这张图片会被分到第三类。</p>
+<h3><span id="2-相似图搜索">2. 相似图搜索</span></h3><p>广泛应用的人脸识别其实就是相似图搜索，比对两张照片是不是同一个人，当两张照片是同一个人时，他的<strong>欧氏距离</strong>会非常接近，反之。</p>
+<img src="https://rhinosystem.bs2dl.yy.com/fes1562210643334534" width="616" alt="相似图搜索">
+
+<p>余弦距离：<br><br><img src="https://rhinosystem.bs2dl.yy.com/fes1562209420132736" width="346" alt="余弦距离"></p>
+<h3><span id="3对抗样本">3.对抗样本</span></h3><p>对抗样本和神经网络训练过程不同的是，他是固定权重，更新输入数据。比如输入一张猫的图片，人为的修改一点图片数据，肉眼上看还是一只猫，但是你告诉神经网络这是狗。最后大量数据训练这后，神经网络会把这些图片错误的分类到狗这一类。</p>
+<h2><span id="四-新技术">四、 新技术</span></h2><h3><span id="1-批归一化batch-normalization">1. 批归一化(Batch Normalization)</span></h3><p>相当于把数据缩放到了合适的位置，所以应该放在卷积之后，激活函数之前。能加快网络收敛速度。一堆公式，脑壳痛：</p>
+<img src="https://rhinosystem.bs2dl.yy.com/fes1562210403365769" width="580" alt="批归一化">
+
+
+<h3><span id="2-dropout还没有合适的中文翻译">2. Dropout(还没有合适的中文翻译)</span></h3><p>应用广泛。在标准 Dropout 的每轮迭代中，网络中的每个神经元以 p 的概率被丢弃。Dropout能够有效的改善过拟合的情况，提升泛化能力。前几天google申请的Dropout专利生效了。<br>Dropout实现要点：</p>
+<ul>
+<li>一般是实施在分类器之前（论文是放在最后一层分类器之后）；</li>
+<li>Dropout以概率p置零神经元，这种情况下，保留的神经元的输出要除以<code>1-p</code> (论文是在inference时把所有权重乘以p)；</li>
+<li>通常p初始值0.5。</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/AI/">AI</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2019/08/06/SwitchHosts在win10上提示无权限问题/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2019/07/02/卷积神经网络的发展/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

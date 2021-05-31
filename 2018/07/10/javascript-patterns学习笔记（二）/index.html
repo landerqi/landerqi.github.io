@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript-patterns学习笔记（二） | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="javascript-patterns学习笔记（二）"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-10T07:39:02.000Z"><a href="/2018/07/10/javascript-patterns学习笔记（二）/">2018-07-10</a></time>
+      
+      
+  
+    <h1 class="title">javascript-patterns学习笔记（二）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3><span id="原始值的包装对象">原始值的包装对象</span></h3><p>__JavaScript中有五种原始类型：数字、字符串、布尔值、null和undefined。__除了null和undefined之外，其他三种都有对应的“包装对象”（wrapper objects）。可以通过内置构造函数来生成包装对象，Number()、String()、和Boolean()。</p>
+<p>为了说明数字原始值和数字对象之间的区别，看一下下面这个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a primitive number</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n); <span class="comment">// &quot;number&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a Number object</span></span><br><span class="line"><span class="keyword">var</span> nobj = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nobj); <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>包装对象带有一些有用的属性和方法，比如，数字对象就带有toFixed()和toExponential()之类的方法。字符串对象带有substring()、chatAt()和toLowerCase()等方法以及length属性。这些方法非常方便，和原始值相比，这让包装对象具备了一定优势。其实原始值也可以调用这些方法，因为原始值会首先转换为一个临时对象，如果转换成功，则调用包装对象的方法。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a primitive string be used as an object</span></span><br><span class="line">var s = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">console.log(s.<span class="keyword">to</span><span class="constructor">UpperCase()</span>); <span class="comment">// &quot;HELLO&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// the value itself can act as an object</span></span><br><span class="line"><span class="string">&quot;monkey&quot;</span>.slice(<span class="number">3</span>, <span class="number">6</span>); <span class="comment">// &quot;key&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// same for numbers</span></span><br><span class="line">(<span class="number">22</span><span class="operator"> / </span><span class="number">7</span>).<span class="keyword">to</span><span class="constructor">Precision(3)</span>; <span class="comment">// &quot;3.14&quot;</span></span><br></pre></td></tr></table></figure>
+<p>因为原始值可以根据需要转换成对象，这样的话，也不必为了用包装对象的方法而将原始值手动“包装”成对象。比如，不必使用new String(“hi”)，直接使用”hi”即可。</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// avoid these:</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="type">String</span>(<span class="string">&quot;my string&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="type">Number</span>(<span class="number">101</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="type">Boolean</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// better and simpler:</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;my string&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">101</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>不得不使用包装对象的一个原因是，有时我们需要对值进行扩充并保持值的状态。原始值毕竟不是对象，不能直接对其进行扩充（译注：比如1.property = 2会报错）。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// primitive string</span></span><br><span class="line"><span class="keyword">var</span> greet = <span class="string">&quot;Hello there&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// primitive is converted to an object</span></span><br><span class="line"><span class="comment">// in order to use the split() method</span></span><br><span class="line">greet.split(<span class="string">&#x27; &#x27;</span>)[<span class="number">0</span>]; <span class="comment">// &quot;Hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// attemting to augment a primitive is not an error</span></span><br><span class="line">greet.smile = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// but it doesn&#x27;t actually work</span></span><br><span class="line"><span class="keyword">typeof</span> greet.smile; <span class="comment">// &quot;undefined&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在这段示例代码中，greet只是临时转换成了对象，以保证访问其属性/方法时不会出错。另一方面，如果greet通过new String()定义为一个对象，那么扩充smile属性就会按照期望的那样执行。对字符串、数字或布尔值的扩充并不常见，除非你清楚自己想要什么，否则不必使用包装对象。</p>
+<p>当省略new时，包装器将传给它的参数转换为原始值：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="number">1</span>); <span class="regexp">//</span> <span class="string">&quot;number&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="string">&quot;1&quot;</span>); <span class="regexp">//</span> <span class="string">&quot;number&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="keyword">new</span> <span class="built_in">Number</span>()); <span class="regexp">//</span> <span class="string">&quot;number&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">String</span>(<span class="number">1</span>); <span class="regexp">//</span> <span class="string">&quot;string&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Boolean</span>(<span class="number">1</span>); <span class="regexp">//</span> <span class="string">&quot;boolean&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3><span id="error-对象">Error 对象</span></h3><p>JavaScript中有很多内置的Error构造函数，比如Error()、SyntaxError()，TypeError()等等，这些“错误”通常和throw语句一起使用。这些构造函数创建的错误对象包含这些属性：</p>
+<h4><span id="name">name</span></h4><p>name属性是指创建这个对象的构造函数的名字，通常是“Error”，有时会有特定的名字比如“RangeError”</p>
+<h4><span id="message">message</span></h4><p>创建这个对象时传入构造函数的字符串</p>
+<p>错误对象还有其他一些属性，比如产生错误的行号和文件名，但这些属性是浏览器自行实现的，不同浏览器的实现也不一致，因此出于兼容性考虑，并不推荐使用这些属性。</p>
+<p>另一方面，throw可以抛出任何对象，并不限于“错误对象”，因此你可以根据需要抛出自定义的对象。这些对象包含属性“name”和“message”或其他你希望传递给异常处理逻辑的信息，异常处理逻辑由catch语句指定。你可以灵活运用抛出的错误对象，将程序从错误状态恢复至正常状态。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">try </span>&#123;</span><br><span class="line">    <span class="comment">// something bad happened, throw an error</span></span><br><span class="line">    <span class="class">throw </span>&#123;</span><br><span class="line"><span class="symbol">        name:</span> <span class="string">&quot;MyErrorType&quot;</span>, <span class="comment">// custom error type</span></span><br><span class="line"><span class="symbol">        message:</span> <span class="string">&quot;oops&quot;</span>,</span><br><span class="line"><span class="symbol">        extra:</span> <span class="string">&quot;This was rather embarrassing&quot;</span>,</span><br><span class="line"><span class="symbol">        remedy:</span> genericErrorHandler <span class="comment">// who should handle it</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">    <span class="comment">// inform the user</span></span><br><span class="line">    alert(e.message); <span class="comment">// &quot;oops&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// gracefully handle the error</span></span><br><span class="line">    e.remedy(); <span class="comment">// calls genericErrorHandler()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>通过new调用和省略new调用错误构造函数是一模一样的，他们都返回相同的错误对象。</strong></p>
+<h3><span id="javascript的函数具有两个主要特性正是这两个特性让它们与众不同-第一个特性是函数是一等对象first-class-object第二个是函数提供作用域支持">JavaScript的函数具有两个主要特性，正是这两个特性让它们与众不同。第一个特性是，函数是一等对象（first-class object），第二个是函数提供作用域支持。</span></h3><h4><span id="函数是对象那么">函数是对象，那么：</span></h4><pre><code>+ 可以在程序执行时动态创建函数
++ 可以将函数赋值给变量，可以将函数的引用拷贝至另一个变量，可以扩充函数，除了某些特殊场景外均可被删除。
++ 可以将函数作为参数传入另一个函数，也可以被当作返回值返回。
+</code></pre>
+<p>函数可以包含自己的属性和方法<br>对于一个函数A来说，首先它是对象，拥有属性和方法，其中某个属性碰巧是另一个函数B，B可以接受函数作为参数，假设这个函数参数为C，当执行B的时候，返回另一个函数D。乍一看这里有一大堆相互关联的函数。当你开始习惯函数的许多用法时，你会惊叹原来函数是如此强大、灵活并富有表现力。通常说来，一说到JavaScript的函数，我们首先认为它是对象，它具有一个可以“执行”的特性，也就是说我们可以“调用”这个函数。</p>
+<p>我们通过new Function()构造器来生成一个函数，这时可以明显看出函数是对象：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// antipattern</span></span><br><span class="line"><span class="comment">// for demo purposes only</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">add</span> = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">&#x27;a, b&#x27;</span>, <span class="string">&#x27;return a + b&#x27;</span>)</span>;</span></span><br><span class="line"><span class="keyword">add</span>(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// returns 3</span></span><br></pre></td></tr></table></figure>
+<p>在这段代码中，毫无疑问add()是一个对象，毕竟它是由构造函数创建的。这里并不推荐使用Function()构造器创建函数（和eval()一样糟糕），因为程序逻辑代码是以字符串的形式传入构造器的。这样的代码可读性差，写起来也很费劲，你不得不对逻辑代码中的引号做转义处理，并需要特别关注为了让代码保持一定的可读性而保留的空格和缩进。</p>
+<h4><span id="__函数的第二个重要特性是它能提供作用域支持-__在javascript中没有块级作用域译注在javascript17中提供了块级作用域部分特性的支持可以通过let来声明块级作用域内的局部变量也就是说不能通过花括号来创建作用域javascript中只有函数作用域译注这里作者的表述只针对函数而言此外javascript还有全局作用域-在函数内所有通过var声明的变量都是局部变量在函数外部是不可见的-刚才所指花括号无法提供作用域支持的意思是说如果在if条件句内-或在for或while循环体内用var定义了变量这个变量并不是属于if语句或forwhile循环的局部变量而是属于它所在的函数-如果不在任何函数内部它会成为全局变量-在第二章里提到我们要减少对全局命名空间的污染那么使用函数则是控制变量的作用域的不二之选">__函数的第二个重要特性是它能提供作用域支持。__在JavaScript中没有块级作用域（译注：在JavaScript1.7中提供了块级作用域部分特性的支持，可以通过let来声明块级作用域内的“局部变量”），也就是说不能通过花括号来创建作用域，JavaScript中只有函数作用域（译注：这里作者的表述只针对函数而言，此外JavaScript还有全局作用域）。在函数内所有通过var声明的变量都是局部变量，在函数外部是不可见的。刚才所指花括号无法提供作用域支持的意思是说，如果在if条件句内、或在for或while循环体内用var定义了变量，这个变量并不是属于if语句或for（while）循环的局部变量，而是属于它所在的函数。如果不在任何函数内部，它会成为全局变量。在第二章里提到我们要减少对全局命名空间的污染，那么使用函数则是控制变量的作用域的不二之选。</span></h4><h3><span id="声明-vs-表达式命名与提前">声明 vs 表达式：命名与提前</span></h3><p>那么，到底应该用哪个呢？函数声明还是函数表达式？在不能使用函数声明语法的场景下，只能使用函数表达式了。下面这个例子中，我们给函数传入了另一个函数对象作为参数，以及给对象定义方法:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span> this is a <span class="keyword">function</span> expression,</span><br><span class="line"><span class="regexp">//</span> pased as an argument to the <span class="keyword">function</span> `callMe`</span><br><span class="line">callMe(<span class="keyword">function</span> () &#123;</span><br><span class="line">    <span class="regexp">//</span> I am an unnamed <span class="keyword">function</span> expression</span><br><span class="line">    <span class="regexp">//</span> also known as an anonymous <span class="keyword">function</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> this is a named <span class="keyword">function</span> expression</span><br><span class="line">callMe(<span class="keyword">function</span> me() &#123;</span><br><span class="line">    <span class="regexp">//</span> I am a named <span class="keyword">function</span> expression</span><br><span class="line">    <span class="regexp">//</span> and my name is <span class="string">&quot;me&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> another <span class="keyword">function</span> expression</span><br><span class="line">var myobject = &#123;</span><br><span class="line">    say: <span class="keyword">function</span> () &#123;</span><br><span class="line">        <span class="regexp">//</span> I am a <span class="keyword">function</span> expression</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>函数声明只能出现在“程序代码”中，也就是说在别的函数体内或在全局。这个定义不能赋值给变量或属性，同样不能作为函数调用的参数。下面这个例子是函数声明的合法用法，这里所有的函数foo()，bar()和local()都使用函数声明来定义：</strong></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// global scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">local</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// local scope</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="函数的name属性">函数的name属性</span></h4><p>选择函数定义模式的另一个考虑是只读属性name的可用性。尽管标准规范中并未规定，但很多运行环境都实现了name属性，在函数声明和带有名字的函数表达式中是有name的属性定义的。在匿名函数表达式中，则不一定有定义，这个是和实现相关的，在IE中是无定义的，在Firefox和Safari中是有定义的，但是值为空字符串。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo() &#123;&#125; <span class="regexp">//</span> declaration</span><br><span class="line">var bar = <span class="keyword">function</span> () &#123;&#125;; <span class="regexp">//</span> expression</span><br><span class="line">var baz = <span class="keyword">function</span> baz() &#123;&#125;; <span class="regexp">//</span> named expression</span><br><span class="line"></span><br><span class="line">foo.name; <span class="regexp">//</span> <span class="string">&quot;foo&quot;</span></span><br><span class="line">bar.name; <span class="regexp">//</span> <span class="string">&quot;&quot;</span></span><br><span class="line">baz.name; <span class="regexp">//</span> <span class="string">&quot;baz&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>在Firebug或其他工具中调试程序时name属性非常有用，它可以用来显示当前正在执行的函数。同样可以通过name属性来递归的调用函数自身。如果你对这些场景不感兴趣，那么请尽可能的使用匿名函数表达式，这样会更简单、且冗余代码更少。</strong><br><strong>和函数声明相比而言，函数表达式的语法更能说明函数是一种对象，而不是某种特别的语言写法。</strong><br><strong>我们可以将一个带名字的函数表达式赋值给变量，变量名和函数名不同，这在技术上是可行的。比如：var foo = function bar(){};。然而，这种用法的行为在浏览器中的兼容性不佳（特别是IE中），因此并不推荐大家使用这种模式。</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2018/08/07/2018web开发者技能图谱/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2018/07/09/javascript-patterns学习笔记（一）/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>卷积神经网络的发展 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="卷积神经网络的发展"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-07-02T06:47:51.000Z"><a href="/2019/07/02/卷积神经网络的发展/">2019-07-02</a></time>
+      
+      
+  
+    <h1 class="title">卷积神经网络的发展</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4><span id="1968-hubel-amp-wiesel-猫脑实验">1968 Hubel &amp; Wiesel 猫脑实验</span></h4><p>Hubel和Wiesel干了一件事，他们将猫麻醉后，把电极插到其视觉神经上连接示波器，并给它们看不同的图像，观察脑电波的反应。他们发现猫看到鱼的图片神经元不会兴奋。但是却意外发现，切换幻灯片的时候猫的神经元会兴奋，也就是图片的边缘会引起猫咪神经元的兴奋。</p>
+<p>由于这项发现，Hubel和Wiesel一起获得了1981年的诺贝尔奖。这项发现不仅在生物学上留下浓墨重彩的一笔，而且对20年后人工智能的发展埋下了伏笔。</p>
+<h4><span id="1980-neocognitron">1980 Neocognitron</span></h4><p>日本科学家福岛邦彦提出了neocognitron，其目标是构建一个能够像人脑一样实现模式识别的网络结构从而帮助我们理解大脑的运作。并且他提出现在卷积在用的一系列前向传播的标准方法。<br>其网络结构：</p>
+<p><img src="https://rhinosystem.bs2dl.yy.com/fes1562120587669746" alt="Neocognitron "></p>
+<span id="more"></span>
+
+<p>Neocoginitro主要贡献：</p>
+<ol>
+<li>将脑神经科学的结构在做了计算机模拟；</li>
+<li>提出了现在CNN常用的step-by-step的filter；</li>
+<li>使用ReLU来给网络提供非线性；</li>
+<li>采用平均池化来做downsampling；</li>
+<li>保证了网络的平移不变性；</li>
+<li>实现了稀疏交互。</li>
+</ol>
+<p><strong>基本上大部分现代CNN的结构在这个模型上都已经得到了体现。</strong></p>
+<h4><span id="1990-bp-for-cnn">1990 BP for CNN</span></h4><p>Yann Lecun将反向传播应用到了类似Neocoginitro的网络上来做有监督学习，实现一个手写数字识别的神经网络。<br>其网络结构：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562125399361159" alt="BP for CNN"></p>
+<p>这里共有四层隐层和一层输出，其中H1和H3都是卷积层，而H2和H4都是downsampling( 降采样：降低数据采样率或分辨率的过程)层。这篇论文最重要的是它简化了卷积操作，便于将反向传播应用到CNN上，并且利用它解决了一个现实世界中的问题。</p>
+<h4><span id="1998-lenet-5">1998 LeNet-5</span></h4><p>Gradient-Based Learning Applied to Document Recognition，依然是Yann Lecun提出的，手写数字识别从此进入工业，比如银行支票识别等等。网络结构：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562122326465889" alt="LeNet-5"></p>
+<p>可以看出来，LeNet-5的结构和现在用的CNN网络结构已经非常接近了。这里网络层数加深到了7层，其中两层卷积两层池化。<br>LeNet-5标志着卷积神经网络的开端，因为当时计算机算力的限制，所以其使用了复杂的局部连接。并且当时并没有使用softmax和交叉熵，而是使用了欧式径向基函数和均方误差。</p>
+<h4><span id="2006-jake-bouvrie">2006 Jake Bouvrie</span></h4><p>Notes on Convolutional Neural Networks(2006 Jake Bouvrie), 其明确了我们在优化神经网络时对权重更新的一些手段。</p>
+<h4><span id="2012-alexnet">2012 AlexNet</span></h4><p>Imagenet classification with deep convolutional neural networks(Alex Net)。<br><strong>AlexNet的出现可以说是标志着神经网络的复苏和深度学习的崛起</strong>。</p>
+<p>网络结构：<br><img src="https://rhinosystem.bs2dl.yy.com/fes1562123965895796" alt="AlexNet"></p>
+<p>此网络特色：</p>
+<ul>
+<li>使用了ReLU作为激活函数；</li>
+<li>使用了数据增强；</li>
+<li>使用了mini-batch SGD；</li>
+<li>在GPU上训练；</li>
+<li>实现了Dropout层来避免过拟合。</li>
+</ul>
+<h4><span id="2015-resnet">2015 ResNet</span></h4><p>Deep residual network (ResNet)，第一个在ImageNet图片分类上表现超过人类水准的算法。<br>网络结构：<br><img src="https://s2.ax1x.com/2019/09/25/uZH9BD.gif" alt="ResNet"></p>
+<p><img src="https://rhinosystem.bs2dl.yy.com/fes1562124809829776" alt="ResNet"><br>ResNet的特点：</p>
+<ul>
+<li>残差block；</li>
+<li>堆叠式结构；</li>
+<li>深度的突破与终结，其最多可以达到1000多层，不过随着层数的增加，网络的效果并不会变得越来越好。</li>
+</ul>
+<p>以上大致就是卷积神经网络发展比较重要的一些时点、事件。</p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/AI/">AI</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2019/07/04/卷积神经网络（CNN）原理及应用/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2018/10/25/一个简单的广播队列/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

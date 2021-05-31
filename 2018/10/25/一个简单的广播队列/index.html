@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一个简单的广播队列 | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="一个简单的广播队列"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-10-25T06:27:10.000Z"><a href="/2018/10/25/一个简单的广播队列/">2018-10-25</a></time>
+      
+      
+  
+    <h1 class="title">一个简单的广播队列</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>记录一些需求开发中的小代码，如果以后有类似的功能需求，可快速复用。</strong></p>
+<h3><span id="调用">调用：</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BroadcastQueue <span class="keyword">from</span> <span class="string">&#x27;./BroadcastQueue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化调用</span></span><br><span class="line"><span class="built_in">this</span>.broadcastQueue = <span class="keyword">new</span> BroadcastQueue(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.showHighlightTip(data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">showHighlightTip</span>(<span class="params">queueItem</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 取出队列 item后的处理逻辑</span></span><br><span class="line">    ...</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">//  收到广播的时候，一条条push进队列</span></span><br><span class="line"><span class="built_in">this</span>.broadcastQueue.push(&#123;</span><br><span class="line">    tip,</span><br><span class="line">    <span class="attr">showBtn</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">order</span>: <span class="number">3</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除队列</span></span><br><span class="line"><span class="built_in">this</span>.broadcastQueue.clear()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><code>BroadcastQueue.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 广播队列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">BroadcastQueue</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">onData</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.onData = onData;</span><br><span class="line">    <span class="built_in">this</span>.queue = [];</span><br><span class="line">    <span class="built_in">this</span>.isRun = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 向队列中增加广播</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> <span class="variable">data</span></span></span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>tip 广播内容</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;boolean&#125;</span> </span>showBtn 是否展示围观按钮</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>order 优先顺序，值较小的优先展示，如果值为-1表示立即展示</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="title">push</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;BroadcastQueue().push&#x27;</span>, <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">    <span class="keyword">if</span> (data.order == <span class="literal">null</span>) &#123; <span class="comment">// eslint-disable-line</span></span><br><span class="line">      <span class="comment">// 如果没有优先顺序，默认为低优先级，给一个较大的序号</span></span><br><span class="line">      data.order = <span class="number">100</span>; <span class="comment">// eslint-disable-line</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.queue.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.queue.push(data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.queue.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> item = <span class="built_in">this</span>.queue[i];</span><br><span class="line">        <span class="keyword">if</span> (data.order &lt; item.order) &#123;</span><br><span class="line">          <span class="built_in">this</span>.queue.splice(i, <span class="number">0</span>, data);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i === <span class="built_in">this</span>.queue.length - <span class="number">1</span>) &#123;</span><br><span class="line">          <span class="built_in">this</span>.queue.push(data);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.run();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">run</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.isRun) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.isRun = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">this</span>.next();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.queue.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.isRun = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> data = <span class="built_in">this</span>.queue.shift();</span><br><span class="line">    <span class="built_in">this</span>.onData(data);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.next();</span><br><span class="line">    &#125;, <span class="number">10000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只清除order不为1的广播</span></span><br><span class="line">  <span class="function"><span class="title">clear</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.queue = <span class="built_in">this</span>.queue.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.order === <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">this</span>.isRun = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3><span id="其余部分代码">其余部分代码：</span></h3><p>因为广播展示区域高度是固定28px, 所以当内容高度大于容器高度时，需要一个滚动动画。<br><code>smartMarquee.vue</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;smart-marquee&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;height: `$&#123;height&#125;px`&#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">props</span>: [<span class="string">&#x27;height&#x27;</span>],</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">diffH</span>: <span class="number">0</span>, <span class="comment">// 内容高于容器的高度</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="attr">offset</span>: <span class="number">0</span>, <span class="comment">// 位移量，单位为px</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="built_in">this</span>.initScroll();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">initScroll</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">this</span>.diffH = <span class="built_in">this</span>.$refs.content.clientHeight - <span class="built_in">this</span>.height;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">console</span>.log(<span class="string">&#x27;diff&#x27;</span>, <span class="built_in">this</span>.diffH, <span class="string">&#x27;contentH&#x27;</span>, <span class="built_in">this</span>.$refs.content.clientHeight);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="keyword">if</span> (<span class="built_in">this</span>.diffH &lt;= <span class="number">10</span>) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="keyword">return</span>; <span class="comment">// 内容小于或略大于容器高度，不需要滚动</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="built_in">this</span>.scroll();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;, <span class="number">500</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="comment">// 滚动</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="function"><span class="title">scroll</span>(<span class="params"></span>)</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      <span class="built_in">window</span>.requestAnimationFrame(<span class="function">() =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="keyword">if</span> (<span class="built_in">this</span>.offset &lt; <span class="built_in">this</span>.diffH) &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">this</span>.offset += <span class="number">0.2</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">this</span>.$refs.content.style.transform = <span class="string">`translateY(-<span class="subst">$&#123;<span class="built_in">this</span>.offset&#125;</span>px)`</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">this</span>.scroll(); <span class="comment">// 递归调用，继续滚动</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 已经完成滚动，重新开始</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="comment">// 过一段时间后再重新开始</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="built_in">this</span>.offset = <span class="number">0</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="built_in">this</span>.$refs.content.style.transform = <span class="string">&#x27;translateY(0)&#x27;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="built_in">this</span>.scroll();</span></span></span><br><span class="line"><span class="javascript"><span class="xml">          &#125;, <span class="number">500</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">      &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="css"></span></span></span><br><span class="line"><span class="css"><span class="xml"><span class="selector-class">.smart-marquee</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="attribute">position</span>: relative;</span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="css"><span class="xml">  <span class="selector-class">.name</span> &#123;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">max-width</span>: <span class="number">71px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">display</span>: inline-block;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">white-space</span>: nowrap;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">text-overflow</span>: ellipsis;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">vertical-align</span>: middle;</span></span></span><br><span class="line"><span class="css"><span class="xml">    <span class="attribute">margin-top</span>: -<span class="number">3px</span>;</span></span></span><br><span class="line"><span class="css"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="css"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="css"><span class="xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;smart-marquee :height=<span class="string">&quot;28&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in data.tips.content.text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">:style</span>=<span class="string">&quot;&#123;color: item.color, fontSize: item.size + &#x27;px&#x27;&#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    &gt;</span>&#123;&#123;utils.base64_utf8_decode(item.text)&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;/smart-marquee&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/codebase/">codebase</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2019/07/02/卷积神经网络的发展/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2018/09/04/javascript-patterns学习笔记（三）/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->

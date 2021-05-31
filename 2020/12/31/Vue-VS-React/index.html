@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue VS React | Landerqi Blog</title>
+  <meta name="author" content="Landerqi">
+  
+  <meta name="description" content="格调、风度、和谐、节奏之美均源自简洁...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Vue VS React"/>
+  <meta property="og:site_name" content="Landerqi Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Landerqi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?857b0ced057ae80679bef08f6ee865cf";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div id="bg" class="bg-fixed" data-prefix="https://bookstorage.bs2dl.yy.com/" data-ext=".jpg">
+  </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Landerqi Blog</a></h1>
+  <h2><a href="/">格调、风度、和谐、节奏之美均源自简洁...</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2020-12-31T10:01:57.000Z"><a href="/2020/12/31/Vue-VS-React/">2020-12-31</a></time>
+      
+      
+  
+    <h1 class="title">Vue VS React</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前公司用的都是Vue，最近在新公司使用的是React。基于自己5个月来使用React的一些感受，把React 和 Vue做了一个简单的对比。</p>
+<p><strong>Vue 组件：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">components</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">props</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  data () &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">computed</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">watch</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  created () &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  mounted () &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3><span id="数据流不同">数据流不同</span></h3><ul>
+<li>Vue 通过 getter/setter 以及一些函数的劫持，能精确知道数据变化，不需要特别的优化就能达到很好的性能</li>
+<li>React 默认是通过比较引用的方式进行的，如果不优化（PureComponent/shouldComponentUpdate）可能导致大量不必要的VDOM的重新渲染</li>
+</ul>
+<p><strong>Vue 使用的是可变数据，而React更强调数据的不可变：</strong></p>
+<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glkeceiqhwj30pm0cl43g.jpg" alt="image-20200816154047781">
+
+
+
+<h3><span id="react高阶组件hoc与-vue-mixins">React高阶组件（HOC）与 Vue mixins</span></h3><p><strong>Hoc:</strong> 高阶组件（HOC）是 React 中用于<strong>复用组件逻辑</strong>的一种高级技巧。HOC 自身不是 React API 的一部分，它是一种基于 React 的组合特性而形成的设计模式。</p>
+<p><strong>Vue mixins:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检查登录 mixin模块</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> &#123; getLoginState, goToLogin &#125; <span class="keyword">from</span> <span class="string">&#x27;@/common/xxApi&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">loginState</span>: <span class="literal">false</span>, <span class="comment">// 登录状态</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">async</span> created () &#123;</span><br><span class="line">    <span class="built_in">this</span>.loginState = <span class="keyword">await</span> getLoginState()</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    <span class="comment">// block</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="comment">// 登录检查，通过返回 true，不通过返回 false</span></span><br><span class="line">    checkLogin () &#123;</span><br><span class="line">      <span class="comment">// if (__DEV__) return true</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.loginState) &#123; <span class="comment">// 已登录</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 未登录</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;[checkLogin] 未登录&#x27;</span>)</span><br><span class="line">        goToLogin()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// index.vue</span></span><br><span class="line"><span class="keyword">import</span> &#123; checkLogin &#125; <span class="keyword">from</span> <span class="string">&#x27;@/common/mixins&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mixins</span>: [checkLogin],</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">     ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="xml">  ...</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3><span id="组件通信">组件通信</span></h3><h4><span id="vue">Vue:</span></h4><ol>
+<li><p>父组件通过 props 向子组件传递数据或者回调：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">父组件： &lt;child value = <span class="string">&#x27;传递的数据&#x27;</span> /&gt;</span><br><span class="line"></span><br><span class="line">子组件: props[<span class="string">&#x27;value&#x27;</span>],接收数据,接受之后使用和data中定义数据使用方式一样</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li><p>子组件通过事件向父组件发送消息（$emit）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父组件： &lt;child @receive = <span class="string">&#x27;receive&#x27;</span> /&gt;</span><br><span class="line"></span><br><span class="line">子组件: <span class="built_in">this</span>.$emit(<span class="string">&#x27;receive&#x27;</span>,<span class="string">&#x27;传递的数据&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="3">
+<li><p>兄弟组件传值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">通过中央通信 <span class="keyword">let</span> bus = <span class="keyword">new</span> Vue()</span><br><span class="line"></span><br><span class="line">A：methods :&#123; 函数&#123;bus.$emit(‘自定义事件名’，数据)&#125; 发送</span><br><span class="line"></span><br><span class="line">B：created （）&#123;bus.$on(‘A发送过来的自定义事件名’，函数)&#125; 进行数据接收</span><br><span class="line"></span><br><span class="line">或者使用：vuex</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="4">
+<li>通过 V2.2.0 中新增的 provide/inject 来实现父组件向子组件注入数据，可以跨越多个层级。</li>
+</ol>
+<h4><span id="react">React:</span></h4><ol>
+<li>父组件通过 props 可以向子组件传递数据或者回调；</li>
+<li>可以通过 context 进行跨层级的通信，和 provide/inject 起到的作用差不多。</li>
+</ol>
+<p><strong>React 本身并不支持自定义事件，需要使用第三方库，如：eventemitter3。</strong></p>
+<h3><span id="vuex-与-redux">Vuex 与 Redux</span></h3><h4><span id="vuex">Vuex:</span></h4><ol>
+<li>使用 dispatch 和 commit 提交更新；</li>
+<li>通过 mapState 或者直接通过 this.$store 来读取数据。</li>
+</ol>
+<h4><span id="redux">Redux:</span></h4><ol>
+<li>Redux 中，我们每一个组件都需要显示的用 connect 把需要的 props 和 dispatch 连接起来；</li>
+<li>Redux 中只能进行 dispatch，并不能直接调用 reducer 进行修改。而Vuex可以 dispatch action 也可以 commit updates。</li>
+</ol>
+<ul>
+<li><strong>Redux 使用的是不可变数据，而Vuex的数据是可变的。Redux每次都是用新的state替换旧的state，而Vuex是直接修改</strong></li>
+<li><strong>Redux 在检测数据变化的时候，是通过 diff 的方式比较差异的，而Vuex其实和Vue的原理一样，是通过 getter/setter来比较的（如果看Vuex源码会知道，其实他内部直接创建一个Vue实例用来跟踪数据变化）</strong></li>
+</ul>
+<p><strong>而这两点的区别，其实也是因为 React 和 Vue的设计理念上的区别。React更偏向于构建稳定大型的应用，非常的科班化。相比之下，Vue更偏向于简单迅速的解决问题，更灵活，不那么严格遵循条条框框。因此也会给人一种大型项目用React，小型项目用 Vue 的感觉。</strong></p>
+<h3><span id="其他小差异">其他小差异：</span></h3><ol>
+<li><p>vue提供很多指令，如 <code>:class</code>可以根据不同条件绑定不同的class name，react中使用<code>classnames</code>库存来实现此功能；</p>
+</li>
+<li><p>vue在子组件定义中，直接声明接收的props值类型及默认值，react components中是使用<code>prop-types</code>库；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue</span></span><br><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">type</span>: xxx,</span><br><span class="line">  <span class="attr">default</span>: xxx,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// react</span></span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">&quot;prop-types&quot;</span>;</span><br><span class="line">xxx.propTypes = &#123;</span><br><span class="line">   <span class="attr">xxx</span>: PropTypes.array,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>比如发送事件，react也是需要使用第三方库实现。</p>
+</li>
+</ol>
+<p><strong>从这些小差异，我感觉React其实更接近一个纯粹的UI框架，框架本身不耦合其他无关的东西，开发者用到的时候再自行使用。</strong></p>
+<p><strong>而Vue则像一个高度定制的框架，很多东西他框架本身就集成进去了，所以开发者使用的时候更方便一点。感觉他更加一个工具，类似IDE ？可能这就是为什么有的人说Vue更容易上手的原因。</strong></p>
+<p><strong>而且在我使用中，用React开发，对开发者要求更高，很多东西框架并不会帮你处理，需要开发者自行考虑。其实写React能使开发者更关注语言本身。</strong></p>
+<p>就像bind this这个，文档上写了是javascript语言特性，自己手动绑定就好，所以react也不会多此一举帮你绑定修复：</p>
+<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glkecxv4ohj30qz08oq4u.jpg" alt="image-20200815103130911">
+
+<p><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/">how function work in Javascript</a></p>
+<p><strong>从这些点可以看出两个框架从设计上来说其实就不太一样，从他们各自github上的star数量上就可以证明了两个框架都非常优秀。</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glkecyj55uj30je09tmyi.jpg" alt="image-20200816152151887"></p>
+<h1><span id="vue使用经验">Vue使用经验</span></h1><h3><span id="为什么vue组件中data必须是一个函数">为什么Vue组件中data必须是一个函数</span></h3><p>对象为引用类型，当复用组件时，由于数据对象都指向同一个data对象，当在一个组件中修改data时，其他重用的组件中的data会同时被修改；而使用返回对象的函数，由于每次返回的都是一个新对象（Object的实例），引用地址不同，则不会出现这个问题。</p>
+<h3><span id="vue中v-if和v-show有什么区别"><strong>vue中v-if和v-show有什么区别？</strong></span></h3><p>v-if和v-show看起来似乎差不多，当条件不成立时，其所对应的标签元素都不可见，但是这两个选项是有区别的:</p>
+<p>1、v-if在条件切换时，会对标签进行适当的创建和销毁，而v-show则仅在初始化时加载一次，因此v-if的开销相对来说会比v-show大。</p>
+<p>2、v-if是惰性的，只有当条件为真时才会真正渲染标签；如果初始条件不为真，则v-if不会去渲染标签。v-show则无论初始条件是否成立，都会渲染标签，它仅仅做的只是简单的CSS切换。</p>
+<h3><span id="computed和watch的区别"><strong>computed和watch的区别</strong></span></h3><h4><span id="计算属性computed">计算属性computed：</span></h4><ol>
+<li>支持缓存，只有依赖数据发生改变，才会重新进行计算</li>
+<li>不支持异步，当computed内有异步操作时无效，无法监听数据的变化</li>
+<li>computed 属性值会默认走缓存，计算属性是基于它们的响应式依赖进行缓存的，也就是基于data中声明过或者父组件传递的props中的数据通过计算得到的值</li>
+<li>如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用computed</li>
+<li>如果computed属性属性值是函数，那么默认会走get方法；函数的返回值就是属性的属性值；在computed中的，属性都有一个get和一个set方法，当数据变化时，调用set方法。</li>
+</ol>
+<h4><span id="侦听属性watch">侦听属性watch：</span></h4><ol>
+<li>不支持缓存，数据变，直接会触发相应的操作；</li>
+<li>watch支持异步；</li>
+<li>监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；</li>
+<li>当一个属性发生变化时，需要执行对应的操作；一对多；</li>
+<li>监听数据必须是data中声明过或者父组件传递过来的props中的数据，当数据变化时，触发其他操作。</li>
+</ol>
+<h3><span id="v-for-key的作用">v-for key的作用</span></h3><p>当Vue用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue将不是移动DOM元素来匹配数据项的改变，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
+<p>为了给Vue一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。key属性的类型只能为 string或者number类型。</p>
+<p>key 的特殊属性主要用在Vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。如果不使用 key，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用key，它会基于key的变化重新排列元素顺序，并且会移除 key 不存在的元素。</p>
+<h3><span id="vue如何监听对象或者数组某个属性的变化"><strong>vue如何监听对象或者数组某个属性的变化</strong></span></h3><p>当在项目中直接设置数组的某一项的值，或者直接设置对象的某个属性值，这个时候，你会发现页面并没有更新。这是因为Object.defineProperty()限制，监听不到变化。<strong>vue3使用proxy则不存在此问题</strong>。</p>
+<p>解决方式：</p>
+<ul>
+<li><p>this.$set(你要改变的数组/对象，你要改变的位置/key，你要改成什么value)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$set(<span class="built_in">this</span>.arr, <span class="number">0</span>, <span class="string">&quot;OBKoro1&quot;</span>); <span class="comment">// 改变数组</span></span><br><span class="line"><span class="built_in">this</span>.$set(<span class="built_in">this</span>.obj, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;OBKoro1&quot;</span>); <span class="comment">// 改变对象</span></span><br></pre></td></tr></table></figure></li>
+<li><p>调用以下几个数组的方法</p>
+</li>
+</ul>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">splice</span>()、 <span class="title">push</span>()、<span class="title">pop</span>()、<span class="title">shift</span>()、<span class="title">unshift</span>()、<span class="title">sort</span>()、<span class="title">reverse</span>()</span></span><br></pre></td></tr></table></figure>
+
+<p>vue源码里缓存了array的原型链，然后重写了这几个方法，触发这几个方法的时候会observer数据，意思是使用这些方法不用我们再进行额外的操作，视图自动进行更新。 推荐使用splice方法会比较好自定义,因为splice可以在数组的任何位置进行删除/添加操作</p>
+<h3><span id="vue如何获取dom"><strong>vue如何获取dom</strong></span></h3><p>和React相似，先给标签设置一个ref值，再通过this.$refs.domName获取，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref=<span class="string">&quot;test&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dom = <span class="built_in">this</span>.$refs.test</span><br></pre></td></tr></table></figure>
+
+
+
+<h1><span id="优化建议">优化建议</span></h1><ol>
+<li><h3><span id="v-if-和-v-show-区分使用场景">v-if 和 v-show 区分使用场景</span></h3><p><strong>v-if</strong> 是 <strong>真正</strong> 的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；也是<strong>惰性的</strong>：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p>
+<p><strong>v-show</strong> 就简单得多， 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 的 display 属性进行切换。</p>
+<p>所以，v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景；v-show 则适用于需要非常频繁切换条件的场景。</p>
+</li>
+<li><h3><span id="computed-和-watch-区分使用场景">computed 和 watch 区分使用场景</span></h3><p><strong>computed：</strong> 是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的值时才会重新计算 computed  的值；</p>
+<p><strong>watch：</strong> 更多的是「观察」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作；</p>
+<p><strong>运用场景：</strong></p>
+<ul>
+<li>当我们需要进行数值计算，并且依赖于其它数据时，应该使用 computed，因为可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算；</li>
+<li>当我们需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。</li>
+</ul>
+</li>
+<li><h3><span id="v-for-遍历必须为-item-添加-key且避免同时使用-v-if">v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</span></h3><p>v-for 比 v-if 优先级高，如果每一次都需要遍历整个数组，将会影响速度，尤其是当之需要渲染很小一部分的时候，必要情况下应该替换成 computed 属性。</p>
+</li>
+<li><h3><span id="事件的销毁">事件的销毁</span></h3><p>Vue 组件销毁时，会自动清理它与其它实例的连接，解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。 如果在 js 内使用 addEventListene 等方式是不会自动销毁的，我们需要在组件销毁时手动移除这些事件的监听，以免造成内存泄露，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.click, <span class="literal">false</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">beforeDestroy</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  removeEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="built_in">this</span>.click, <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><h3><span id="服务端渲染-ssr-or-预渲染">服务端渲染 SSR or 预渲染</span></h3></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        <div class="nirdonkey">
+              
+              
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+        </div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_more" data-cmd="more"></a>
+        </div>
+        <div class="clearfix"></div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2021/05/31/Mildom首页性能优化方案/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2020/11/12/VueJs框架理解/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+ <!-- 多说评论框 start -->
+  <div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"landerqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:landerqi.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AI/">AI</a><small>2</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/codebase/">codebase</a><small>1</small></li>
+  
+    <li><a href="/tags/css3/">css3</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/前端/">前端</a><small>8</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>7</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>3</small></li>
+  
+    <li><a href="/tags/摄影/">摄影</a><small>2</small></li>
+  
+    <li><a href="/tags/数据库/">数据库</a><small>1</small></li>
+  
+    <li><a href="/tags/解决问题/">解决问题</a><small>4</small></li>
+  
+    <li><a href="/tags/读书笔记/">读书笔记</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/codebase/" style="font-size: 10px;">codebase</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/python/" style="font-size: 11.43px;">python</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.57px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px;">工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12.86px;">微信</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 11.43px;">摄影</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 14.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.71px;">读书笔记</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>真名：谢奇</li>
+<li>网名：夢想家 | landerqi</li>
+<li>所在地：广州</li>
+<li>Theme: <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi">Lightqi</a></li>
+<li>想交友的朋友<a href="http://landerqi.com/about">联系我</a> :)</li>
+<li>QQ 号：379394707</li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://landerqi.com/" title="Landerqi's Blog">Landerqi Blog</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 Landerqi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script> window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["qzone", "tsina", "tqq", "renren", "t163"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "t163"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=857b0ced057ae80679bef08f6ee865cf.js?cdnversion=' + ~ ( - new Date() / 36e5)]; 
+</script>
+
+</body>
+<script>
+  var tocEx = function(el){
+    var imgNameArray = ['26218_1569385509547936555', '26218_1569385571948012698', '26218_1569385588416891393', '26218_1569385624870002563', '26218_1569385644100191591', '26218_1569385674244674777', '26218_1569385689852633253', '26218_1569385707148100060', '26218_1569385724292974086', '26218_1569385995556145672']
+    var bg = document.getElementById(el);
+    var dataPrefix = bg.attributes["data-prefix"].value;
+    var dataExt = bg.attributes["data-ext"].value;
+    var randomNumber = Math.floor(Math.random() * 10);
+
+    var bgUrl = dataPrefix + imgNameArray[randomNumber] + dataExt;
+
+    bg.style.backgroundImage='url('+ bgUrl +')';
+
+}('bg');
+</script>
+</html>
+<!-- <a target="_blank" rel="noopener" href="https://github.com/landerqi/lightqi.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a> -->
